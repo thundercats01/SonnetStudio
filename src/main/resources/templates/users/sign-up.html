@@ -10,38 +10,81 @@
 
     <!--    Custom bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.1/dist/sketchy/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/color.css">
 </head>
 <div th:insert="partials.html :: nav-bar"></div>
 
-<body style="background-color: rgb(210 160 58)">
+<body class="bg-ruby">
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <main class="form-signin w-100 m-auto">-->
+<!--                <form data-bitwarden-watching="1" th:action="@{/templates/users/sign-up}" method="POST"-->
+<!--                      th:object="${user}">-->
+<!--                    <h1 class="h3 mb-3 fw-normal">Create an account</h1>-->
+
+<!--                    <div class="form-floating">-->
+<!--                        <input th:field="*{email}" type="email" class="form-control" id="floatingInput"-->
+<!--                               placeholder="name@example.com">-->
+<!--                        <label for="floatingInput">Email address</label>-->
+<!--                    </div>-->
+<!--                    <div class="form-floating">-->
+<!--                        <input th:field="*{password}" type="password" class="form-control" id="floatingPassword"-->
+<!--                               placeholder="Password">-->
+<!--                        <label for="floatingPassword">Password</label>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-floating">-->
+<!--                        <input class="form-control" type="text" id="username" th:field="*{username}"/>-->
+<!--                        <label for="username">Username</label>-->
+<!--                        </label>-->
+<!--                    </div>-->
+<!--                    <button class="btn btn-primary w-100 py-2" type="submit">Sign me up!</button>-->
+<!--                    <p class="mt-5 mb-3 text-body-secondary">© 2023–2023</p>-->
+<!--                </form>-->
+<!--            </main>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <main class="form-signin w-100 m-auto">
-                <form data-bitwarden-watching="1" th:action="@{/templates/users/sign-up}" method="POST" th:object="${user}">
-                    <h1 class="h3 mb-3 fw-normal">Create an account</h1>
-
-                    <div class="form-floating">
-                        <input th:field="*{email}" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email address</label>
-                    </div>
-                    <div class="form-floating">
-                        <input th:field="*{password}" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                        <label for="floatingPassword">Password</label>
-                    </div>
-
-                    <div class="form-floating">
-                        <input class="form-control" type="text" id="username" th:field="*{username}"/>
-                        <label for="username">Username</label>
-                        </label>
-                    </div>
-                    <button class="btn btn-primary w-100 py-2" type="submit">Sign me up!</button>
-                    <p class="mt-5 mb-3 text-body-secondary">© 2023–2023</p>
-                </form>
-            </main>
+    <form action="#" class="parsley-examples" novalidate="">
+        <br>
+        <h1 class="h3 mb-3 fw-normal">Create an account</h1>
+        <div class="mb-3">
+            <label for="userName" class="form-label">User Name<span class="text-danger">*</span></label>
+            <input type="text" name="nick" parsley-trigger="change" required="" placeholder="Enter user name"
+                   class="form-control" id="userName">
         </div>
-    </div>
+        <div class="mb-3">
+            <label for="emailAddress" class="form-label">Email address<span class="text-danger">*</span></label>
+            <input type="email" name="email" parsley-trigger="change" required="" placeholder="Enter email"
+                   class="form-control" id="emailAddress">
+        </div>
+        <div class="mb-3">
+            <label for="pass1" class="form-label">Password<span class="text-danger">*</span></label>
+            <input id="pass1" type="password" placeholder="Password" required="" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="passWord2" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+            <input data-parsley-equalto="#pass1" type="password" required="" placeholder="Password" class="form-control"
+                   id="passWord2">
+        </div>
+        <div class="mb-3">
+            <div class="form-check ">
+                <input id="checkbox6a" type="checkbox" class="form-check-input" data-parsley-multiple="checkbox6a">
+                <label for="checkbox6a" class="form-check-label">
+                    Remember me
+                </label>
+            </div>
+        </div>
+
+        <div class="text-end">
+            <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
+            <button type="reset" class="btn btn-secondary waves-effect">Cancel</button>
+        </div>
+    </form>
 </div>
 
 
