@@ -1,9 +1,8 @@
-package com.gptlibs.fullstackgptlibs.services;
+package com.example.lyricalapes.services;
 
-
-import com.gptlibs.fullstackgptlibs.models.User;
-import com.gptlibs.fullstackgptlibs.models.UserWithRoles;
-import com.gptlibs.fullstackgptlibs.repositories.UserRepo;
+import com.example.lyricalapes.models.User;
+import com.example.lyricalapes.models.UserWithRoles;
+import com.example.lyricalapes.repositories.UserRepo;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

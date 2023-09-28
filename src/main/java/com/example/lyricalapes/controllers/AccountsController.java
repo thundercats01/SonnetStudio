@@ -1,7 +1,6 @@
 package com.gptlibs.fullstackgptlibs.controllers;
 
 import com.gptlibs.fullstackgptlibs.models.User;
-import com.gptlibs.fullstackgptlibs.repositories.MadLibRepo;
 import com.gptlibs.fullstackgptlibs.repositories.UserRepo;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/accounts")
 public class AccountsController {
 
-    MadLibRepo madLibsDAO;
+    com.gptlibs.fullstackgptlibs.repositories.VerseRepo madLibsDAO;
     UserRepo usersDAO;
     private PasswordEncoder passwordEncoder;
 
-    public AccountsController(MadLibRepo madLibsDAO, UserRepo usersDAO, PasswordEncoder passwordEncoder) {
+    public AccountsController(com.gptlibs.fullstackgptlibs.repositories.VerseRepo madLibsDAO, UserRepo usersDAO, PasswordEncoder passwordEncoder) {
         this.madLibsDAO = madLibsDAO;
         this.usersDAO = usersDAO;
         this.passwordEncoder = passwordEncoder;
