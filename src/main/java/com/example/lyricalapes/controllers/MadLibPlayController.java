@@ -36,7 +36,7 @@ public class MadLibPlayController {
 
         model.addAttribute("stories", madLibsDAO.findMadLibByUser(loggedInUser));
 //        model.addAttribute("stories", madLibsDAO.findAll());
-        return "play/show";
+        return "explore-page";
     }
 
     @PostMapping
