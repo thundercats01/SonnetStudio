@@ -4,3 +4,23 @@
     border-radius: 45%;
 
 }
+
+.badge-img-profile{
+    width: 11rem;
+}
+
+.btn1 {
+    position: absolute;
+    top: 32%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 7px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
