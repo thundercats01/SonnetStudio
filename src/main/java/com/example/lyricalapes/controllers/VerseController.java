@@ -33,7 +33,7 @@ public class VerseController {
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
 
-        model.addAttribute("stories", versesDAO.findVerseByByUser(loggedInUser));
+        model.addAttribute("stories", versesDAO.findAllByUser(loggedInUser));
 //        model.addAttribute("stories", madLibsDAO.findAll());
         return "explore-page";
     }
