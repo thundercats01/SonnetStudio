@@ -1,9 +1,8 @@
-package com.gptlibs.fullstackgptlibs.controllers;
+package com.example.lyricalapes.controllers;
 
-import com.gptlibs.fullstackgptlibs.models.MadLib;
-import com.gptlibs.fullstackgptlibs.models.User;
-import com.gptlibs.fullstackgptlibs.repositories.MadLibRepo;
-import com.gptlibs.fullstackgptlibs.repositories.UserRepo;
+import com.example.lyricalapes.models.User;
+import com.example.lyricalapes.repositories.UserRepo;
+import com.example.lyricalapes.repositories.VerseRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/play")
-public class MadLibPlayController {
+public class VerseController {
 
-    MadLibRepo madLibsDAO;
+    VerseRepo versesDAO;
     UserRepo usersDAO;
 
-    public MadLibPlayController(MadLibRepo madlibDAO, UserRepo userDAO) {
-        this.madLibsDAO = madlibDAO;
-        this.usersDAO = userDAO;
+    public VerseController(VerseRepo versesDAO, UserRepo usersDAO) {
+        this.versesDAO = versesDAO;
+        this.usersDAO = usersDAO;
     }
 
     @GetMapping
@@ -34,7 +33,7 @@ public class MadLibPlayController {
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
 
-        model.addAttribute("stories", madLibsDAO.findMadLibByUser(loggedInUser));
+        model.addAttribute("stories", versesDAO.findVerseByByUser(loggedInUser));
 //        model.addAttribute("stories", madLibsDAO.findAll());
         return "play/show";
     }
@@ -44,16 +43,6 @@ public class MadLibPlayController {
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
 
-        MadLib madlib = new MadLib();
-        madlib.setAdj(adj);
-        madlib.setAdv(adv);
-        madlib.setNoun(noun);
-        madlib.setVerb(verb);
-        madlib.setUser(loggedInUser);
-        madlib.setStory();
-
-
-        madLibsDAO.save(madlib);
         return "redirect:/play/show";
 
     }

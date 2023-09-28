@@ -1,4 +1,4 @@
-package com.gptlibs.fullstackgptlibs.models;
+package com.example.lyricalapes.models;
 
 import jakarta.persistence.*;
 
@@ -19,46 +19,20 @@ public class User {
     private String password;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    private List<MadLib> madLibs;
+    private List<Verse> verses;
 
     public User() {
+
     }
 
-    public User(User copy) {
-        id = copy.id;
-        email = copy.email;
-        username = copy.username;
-        password = copy.password;
-        madLibs = copy.madLibs;
-    }
-
-    public User(long id, String username, String email, String password, List<MadLib> madLibs) {
+    public User(long id, String username, String email, String password, List<Verse> verses) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.madLibs = madLibs;
+        this.verses = verses;
     }
 
-    public User(String username, String email, String password, List<MadLib> madLibs) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.madLibs = madLibs;
-    }
-
-    public User(String username, String email, String password) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
-
-    public User(long id, String username, String email, String password) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
 
     public long getId() {
         return id;
@@ -84,19 +58,19 @@ public class User {
         this.email = email;
     }
 
-    public List<MadLib> getMadLibs() {
-        return madLibs;
-    }
-
-    public void setMadLibs(List<MadLib> madLibs) {
-        this.madLibs = madLibs;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Verse> getVerses() {
+        return verses;
+    }
+
+    public void setVerses(List<Verse> verses) {
+        this.verses = verses;
     }
 }
