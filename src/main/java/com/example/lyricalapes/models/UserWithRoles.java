@@ -1,4 +1,4 @@
-package com.gptlibs.fullstackgptlibs.models;
+package com.example.lyricalapes.models;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;

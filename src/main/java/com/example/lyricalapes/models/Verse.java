@@ -1,10 +1,10 @@
-package com.gptlibs.fullstackgptlibs.models;
+package com.example.lyricalapes.models;
 
-import com.gptlibs.fullstackgptlibs.controllers.GptLibs;
+
 import jakarta.persistence.*;
 
 @Entity
-public class MadLib {
+public class Verse {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class MadLib {
     private User user;
 
 
-    public MadLib() {
+    public Verse() {
 
     }
 
@@ -51,7 +51,7 @@ public class MadLib {
     }
 
     public void setStory() {
-        this.story = GptLibs.genStory(this.noun, this.verb, this.adj, this.adv);
+        this.story = com.gptlibs.fullstackgptlibs.controllers.GptLibs.genStory(this.noun, this.verb, this.adj, this.adv);
     }
 
     public void setAdj(String adj) {
