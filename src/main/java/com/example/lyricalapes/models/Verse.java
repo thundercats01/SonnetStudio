@@ -3,71 +3,56 @@ package com.example.lyricalapes.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
+@Table(name = "verses")
 public class Verse {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(columnDefinition = "TEXT")
-    private String story;
-    @Column
-    private String adj;
-    @Column
-    private String noun;
-    @Column
-    private String adv;
-    @Column
-    private String verb;
-
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column
+    private String title;
+
+
+    @Column(columnDefinition = "TEXT")
+    private String Content;
+
+    @Column
+    private String genre;
+    ///////CONSTRUCTORS ////////
 
     public Verse() {
 
     }
 
-
-    public String getAdj() {
-        return adj;
+    public Verse(long id, User user, String title, String content, String genre, List<Comment> comments, List<Like> likes) {
+        this.id = id;
+        this.user = user;
+        this.title = title;
+        Content = content;
+        this.genre = genre;
+        this.comments = comments;
+        this.likes = likes;
     }
 
-    public String getNoun() {
-        return noun;
+    @OneToMany(mappedBy = "verse", cascade = CascadeType.PERSIST)
+    private List<Comment> comments;
+
+    @OneToMany(mappedBy = "verse", cascade = CascadeType.PERSIST)
+    private List<Like> likes;
+    //////GETTER & SETTER//////
+    public long getId() {
+        return id;
     }
 
-    public String getAdv() {
-        return adv;
-    }
-
-    public String getVerb() {
-        return verb;
-    }
-
-    public String getStory() {
-        return story;
-    }
-
-    public void setStory() {
-        this.story = com.gptlibs.fullstackgptlibs.controllers.GptLibs.genStory(this.noun, this.verb, this.adj, this.adv);
-    }
-
-    public void setAdj(String adj) {
-        this.adj = adj;
-    }
-
-    public void setNoun(String noun) {
-        this.noun = noun;
-    }
-
-    public void setAdv(String adv) {
-        this.adv = adv;
-    }
-
-    public void setVerb(String verb) {
-        this.verb = verb;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public User getUser() {
@@ -78,4 +63,43 @@ public class Verse {
         this.user = user;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return Content;
+    }
+
+    public void setContent(String content) {
+        Content = content;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Like> likes) {
+        this.likes = likes;
+    }
 }
