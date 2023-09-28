@@ -35,7 +35,7 @@ public class VerseController {
 
         model.addAttribute("stories", versesDAO.findVerseByByUser(loggedInUser));
 //        model.addAttribute("stories", madLibsDAO.findAll());
-        return "play/show";
+        return "explore-page";
     }
 
     @PostMapping
