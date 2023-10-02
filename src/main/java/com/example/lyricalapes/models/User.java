@@ -54,7 +54,7 @@ public class User {
     ///////CONSTRUCTORS ////////
 
 
-    public User() {
+    public User(User user) {
     }
 
     public User(long id, String username, String email, String password, List<Verse> verses, List<Badge> badges) {
@@ -79,6 +79,10 @@ public class User {
         this.bio = bio;
         this.likesCount = likesCount;
         this.pointsCount = pointsCount;
+    }
+
+    public User() {
+
     }
 
     //////GETTER & SETTER//////

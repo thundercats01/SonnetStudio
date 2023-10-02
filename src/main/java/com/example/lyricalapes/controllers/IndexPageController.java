@@ -12,29 +12,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/play")
-public class VerseController {
+@RequestMapping("/")
+public class IndexPageController {
 
     VerseRepo versesDAO;
     UserRepo usersDAO;
 
-    public VerseController(VerseRepo versesDAO, UserRepo usersDAO) {
+    public IndexPageController(VerseRepo versesDAO, UserRepo usersDAO) {
         this.versesDAO = versesDAO;
         this.usersDAO = usersDAO;
     }
 
     @GetMapping
-    public String showGameStart() {
-        return "play/index";
+    public String showLandingPage() {
+        return "index";
     }
 
     @GetMapping("/show")
-    public String showGameStory(Model model) {
+    public String showHomePage(Model model) {
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
 
         model.addAttribute("stories", versesDAO.findAllByUser(loggedInUser));
-//        model.addAttribute("stories", madLibsDAO.findAll());
         return "explore-page";
     }
 
