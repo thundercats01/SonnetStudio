@@ -7,3 +7,39 @@
     flex-direction: column;
 
 }
+
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: #f7f7f7;
+    /*padding: 20px;*/
+    transition: right 0.3s;
+    border-radius: 50px 0 0 50px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* for content scrolling */
+}
+
+.side-panel::before,
+.side-panel::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 100%;
+    background-color: #d6d6d6;
+    border-radius: 12px 0 0 12px;
+}
+
+.side-panel::before {
+    left: -24px;
+}
+
+.side-panel::after {
+    right: -24px;
+}
+
+.side-panel.open {
+    right: 0;
+}
