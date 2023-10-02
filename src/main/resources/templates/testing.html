@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lyrical Post Create Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    #toggleBtn {
+      margin-bottom: 20px;
+    }
+
+    .side-panel {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 400px;
+      height: 100%;
+      background-color: #f7f7f7;
+      /*padding: 20px;*/
+      transition: right 0.3s;
+      border-radius: 50px 0 0 50px;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+      overflow-y: auto; /* for content scrolling */
+    }
+
+    .side-panel::before,
+    .side-panel::after {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 100%;
+      background-color: #d6d6d6;
+      border-radius: 12px 0 0 12px;
+    }
+
+    .side-panel::before {
+      left: -24px;
+    }
+
+    .side-panel::after {
+      right: -24px;
+    }
+
+    .side-panel.open {
+      right: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+<button id="toggleBtn">Toggle Side Panel</button>
+
+<div id="sidePanel" class="side-panel">
+  <!-- Side panel content goes here -->
+  <p>Your additional options or features here.</p>
+  <p>... And lots of content to test the scrolling functionality of your side panel!</p>
+  <!-- Add more content for testing -->
+</div>
+
+<script>
+  document.getElementById('toggleBtn').addEventListener('click', function() {
+    const panel = document.getElementById('sidePanel');
+    if (panel.classList.contains('open')) {
+      panel.classList.remove('open');
+    } else {
+      panel.classList.add('open');
+    }
+  });
+
+</script>
+</body>
+
+</html>
