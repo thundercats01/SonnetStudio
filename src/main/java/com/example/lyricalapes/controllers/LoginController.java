@@ -37,6 +37,7 @@ public class LoginController {
     @PostMapping("/sign-up")
     public String saveUser(@ModelAttribute User user) {
         String hash = passwordEncoder.encode(user.getPassword());
+        System.out.println(user.getPassword());
         user.setPassword(hash);
         usersDAO.save(user);
         return "users/login";

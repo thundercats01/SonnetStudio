@@ -74,16 +74,15 @@
                         Invalid Username and Password.
                     </div>
 
-                    <form th:action="@{/login}" method="post" th:object="${user}">
+                    <form th:action="@{/login}" method="post">
                         <div class="mb-3">
-                            <label for="emailaddress" class="form-label">Email address</label>
-                            <input class="form-control" type="email" id="emailaddress" required=""
-                                   placeholder="Enter your email">
+                            <label for="floatingInput">Username</label>
+                            <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Username">
                         </div>
 
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input class="form-control" type="password" required="" id="password"
+                            <input class="form-control" type="password" name="password" required="" id="password"
                                    placeholder="Enter your password">
                         </div>
 

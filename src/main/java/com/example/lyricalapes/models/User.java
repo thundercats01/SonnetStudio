@@ -54,7 +54,11 @@ public class User {
     ///////CONSTRUCTORS ////////
 
 
-    public User(User user) {
+    public User(User copy) {
+        this.id = copy.id;
+        this.email = copy.email;
+        this.username = copy.username;
+        this.password = copy.password;
     }
 
     public User(long id, String username, String email, String password, List<Verse> verses, List<Badge> badges) {

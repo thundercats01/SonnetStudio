@@ -43,7 +43,9 @@ public class SecurityConfiguration {
                         .requestMatchers("/CSS/**", "/js/**", "/capstone_IMGs/**").permitAll()
                 )
                 /* Login configuration */
-                .formLogin((login) -> login.loginPage("/login").defaultSuccessUrl("/explore"))
+                .formLogin((login) -> login
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/explore"))
                 /* Logout configuration */
                 .logout((logout) -> logout.logoutSuccessUrl("/"));
         return http.build();
