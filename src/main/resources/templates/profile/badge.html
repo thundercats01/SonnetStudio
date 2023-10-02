@@ -21,121 +21,209 @@
         Badges
     </h1>
     <div class="row mt-2">
-        <div class="col-4">
-            <div class="card mb-3">
-                <h3 class="card-header badge-img">
-                    <img th:src="@{/capstone_IMGs/badges/badge-default.png}" alt="apple" class="badge-img">
-                </h3>
-                <div class="card-body">
-                    <h5 class="card-title">Default</h5>
-                    <h6 class="card-subtitle text-muted">unlock by</h6>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Creating an account</p>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <h3 class="card-header badge-img">
-                    <img th:src="@{/static/capstone_IMGs/badges/badge-apple.jpeg}" alt="apple" class="badge-img">
-                </h3>
-                <div class="card-body">
-                    <h5 class="card-title">Apple</h5>
-                    <h6 class="card-subtitle text-muted">unlock by</h6>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Get 1 Comment</p>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <h3 class="card-header badge-img">
-                    <img th:src="@{/static/capstone_IMGs/badges/badge-developer.png}" alt="apple" class="badge-img">
-                </h3>
-                <div class="card-body">
-                    <h5 class="card-title">Monkey Wizard</h5>
-                    <h6 class="card-subtitle text-muted">unlock by</h6>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Dev badge.</p>
+        <div class="col">
+
+<!--            Default-->
+            <div class="card shadow mb-5 card-bg-color">
+                <div class="row">
+                    <div class="col-4 d-flex align-items-center">
+                        <div class=" ">
+                            <img th:src="@{/capstone_IMGs/badges/badge-default.png}" alt="defaul" class="badge-img border border-dark">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="card-body">
+                                <h5 class="card-title">Default</h5>
+                                <h6 class="card-subtitle text-muted">unlock by:</h6>
+                                <div class="card-body">
+                                    <p class="card-text">Creating an account</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <button type="button" class="btn btn-primary">Select</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--    ////-->
-        <div class="col-4">
-            <div class="card mb-3">
-                <h3 class="card-header badge-img">
-                    <img th:src="@{/static/capstone_IMGs/badges/badge-einstein.jpeg}" alt="apple" class="badge-img">
-                </h3>
-                <div class="card-body">
-                    <h5 class="card-title">Einstein</h5>
-                    <h6 class="card-subtitle text-muted">unlock by</h6>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Get 25 likes</p>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <h3 class="card-header badge-img">
-                    <img th:src="@{/static/capstone_IMGs/badges/badge-joan.jpeg}" alt="apple" class="badge-img">
-                </h3>
-                <div class="card-body">
-                    <h5 class="card-title">Joan</h5>
-                    <h6 class="card-subtitle text-muted">unlock by</h6>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Get 10 followers</p>
+
+<!--            Pearl-->
+            <div class="card shadow mb-5 card-bg-color">
+                <div class="row">
+                    <div class="col-4 d-flex align-items-center">
+                        <div class=" ">
+                            <img th:src="@{/capstone_IMGs/badges/badge-pearl.avif}" alt="pearl" class="badge-img border border-dark">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="card-body">
+                                <h5 class="card-title">Pearl</h5>
+                                <h6 class="card-subtitle text-muted">unlock by:</h6>
+                                <div class="card-body">
+                                    <p class="card-text">Get 1 follower</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <button type="button" class="btn btn-primary">Select</button>
+                    </div>
                 </div>
             </div>
-            <div class="card mb-3">
-                <h3 class="card-header badge-img">
-                    <img src="../../static/capstone_IMGs/badges/badge-king.webp" alt="apple" class="badge-img">
-                </h3>
-                <div class="card-body">
-                    <h5 class="card-title">King</h5>
-                    <h6 class="card-subtitle text-muted">unlock by</h6>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Get 20 followers</p>
-                </div>
-            </div>
-        </div>
-        <!--    //////-->
-        <div class="col-4">
-            <div class="card mb-3">
-                <h3 class="card-header badge-img">
-                    <img src="../../static/capstone_IMGs/badges/badge-masterkey.jpeg" alt="apple" class="badge-img">
-                </h3>
-                <div class="card-body">
-                    <h5 class="card-title">Shakespeare Monkey</h5>
-                    <h6 class="card-subtitle text-muted">unlock by</h6>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">unlock all badges(excluding dev badge)</p>
+
+<!--            Apple-->
+            <div class="card shadow mb-5 card-bg-color">
+                <div class="row">
+                    <div class="col-4 d-flex align-items-center">
+                        <div class=" ">
+                            <img th:src="@{/capstone_IMGs/badges/badge-apple.jpeg}" alt="apple" class="badge-img border border-dark">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="card-body">
+                                <h5 class="card-title">Apple</h5>
+                                <h6 class="card-subtitle text-muted">unlock by:</h6>
+                                <div class="card-body">
+                                    <p class="card-text">Get 1 comment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <button type="button" class="btn btn-primary">Select</button>
+                    </div>
                 </div>
             </div>
-            <div class="card mb-3">
-                <h3 class="card-header badge-img">
-                    <img src="../../static/capstone_IMGs/badges/badge-socrates.jpeg" alt="apple" class="badge-img">
-                </h3>
-                <div class="card-body">
-                    <h5 class="card-title">Socrates</h5>
-                    <h6 class="card-subtitle text-muted">unlock</h6>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Follow 5 users</p>
+
+<!--            Einstein-->
+            <div class="card shadow mb-5 card-bg-color">
+                <div class="row">
+                    <div class="col-4 d-flex align-items-center">
+                        <div class=" ">
+                            <img th:src="@{/capstone_IMGs/badges/badge-einstein.jpeg}" alt="Einstein" class="badge-img border border-dark">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="card-body">
+                                <h5 class="card-title">Einstein</h5>
+                                <h6 class="card-subtitle text-muted">unlock by:</h6>
+                                <div class="card-body">
+                                    <p class="card-text">Get 25 likes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <button type="button" class="btn btn-primary">Select</button>
+                    </div>
                 </div>
             </div>
-            <div class="card mb-3">
-                <h3 class="card-header badge-img">
-                    <img src="../../static/capstone_IMGs/badges/badge-pearl.avif" alt="apple" class="badge-img">
-                </h3>
-                <div class="card-body">
-                    <h5 class="card-title">Pearl</h5>
-                    <h6 class="card-subtitle text-muted">unlock by</h6>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Get 1 follower</p>
+
+<!--            Joan-->
+            <div class="card shadow mb-5 card-bg-color">
+                <div class="row">
+                    <div class="col-4 d-flex align-items-center">
+                        <div class=" ">
+                            <img th:src="@{/capstone_IMGs/badges/badge-joan.jpeg}" alt="Joan" class="badge-img border border-dark">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="card-body">
+                                <h5 class="card-title">Joan</h5>
+                                <h6 class="card-subtitle text-muted">unlock by:</h6>
+                                <div class="card-body">
+                                    <p class="card-text">Get 10 followers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <button type="button" class="btn btn-primary">Select</button>
+                    </div>
                 </div>
             </div>
+
+<!--            King-->
+            <div class="card shadow mb-5 card-bg-color">
+                <div class="row">
+                    <div class="col-4 d-flex align-items-center">
+                        <div class=" ">
+                            <img th:src="@{/capstone_IMGs/badges/badge-king.webp}" alt="King" class="badge-img border border-dark">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="card-body">
+                                <h5 class="card-title">King</h5>
+                                <h6 class="card-subtitle text-muted">unlock by:</h6>
+                                <div class="card-body">
+                                    <p class="card-text">Get 20 followers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <button type="button" class="btn btn-primary">Select</button>
+                    </div>
+                </div>
+            </div>
+
+<!--            Socrates-->
+            <div class="card shadow mb-5 card-bg-color">
+                <div class="row">
+                    <div class="col-4 d-flex align-items-center">
+                        <div class=" ">
+                            <img th:src="@{/capstone_IMGs/badges/badge-socrates.jpeg}" alt="Socrates" class="badge-img border border-dark">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="card-body">
+                                <h5 class="card-title">Socrates</h5>
+                                <h6 class="card-subtitle text-muted">unlock by:</h6>
+                                <div class="card-body">
+                                    <p class="card-text">Follow 5 users</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <button type="button" class="btn btn-primary">Select</button>
+                    </div>
+                </div>
+            </div>
+
+<!--            Shakespeare monkey-->
+            <div class="card shadow mb-5 card-bg-color">
+                <div class="row">
+                    <div class="col-4 d-flex align-items-center">
+                        <div class=" ">
+                            <img th:src="@{/capstone_IMGs/badges/badge-masterkey.jpeg}" alt="Shakespeare-monkey" class="badge-img border border-dark">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="card-body">
+                                <h5 class="card-title">Shakespeare monkey</h5>
+                                <h6 class="card-subtitle text-muted">unlock by:</h6>
+                                <div class="card-body">
+                                    <p class="card-text">Complete all challenges</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <button type="button" class="btn btn-primary">Select</button>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>

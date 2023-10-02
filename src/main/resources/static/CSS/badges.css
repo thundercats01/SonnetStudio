@@ -1,6 +1,6 @@
 .badge-img{
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
     border-radius: 45%;
 
 }
@@ -23,4 +23,16 @@
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
+}
+
+.col-4.d-flex.align-items-center{
+    width: 12.333333%;
+}
+
+.btn-primary{
+    cursor: pointer;
+}
+
+.card-bg-color{
+    background-color: rgba(255, 255, 255, 0.38);
 }
