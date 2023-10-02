@@ -7,20 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class ProfileController {
+public class CreateVerseController {
 
     UserRepo usersDAO;
 
-
-    public ProfileController(UserRepo usersDAO) {
+    public CreateVerseController(UserRepo usersDAO) {
         this.usersDAO = usersDAO;
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/create")
     public String showProfile() {
-        return "profile/profileview";
+        return "profile/createverse";
     }
-
-
 
 }
