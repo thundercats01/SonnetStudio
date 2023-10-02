@@ -1,15 +1,16 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: head">
-    <meta charset="UTF-8">
+<head>
+    <div th:replace="partials/header :: head">
+
+    </div>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Badges</title>
-    <link rel="stylesheet" href="../CSS/color.css">
-    <link rel="stylesheet" href="../CSS/badges.css">
-    <link rel="stylesheet" href="../CSS/layout.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.1/dist/sketchy/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/CSS/color.css}">
+    <link rel="stylesheet" th:href="@{/CSS/badges.css}">
+    <link rel="stylesheet" th:href="@{/CSS/layout.css}">
 </head>
 <header>
     <div th:insert="partials/navbar :: nav-bar"></div>
@@ -23,7 +24,7 @@
         <div class="col-4">
             <div class="card mb-3">
                 <h3 class="card-header badge-img">
-                    <img src="../../capstone_IMGs/badges/badge-default.png" alt="apple" class="badge-img">
+                    <img th:src="@{/capstone_IMGs/badges/badge-default.png}" alt="apple" class="badge-img">
                 </h3>
                 <div class="card-body">
                     <h5 class="card-title">Default</h5>
@@ -35,7 +36,7 @@
             </div>
             <div class="card mb-3">
                 <h3 class="card-header badge-img">
-                    <img src="../../capstone_IMGs/badges/badge-apple.jpeg" alt="apple" class="badge-img">
+                    <img th:src="@{/static/capstone_IMGs/badges/badge-apple.jpeg}" alt="apple" class="badge-img">
                 </h3>
                 <div class="card-body">
                     <h5 class="card-title">Apple</h5>
@@ -47,7 +48,7 @@
             </div>
             <div class="card mb-3">
                 <h3 class="card-header badge-img">
-                    <img src="../../capstone_IMGs/badges/badge-developer.png" alt="apple" class="badge-img">
+                    <img th:src="@{/static/capstone_IMGs/badges/badge-developer.png}" alt="apple" class="badge-img">
                 </h3>
                 <div class="card-body">
                     <h5 class="card-title">Monkey Wizard</h5>
@@ -62,7 +63,7 @@
         <div class="col-4">
             <div class="card mb-3">
                 <h3 class="card-header badge-img">
-                    <img src="../../capstone_IMGs/badges/badge-einstein.jpeg" alt="apple" class="badge-img">
+                    <img th:src="@{/static/capstone_IMGs/badges/badge-einstein.jpeg}" alt="apple" class="badge-img">
                 </h3>
                 <div class="card-body">
                     <h5 class="card-title">Einstein</h5>
@@ -74,7 +75,7 @@
             </div>
             <div class="card mb-3">
                 <h3 class="card-header badge-img">
-                    <img src="../../capstone_IMGs/badges/badge-joan.jpeg" alt="apple" class="badge-img">
+                    <img th:src="@{/static/capstone_IMGs/badges/badge-joan.jpeg}" alt="apple" class="badge-img">
                 </h3>
                 <div class="card-body">
                     <h5 class="card-title">Joan</h5>
@@ -86,7 +87,7 @@
             </div>
             <div class="card mb-3">
                 <h3 class="card-header badge-img">
-                    <img src="../../capstone_IMGs/badges/badge-king.webp" alt="apple" class="badge-img">
+                    <img src="../../static/capstone_IMGs/badges/badge-king.webp" alt="apple" class="badge-img">
                 </h3>
                 <div class="card-body">
                     <h5 class="card-title">King</h5>
@@ -101,7 +102,7 @@
         <div class="col-4">
             <div class="card mb-3">
                 <h3 class="card-header badge-img">
-                    <img src="../../capstone_IMGs/badges/badge-masterkey.jpeg" alt="apple" class="badge-img">
+                    <img src="../../static/capstone_IMGs/badges/badge-masterkey.jpeg" alt="apple" class="badge-img">
                 </h3>
                 <div class="card-body">
                     <h5 class="card-title">Shakespeare Monkey</h5>
@@ -113,7 +114,7 @@
             </div>
             <div class="card mb-3">
                 <h3 class="card-header badge-img">
-                    <img src="../../capstone_IMGs/badges/badge-socrates.jpeg" alt="apple" class="badge-img">
+                    <img src="../../static/capstone_IMGs/badges/badge-socrates.jpeg" alt="apple" class="badge-img">
                 </h3>
                 <div class="card-body">
                     <h5 class="card-title">Socrates</h5>
@@ -125,7 +126,7 @@
             </div>
             <div class="card mb-3">
                 <h3 class="card-header badge-img">
-                    <img src="../../capstone_IMGs/badges/badge-pearl.avif" alt="apple" class="badge-img">
+                    <img src="../../static/capstone_IMGs/badges/badge-pearl.avif" alt="apple" class="badge-img">
                 </h3>
                 <div class="card-body">
                     <h5 class="card-title">Pearl</h5>
