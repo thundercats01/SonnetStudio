@@ -64,19 +64,20 @@
                             <h4 class="text-uppercase mt-0">Register</h4>
                         </div>
 
-                        <form action="#">
+                        <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+
 
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
-                                <input class="form-control" type="text" id="username" placeholder="Enter your username" required="">
+                                <input th:field="*{username}" class="form-control" type="text" id="username" placeholder="Enter your username" required="">
                             </div>
                             <div class="mb-3">
                                 <label for="emailaddress" class="form-label">Email address</label>
-                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                <input th:field="*{email}" class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                <input th:field="*{password}" class="form-control" type="password" required="" id="password" placeholder="Enter your password">
                             </div>
                             <div class="mb-3 text-center d-grid">
                                 <button class="btn btn-primary" type="submit"> Sign Up </button>
