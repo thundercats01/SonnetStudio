@@ -45,7 +45,7 @@ public class SecurityConfiguration {
                 /* Login configuration */
                 .formLogin((login) -> login
                         .loginPage("/login")
-                        .defaultSuccessUrl("/profile", true))
+                        .defaultSuccessUrl("/explore", true))
                 /* Logout configuration */
                 .logout((logout) -> logout.logoutSuccessUrl("/"));
         return http.build();
