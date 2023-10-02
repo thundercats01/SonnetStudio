@@ -1,0 +1,9 @@
+@import "badges.css";
+@import "color.css";
+
+.page-wrapper{
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+
+}
