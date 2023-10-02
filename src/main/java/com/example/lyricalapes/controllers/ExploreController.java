@@ -23,7 +23,7 @@ public class ExploreController {
 
     @GetMapping("/explore")
     public String showExplorePage() {
-        return "profile/profileview";
+        return "explore";
     }
 
 
