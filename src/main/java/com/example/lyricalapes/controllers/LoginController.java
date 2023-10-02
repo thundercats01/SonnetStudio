@@ -14,12 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class LoginController {
 
-//    com.gptlibs.fullstackgptlibs.repositories.VerseRepo madLibsDAO;
     UserRepo usersDAO;
     private PasswordEncoder passwordEncoder;
 
     public LoginController(UserRepo usersDAO, PasswordEncoder passwordEncoder) {
-//        this.madLibsDAO = madLibsDAO;
         this.usersDAO = usersDAO;
         this.passwordEncoder = passwordEncoder;
     }
@@ -33,7 +31,7 @@ public class LoginController {
     @GetMapping("/sign-up")
     public String showSignupForm(Model model) {
         model.addAttribute("user", new User());
-        return "accounts/sign-up";
+        return "users/sign-up";
     }
 
     @PostMapping("/sign-up")
@@ -41,6 +39,6 @@ public class LoginController {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         usersDAO.save(user);
-        return "accounts/login";
+        return "users/login";
     }
 }
