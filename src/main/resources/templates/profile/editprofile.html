@@ -1,86 +1,90 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/header :: head">
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Edit Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Profile</title>
 
-<!--  comment out-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="../CSS/badges.css">
+    <!--  comment out-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/badges.css">
 
 
 </head>
 <header>
 
-<!--  comment out-->
-  <nav class="navbar navbar-light bg-light shadow">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <h1>NAVBAR</h1>
-      </a>
-    </div>
-  </nav>
+    <!--  comment out-->
+    <nav class="navbar navbar-light bg-light shadow">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h1>NAVBAR</h1>
+            </a>
+        </div>
+    </nav>
 
-  <div th:insert="partials.html :: nav-bar"></div>
+    <div th:insert="partials.html :: nav-bar"></div>
 
 </header>
 <body>
 
 <div class="container-fluid">
 
-  <div class="row">
-    <div class="col-8">
+    <div class="row">
+        <div class="col-8">
 
-      col-8
-    </div>
-    <div class="col-4 pt-4 pb-2">
+            col-8
+        </div>
+        <div class="col-4 pt-4 pb-2">
 
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col d-flex justify-content-center">
-            <img src="/capstone_IMGs/badges/badge-default.png" class="img-fluid rounded-circle badge-img-profile" alt="Responsive image">
-            <button class="btn1">edit</button>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <img src="/capstone_IMGs/badges/badge-default.png"
+                             class="img-fluid rounded-circle badge-img-profile" alt="Responsive image">
+                        <button class="btn1">edit</button>
 
-          </div>
-          <div class="col">
+                    </div>
+                    <div class="col">
 
-            <div class="row d-flex justify-content-center">
-              (USERNAME)
+                        <div class="row d-flex justify-content-center">
+                            (USERNAME)
+                        </div>
+
+                        <div class="row d-flex justify-content-center">
+                            BIO
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center pt-5">
+                        POINTS
+                    </div>
+
+                    <div class="row d-flex justify-content-center p-5">
+                        AWARDS
+                    </div>
+
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            FOLLOWERS
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            FOLLOWING
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-
-            <div class="row d-flex justify-content-center">
-              BIO
-          </div>
         </div>
-
-        <div class="row d-flex justify-content-center pt-5">
-          POINTS
-        </div>
-
-        <div class="row d-flex justify-content-center p-5">
-          AWARDS
-        </div>
-
-        <div class="row">
-          <div class="col d-flex justify-content-center">
-            FOLLOWERS
-          </div>
-          <div class="col d-flex justify-content-center">
-            FOLLOWING
-          </div>
-        </div>
-
-      </div>
 
     </div>
-  </div>
-
 </div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 </html>
