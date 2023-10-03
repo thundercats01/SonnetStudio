@@ -16,7 +16,7 @@ public class Badge {
     @Column
     private String description;
     @Column
-    private String path = "";
+    private String path = "../static/capstone_IMGs/badges/badge_default.png";
     @ManyToMany(mappedBy = "badges", cascade = CascadeType.PERSIST)
     private List<User> users;
 
