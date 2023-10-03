@@ -12,56 +12,18 @@
     <title>Log in</title>
 
     <!--    Custom bootstrap-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.1/dist/sketchy/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/CSS/color.css">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootswatch@5.3.1/dist/sketchy/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/CSS/color.css}">
 </head>
 <div th:insert="partials/navbar :: nav-bar"></div>
 
 <body style="background-color: rgb(210 160 58)">
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="col">-->
-<!--            <main class="form-signin w-100 m-auto">-->
-<!--                <div th:if="${param.error}">-->
-<!--                    Invalid Username and Password.-->
-<!--                </div>-->
-
-<!--                <form data-bitwarden-watching="1" th:action="@{/templates/users/login}" method="post">-->
-<!--                    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>-->
-
-<!--                    <div class="form-floating">-->
-<!--                        <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Username">-->
-<!--                        <label for="floatingInput">Username</label>-->
-<!--                    </div>-->
-<!--                    <div class="form-floating">-->
-<!--                        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">-->
-<!--                        <label for="floatingPassword">Password</label>-->
-<!--                    </div>-->
-
-<!--                    <div class="form-check text-start my-3">-->
-<!--                        <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">-->
-<!--                        <label class="form-check-label" for="flexCheckDefault">-->
-<!--                            Remember me-->
-<!--                        </label>-->
-<!--                    </div>-->
-<!--                    <input class="btn btn-primary w-100 py-2" type="submit" value="Log In">-->
-<!--                </form>-->
-<!--                <a href="/accounts/sign-up" class="nav-link">Sign Up!</a>-->
-<!--            </main>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
 
 <div class="container">
 
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6 col-xl-4">
-            <div class="text-center">
-                <a href="index.html">
-<!--                    <img th:src="assets/images/logo-dark.png" alt="" height="22" class="mx-auto">-->
-                </a>
-            </div>
+            <br>
             <br>
             <div class="card">
                 <div class="card-body p-4">
@@ -96,8 +58,7 @@
 
             <div class="row mt-3">
                 <div class="col-12 text-center">
-                    <p class="text-muted">Don't have an account? <a href="sign-up.html"
-                                                                    class="text-dark ms-1"><b>Sign Up</b></a></p>
+                    <p class="text-muted">Don't have an account? <a href="/sign-up" class="text-dark ms-1"><b>Sign Up</b></a></p>
                 </div>
             </div>
 
