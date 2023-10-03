@@ -95,5 +95,9 @@
 
 .bg-color-index{
     background-color: #D7B55F;
-    height: 55dvh;
+    height: 100%;
+}
+
+.card-index{
+    height: 15rem;
 }
