@@ -92,3 +92,8 @@
 .icon-container:hover .text {
     left: 0;
 }
+
+.bg-color-index{
+    background-color: #D7B55F;
+    height: 55dvh;
+}
