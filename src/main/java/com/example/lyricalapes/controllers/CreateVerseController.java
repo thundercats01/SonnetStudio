@@ -20,4 +20,7 @@ public class CreateVerseController {
         return "profile/createverse";
     }
 
+//    @PostMapping()
+    // user can actually create a post and it get saved to the database
+
 }
