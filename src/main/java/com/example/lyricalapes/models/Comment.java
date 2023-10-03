@@ -20,6 +20,7 @@ public class Comment {
     private Verse verse;
 
 
+
     ///////CONSTRUCTORS ////////
 
     public Comment() {
@@ -66,6 +67,7 @@ public class Comment {
     public void setUser(User user) {
         this.user = user;
     }
+
 
 
 }
