@@ -16,12 +16,11 @@
     height: 100%;
     background-color: #f7f7f7;
     /*padding: 20px;*/
-    border-style; solid;
+    border-style: solid;
     transition: right 0.3s;
     border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
     overflow-y: auto; /* for content scrolling */
-    border-style: solid;
 }
 
 .side-panel::before,
@@ -44,4 +43,11 @@
 
 .side-panel.open {
     right: 0;
+}
+
+.btn-md{
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    width: 7rem;
+    background-color: #333333;
+    color: white;
 }
