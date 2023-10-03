@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class IndexPageController {
 
-    VerseRepo versesDAO;
-    UserRepo usersDAO;
+   private VerseRepo versesDAO;
+    private UserRepo usersDAO;
 
     public IndexPageController(VerseRepo versesDAO, UserRepo usersDAO) {
         this.versesDAO = versesDAO;

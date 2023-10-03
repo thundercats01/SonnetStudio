@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class LoginController {
 
-    UserRepo usersDAO;
+    private UserRepo usersDAO;
     private PasswordEncoder passwordEncoder;
 
     public LoginController(UserRepo usersDAO, PasswordEncoder passwordEncoder) {

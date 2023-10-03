@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class CreateVerseController {
 
-    UserRepo usersDAO;
-    VerseRepo versesDAO;
+    private UserRepo usersDAO;
+    private VerseRepo versesDAO;
 
     public CreateVerseController(UserRepo usersDAO, VerseRepo versesDAO) {
         this.usersDAO = usersDAO;
