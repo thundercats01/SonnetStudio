@@ -12,12 +12,12 @@
     <!--    &lt;!&ndash;    Custom bootstrap&ndash;&gt;-->
     <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.1/dist/sketchy/bootstrap.min.css">-->
     <!--    <link rel="stylesheet" href="../../static/CSS/style.css">-->
-
+    <title>Create Post</title>
 </head>
 <div th:insert="partials/navbar :: nav-bar"></div>
-<body>
+<body class="bg-gold">
 
-<div class="page-wrapper bg-gold">
+<div class="page-wrapper">
     <div class="container">
         <div class="row">
             <div class="d-flex flex-column justify-content-center text-center">
@@ -38,7 +38,7 @@
                 <div class="row pt-4">
                     <div class="col">
                         <div class="d-flex align-items-start">
-                            <h1>Create Verse</h1>
+                            <h1>Create Post</h1>
                         </div>
                     </div>
                     <div class="col d-flex justify-content-end">
@@ -48,7 +48,8 @@
                     <div class="row">
                         <div class="col">
                             <form id="myForm" th:action="@{/create}" method="post">
-                            <textarea  name="verseText" rows="3" style="min-height: 60vh" class="form-control flex-grow-1"
+                            <textarea name="verseText" rows="3" style="min-height: 60vh"
+                                      class="form-control flex-grow-1"
                                       placeholder="Post a new message">
                             </textarea>
                                 <div class="row pt-1">
@@ -96,7 +97,7 @@
                                                                 <label for="TopicOrTheme">Topic/Theme:</label>
                                                                 <input type="text" class="form-control"
                                                                        id="TopicOrTheme"
-                                                                       placeholder="s there a specific topic or theme you want the lyrics to revolve around? (e.g., love, friendship, nature, social issues)">
+                                                                       placeholder="What is the specific topic or theme you want?">
                                                             </div>
                                                         </div>
                                                     </form>
