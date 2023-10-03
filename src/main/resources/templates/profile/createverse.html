@@ -3,15 +3,15 @@
 
 <html lang="en">
 <head th:replace="partials/head :: head">
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport"-->
-<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <title>Create</title>-->
+    <!--    <meta charset="UTF-8">-->
+    <!--    <meta name="viewport"-->
+    <!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+    <!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <!--    <title>Create</title>-->
 
-<!--    &lt;!&ndash;    Custom bootstrap&ndash;&gt;-->
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.1/dist/sketchy/bootstrap.min.css">-->
-<!--    <link rel="stylesheet" href="../../static/CSS/style.css">-->
+    <!--    &lt;!&ndash;    Custom bootstrap&ndash;&gt;-->
+    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.1/dist/sketchy/bootstrap.min.css">-->
+    <!--    <link rel="stylesheet" href="../../static/CSS/style.css">-->
 
 </head>
 <div th:insert="partials/navbar :: nav-bar"></div>
@@ -47,11 +47,14 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <textarea rows="3" style="min-height: 60vh" class="form-control flex-grow-1" placeholder="Post a new message">
+                            <form id="myForm" th:action="@{/create}" method="post">
+                            <textarea  name="verseText" rows="3" style="min-height: 60vh" class="form-control flex-grow-1"
+                                      placeholder="Post a new message">
                             </textarea>
-                        </div>
-                        <div class="row pt-1">
-                            <button class="btn btn-primary btn-sm waves-effect waves-light">Submit</button>
+                                <div class="row pt-1">
+                                    <input type="submit" class="btn btn-dark my-3">
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="row">

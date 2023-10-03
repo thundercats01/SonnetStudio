@@ -34,6 +34,7 @@ public class CreateVerseController {
     public String getVerseParams(@RequestParam String verseText) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+
         Verse verse = new Verse();
         verse.setUser(loggedInUser);
         verse.setContent(verseText);

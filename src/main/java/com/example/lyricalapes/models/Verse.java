@@ -12,7 +12,7 @@ public class Verse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -35,7 +35,7 @@ public class Verse {
         this.id = id;
         this.user = user;
         this.title = title;
-        Content = content;
+        this.Content = content;
         this.genre = genre;
         this.comments = comments;
         this.likes = likes;
