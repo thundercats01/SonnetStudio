@@ -29,7 +29,7 @@ public class CreateVerseController {
     public String showProfile(Model model){
 
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-    String loggedInUsername = auth.getName(); // This gets the username
+    String loggedInUsername = auth.getName();
     model.addAttribute("username",loggedInUsername);
     return"profile/createverse";
 }
