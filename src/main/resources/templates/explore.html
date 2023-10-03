@@ -13,7 +13,7 @@
 <!--    <div th:insert="partials/navbar :: nav-bar"></div>-->
 </head>
 <div th:insert="partials/navbar :: nav-bar"></div>
-<body>
+<body class="bg-gold">
 
 <div class="container mt-5">
     <div class="card p-4">
@@ -21,16 +21,16 @@
         <!-- Example of a Post with Avatar, Username and Comments -->
         <div class="row mb-4">
             <div class="col-md-12">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm" th:each="verse : ${verses}">
 
                     <!-- Avatar and Username section -->
                     <div class="card-header d-flex align-items-center">
-                        <img th:src="@{}" alt="User Avatar" class="rounded-circle" width="40" height="40">
-                        <span class="ms-3">Username</span>
+                        <img th:src="path_to_avatar.jpg" alt="User Avatar" class="rounded-circle" width="40" height="40">
+                        <span class="ms-3" th:text="${verse.getUser().getUsername()}">Username</span>
                     </div>
 
                     <div class="card-body">
-                        <p class="card-text">Song verse here...</p>
+                        <p class="card-text" th:text="${verse.getContent()}">Song verse here...</p>
 
                         <!-- Comments Section - Start hidden by default -->
                         <div class="comments-section mt-3" style="display: none;">

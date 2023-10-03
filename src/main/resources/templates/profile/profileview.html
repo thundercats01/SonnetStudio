@@ -14,7 +14,7 @@
 
     <style>
         .profile-container {
-            background-color: #f7f7f7;
+            /*background-color: #f7f7f7;*/
             border-left: 2px solid #e0e0e0;
             box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
             padding: 10px;
@@ -29,18 +29,16 @@
 <header>
     <div th:insert="partials/navbar :: nav-bar"></div>
 </header>
-<body>
+<body class="bg-gold">
 
-<div class="container-fluid">
-
-    <div class="row">
+<div class="container">
+    <div class="row pt-5">
         <div class="col-8">
-            <div class="row mb-4">
+            <div class="row m-1 pt-4">
                 <div class="col-md-12">
                     <div class="card shadow-sm">
-
                         <!-- Avatar and Username section -->
-                        <div class="card-header d-flex align-items-center">
+                        <div class="card-header d-flex align-items-center border border-dark">
                             <img src="path_to_avatar.jpg" alt="User Avatar" class="rounded-circle" width="40" height="40">
                             <span class="ms-3">Username</span>
                         </div>
@@ -82,15 +80,30 @@
                 </div>
             </div>
         </div>
-        <div class="col-4 pt-4 pb-2">
+
+        <div class="col-4 pt-4 pb-2 profile-card">
 
             <div class="container-fluid profile-container">
                 <div class="row">
-                    <div class="col d-flex justify-content-center">
+                    <div class="col justify-content-center">
                         <img src="/capstone_IMGs/badges/badge-default.png"
-                             class="img-fluid rounded-circle badge-img-profile" alt="Responsive image">
-                        <button class="btn1">edit</button>
-
+                             class="img-fluid rounded-circle badge-img-profile border border-dark" alt="Responsive image">
+<!--                        Ask Jason-->
+<!--                        <button class="btn1">edit</button>-->
+                        <div class="row pt-3">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <span class="d-flex justify-content-center">Points</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row pt-4 pb-4">
+                                <a class="nav-link d-flex justify-content-center btn-sm" th:href="@{/badge}">View Badges</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="col">
 
@@ -98,17 +111,13 @@
                             (USERNAME)
                         </div>
 
-                        <div class="row d-flex justify-content-center">
-                            BIO
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid, animi at atque enim expedita illum incidunt ipsam nihil nisi nostrum nulla odio officia reiciendis reprehenderit rerum similique sint voluptate.</span>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="row d-flex justify-content-center pt-5">
-                        POINTS
-                    </div>
-
-                    <div class="row d-flex justify-content-center p-5">
-                        AWARDS
                     </div>
 
                     <div class="row">
