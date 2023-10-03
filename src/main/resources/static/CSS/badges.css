@@ -2,7 +2,6 @@
     width: 7rem;
     height: 7rem;
     border-radius: 45%;
-
 }
 
 .badge-img-profile{
@@ -35,4 +34,22 @@
 
 .card-bg-color{
     background-color: rgba(255, 255, 255, 0.38);
+}
+
+
+.btn-size{
+    height: 2rem;
+}
+
+
+
+.username-fontsize{
+    font-size: 3rem;
+}
+
+
+.badge-img-1{
+    width: 12rem;
+    height: 12rem;
+    border-radius: 45%;
 }
