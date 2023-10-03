@@ -11,19 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class EditProfileController {
-    UserRepo userRepo;
+    private UserRepo userRepo;
 
     public EditProfileController(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
 
 
-
     @GetMapping("edit-profile")
     public String showEditProfile(Model model) {
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = userRepo.findByUsername(loggedInPrinciple.getUsername());
-        model.addAttribute("user",loggedInUser);
+        model.addAttribute("user", loggedInUser);
 
         return "profile/editprofile";
 

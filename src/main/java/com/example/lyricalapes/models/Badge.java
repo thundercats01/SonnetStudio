@@ -13,10 +13,10 @@ public class Badge {
     private long id;
     @Column
     private String name;
-
     @Column
     private String description;
-
+    @Column
+    private String path = "../static/capstone_IMGs/badges/badge_default.png";
     @ManyToMany(mappedBy = "badges", cascade = CascadeType.PERSIST)
     private List<User> users;
 
@@ -34,6 +34,14 @@ public class Badge {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.users = users;
+    }
+
+    public Badge(long id, String name, String description, String path, List<User> users) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.path = path;
         this.users = users;
     }
 
@@ -68,5 +76,13 @@ public class Badge {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

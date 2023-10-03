@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class BadgePageController {
 
-    BadgeRepo BadgesDao;
+    private BadgeRepo BadgesDao;
 
     public BadgePageController(BadgeRepo badgesDao) {
         BadgesDao = badgesDao;
