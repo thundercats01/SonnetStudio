@@ -43,6 +43,9 @@ public class User {
     private String bio;
 
     @Column
+    private String currentBadge = "/capstone_IMGs/badges/badge-default.png";
+
+    @Column
     private int likesCount;
 
     @Column
@@ -186,5 +189,21 @@ public class User {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public String getCurrentBadge() {
+        return currentBadge;
+    }
+
+    public void setCurrentBadge(String currentBadge) {
+        this.currentBadge = currentBadge;
+    }
+
+    public List<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Like> likes) {
+        this.likes = likes;
     }
 }
