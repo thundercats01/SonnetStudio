@@ -14,7 +14,9 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                <div>
+                <h1>Sonnet Studio</h1>
+                </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
                     <div sec:authorize="isAuthenticated()">
@@ -24,9 +26,11 @@
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             </form>
                             <li class="nav-item">
-                                <a class="nav-link active text-body" aria-current="page" th:href="@{/explore}">Explore</a>
+                                <a class="nav-link active text-body" aria-current="page"
+                                   th:href="@{/explore}">Explore</a>
                             <li class="nav-item">
-                                <a class="nav-link active text-body" aria-current="page" th:href="@{/create}">Create Post</a>
+                                <a class="nav-link active text-body" aria-current="page" th:href="@{/create}">Create
+                                    Post</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-body" th:href="@{/profile}">View Profile</a>
