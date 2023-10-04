@@ -1,6 +1,6 @@
 <div th:fragment="nav-bar" xmlns:sec="http://www.w3.org/1999/xhtml">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow">
             <div class="container-fluid">
 
                 <!--Logo-->
@@ -14,7 +14,9 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                <div>
+                <h1>Sonnet Studio</h1>
+                </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
                     <div sec:authorize="isAuthenticated()">
@@ -24,12 +26,14 @@
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             </form>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" th:href="@{/explore}">Explore</a>
+                                <a class="nav-link active text-body" aria-current="page"
+                                   th:href="@{/explore}">Explore</a>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" th:href="@{/create}">Create Post</a>
+                                <a class="nav-link active text-body" aria-current="page" th:href="@{/create}">Create
+                                    Post</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" th:href="@{/profile}">View Profile</a>
+                                <a class="nav-link text-body" th:href="@{/profile}">View Profile</a>
                             </li>
                             <li class="nav-item">
                                 <form th:action="@{/logout}" th:method="post">
@@ -46,10 +50,10 @@
                     <div sec:authorize="!isAuthenticated()">
                         <ul class="navbar-nav  mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" th:href="@{/sign-up}">Register</a>
+                                <a class="nav-link text-body" th:href="@{/sign-up}">Register</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" th:href="@{/login}">Login</a>
+                                <a class="nav-link text-body" th:href="@{/login}">Login</a>
 
                             </li>
                         </ul>
