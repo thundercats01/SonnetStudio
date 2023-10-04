@@ -111,7 +111,6 @@
 .card1 {
     width: 190px;
     height: 254px;
-    background: #eace87;
     transition: all 0.4s;
     border-radius: 10px;
     /*box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);*/
@@ -124,7 +123,7 @@
     /*cursor: pointer;*/
     transform: scale(1.2);
     /*box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);*/
-    background: #EBDAB1;
+    background: #4E5D6C;
 }
 
 .first-content1 {
