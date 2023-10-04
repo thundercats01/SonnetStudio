@@ -14,14 +14,16 @@
     right: -400px;
     width: 400px;
     height: 100%;
-    background-color: #f7f7f7;
-    /*padding: 20px;*/
-    border-style: solid;
+    background-color: rgb(164 81 0 / 39%);
+    backdrop-filter: blur(10px);
     transition: right 0.3s;
-    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
     overflow-y: auto; /* for content scrolling */
+    border-radius: 2%;
+    border: solid;
+
 }
+
 
 .side-panel::before,
 .side-panel::after {
@@ -29,8 +31,10 @@
     position: absolute;
     width: 24px;
     height: 100%;
-    background-color: #d6d6d6;
-    border-radius: 12px 0 0 12px;
+    background-color: rgb(164 81 0 / 39%);
+    backdrop-filter: blur(10px);
+    border-radius: 2%;
+    border: solid;
 }
 
 .side-panel::before {
@@ -46,9 +50,8 @@
 }
 
 .btn-md{
-    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
     width: 7rem;
-    background-color: #333333;
+
     color: white;
 }
 

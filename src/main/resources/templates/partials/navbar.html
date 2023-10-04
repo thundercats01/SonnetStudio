@@ -24,12 +24,12 @@
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             </form>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" th:href="@{/explore}">Explore</a>
+                                <a class="nav-link active text-body" aria-current="page" th:href="@{/explore}">Explore</a>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" th:href="@{/create}">Create Post</a>
+                                <a class="nav-link active text-body" aria-current="page" th:href="@{/create}">Create Post</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" th:href="@{/profile}">View Profile</a>
+                                <a class="nav-link text-body" th:href="@{/profile}">View Profile</a>
                             </li>
                             <li class="nav-item">
                                 <form th:action="@{/logout}" th:method="post">
@@ -46,10 +46,10 @@
                     <div sec:authorize="!isAuthenticated()">
                         <ul class="navbar-nav  mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" th:href="@{/sign-up}">Register</a>
+                                <a class="nav-link text-body" th:href="@{/sign-up}">Register</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" th:href="@{/login}">Login</a>
+                                <a class="nav-link text-body" th:href="@{/login}">Login</a>
 
                             </li>
                         </ul>
