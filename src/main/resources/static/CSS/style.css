@@ -110,25 +110,26 @@
 }
 
 /* Testing */
+
 .card1 {
-    width: 190px;
-    height: 254px;
+    height: 13rem;
     transition: all 0.4s;
-    border-radius: 5px 5px 5px 5px/25px 25px 25px 5px;
-    /*box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);*/
+    border-radius: 1rem;
+    box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.705);
     font-size: 20px;
     font-weight: 900;
 }
 
 .card1:hover {
-    /*border-radius: 15px;*/
+    border-radius: 1rem;
     /*cursor: pointer;*/
     transform: scale(1.2);
-    /*box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);*/
+    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
     background: #4E5D6C;
 }
 
 .first-content1 {
+    background-color: #2D4355;
     height: 100%;
     width: 100%;
     transition: all 0.4s;
@@ -136,8 +137,7 @@
     justify-content: center;
     align-items: center;
     opacity: 1;
-    border-style: solid;
-    border-radius: 5px 5px 5px 5px/25px 25px 25px 5px;
+    border-radius: 1rem;
 }
 
 .card1:hover .first-content1 {
@@ -152,9 +152,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px 5px 5px 5px/25px 25px 25px 5px;
+    border-radius: 1rem;
     transition: all 0.4s;
-    border-style: solid;
     font-size: 15px!important;
     transform: rotate(90deg) scale(-1);
 }
@@ -164,4 +163,8 @@
     height: 100%;
     font-size: 1.8rem;
     transform: rotate(0deg);
+}
+
+.bg-index2{
+    background-color: #1a3f5e;
 }
