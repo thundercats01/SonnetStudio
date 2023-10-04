@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface VerseRepo extends JpaRepository<Verse, Long> {
     List<Verse> findAllByUser(User loggedInUser);
+
+    List<Verse> findAllByOrderByIdDesc();
 }

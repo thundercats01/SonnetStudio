@@ -2,6 +2,7 @@ package com.example.lyricalapes.controllers;
 
 import com.example.lyricalapes.models.Comment;
 import com.example.lyricalapes.models.User;
+import com.example.lyricalapes.models.Verse;
 import com.example.lyricalapes.repositories.CommentRepo;
 import com.example.lyricalapes.repositories.UserRepo;
 import com.example.lyricalapes.repositories.VerseRepo;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -30,11 +34,14 @@ public class ExploreController {
 
     @GetMapping("/explore")
     public String showExplorePage(Model model) {
-        model.addAttribute("verses", versesDAO.findAll());
+        List<Verse> allVersesInDescOrder = versesDAO.findAllByOrderByIdDesc();
+        model.addAttribute("verses", allVersesInDescOrder);
         model.addAttribute("comments", commentDAO.findAll());
 
         return "explore";
     }
+
+
 
     @PostMapping("/explore")
     public String handleComments(@RequestParam String userComment, @RequestParam Long postid) {
@@ -48,5 +55,6 @@ public class ExploreController {
 //        System.out.println("blank");
         return "redirect:explore";
     }
+
 
 }
