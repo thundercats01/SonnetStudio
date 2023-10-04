@@ -1,6 +1,7 @@
 package com.example.lyricalapes.models;
 
 import jakarta.persistence.*;
+
 @Entity
 @Table(name = "comments")
 public class Comment {
@@ -15,11 +16,12 @@ public class Comment {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "verse_id")
     private Verse verse;
 
-
+    @Column
+    private Long postId;
 
     ///////CONSTRUCTORS ////////
 
@@ -31,6 +33,14 @@ public class Comment {
         Content = content;
         this.user = user;
         this.verse = verse;
+    }
+
+    public Comment(long id, String content, User user, Verse verse, Long postId) {
+        this.id = id;
+        Content = content;
+        this.user = user;
+        this.verse = verse;
+        this.postId = postId;
     }
 
     //////GETTER & SETTER//////
@@ -68,6 +78,11 @@ public class Comment {
         this.user = user;
     }
 
+    public Long getPostId() {
+        return postId;
+    }
 
-
+    public void setPostId(Long postId) {
+        this.postId = postId;
+    }
 }

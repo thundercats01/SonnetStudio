@@ -49,7 +49,7 @@
 
                             <!-- List of all comments -->
                             <div th:each="comment : ${comments}" class="comment">
-                                <div th:if="${comment.getId() eq verse.getId()}">
+                                <div th:if="${comment.getPostId() eq verse.getId()}">
                                    <span th:text="${comment.getContent()}"></span>
                                 </div>
                             </div>
