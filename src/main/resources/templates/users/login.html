@@ -1,26 +1,13 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
-<head>
-    <div th:replace="partials/head :: head">
-
-    </div>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head th:insert="partials/head :: head">
     <title>Log in</title>
-
-    <!--    Custom bootstrap-->
-
-    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootswatch@5.3.1/dist/sketchy/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/CSS/color.css}">
-
 </head>
-<div th:insert="partials/navbar :: nav-bar"></div>
-
-
-<body class="bg-gold">
+<header>
+    <div th:insert="partials/navbar :: nav-bar"></div>
+</header>
+<body>
 
 <div class="container">
 
