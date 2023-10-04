@@ -10,4 +10,7 @@ public interface VerseRepo extends JpaRepository<Verse, Long> {
     List<Verse> findAllByUser(User loggedInUser);
 
     List<Verse> findAllByOrderByIdDesc();
+
+    List<Verse> findAllByUserOrderByIdDesc(User loggedInUser);
+
 }
