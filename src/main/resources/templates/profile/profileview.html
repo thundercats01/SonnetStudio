@@ -10,6 +10,7 @@
             padding: 10px;
             margin-left: 20px;
         }
+
         .card-header img {
             margin-right: 10px;
         }
@@ -23,33 +24,42 @@
 <div class="container">
     <div class="row pt-5">
         <div class="col-8">
-            <div class="row m-1 pt-4">
+
+
+            <!-- Example of a Post with Avatar, Username and Comments -->
+            <div class="row mb-4">
                 <div class="col-md-12">
-                    <div class="card shadow-sm">
+                    <div class="card shadow-sm" th:each="verse : ${verses}">
+
                         <!-- Avatar and Username section -->
-                        <div class="card-header d-flex align-items-center border border-dark">
-                            <img src="path_to_avatar.jpg" alt="User Avatar" class="rounded-circle" width="40" height="40">
-                            <span class="ms-3">Username</span>
+                        <div class="card-header d-flex align-items-center">
+                            <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"
+                                 width="40" height="40">
+                            <span class="ms-3" th:text="${verse.getUser().getUsername()}">Username</span>
                         </div>
 
                         <div class="card-body">
-                            <p class="card-text">Song verse here...</p>
+                            <p class="card-text" th:text="${verse.getContent()}">Song verse here...</p>
+                            <p th:text="${verse.getId()}"></p>
 
                             <!-- Comments Section - Start hidden by default -->
                             <div class="comments-section mt-3" style="display: none;">
 
                                 <!-- Add Comment Section -->
                                 <div class="add-comment mt-2">
-                                    <input type="text" class="form-control" placeholder="Add a comment..." />
-                                    <button class="btn btn-primary mt-2">Post Comment</button>
+                                    <form th:action="@{/explore}" th:method="post">
+                                        <input type="hidden" name="postid" th:value="${verse.getId()}">
+                                        <input type="text" name="userComment" class="form-control"
+                                               placeholder="Add a comment..."/>
+                                        <input class="btn btn-primary mt-2" value="Post Comment" type="submit">
+                                    </form>
                                 </div>
 
                                 <!-- List of all comments -->
-                                <div class="comment">
-                                    <strong>Username1:</strong> Great song!
-                                </div>
-                                <div class="comment">
-                                    <strong>Username2:</strong> Love this!
+                                <div th:each="comment : ${comments}" class="comment">
+                                    <div th:if="${comment.getPostId() eq verse.getId()}">
+                                        <span th:text="${comment.getContent()}"></span>
+                                    </div>
                                 </div>
                                 <!-- ... add more comments as needed -->
                             </div>
@@ -58,10 +68,14 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <!-- Add data-comments-toggle attribute to identify it as the button that will toggle comments -->
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" data-comments-toggle>Show Comments</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" data-comments-toggle>
+                                        Show
+                                        Comments
+                                    </button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Like</button>
                                 </div>
-                                <span class="latest-comment">Latest: <strong>Username1:</strong> Great song!</span> <!-- Display the most recent comment -->
+                                <span class="latest-comment">Latest: <strong>Username1:</strong> Great song!</span>
+                                <!-- Display the most recent comment -->
                             </div>
 
                         </div>
@@ -76,9 +90,10 @@
                 <div class="row">
                     <div class="col justify-content-center">
                         <img src="/capstone_IMGs/badges/badge-default.png"
-                             class="img-fluid rounded-circle badge-img-profile border border-dark" alt="Responsive image">
-<!--                        Ask Jason-->
-<!--                        <button class="btn1">edit</button>-->
+                             class="img-fluid rounded-circle badge-img-profile border border-dark"
+                             alt="Responsive image">
+                        <!--                        Ask Jason-->
+                        <!--                        <button class="btn1">edit</button>-->
                         <div class="row pt-3">
                             <div class="card shadow-sm">
                                 <div class="card-body">
@@ -90,7 +105,8 @@
                         </div>
                         <div class="row">
                             <div class="row pt-4 pb-4">
-                                <a class="nav-link d-flex justify-content-center btn-sm" th:href="@{/badge}">View Badges</a>
+                                <a class="nav-link d-flex justify-content-center btn-sm" th:href="@{/badge}">View
+                                    Badges</a>
                             </div>
                         </div>
                     </div>
