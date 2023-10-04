@@ -10,7 +10,7 @@
             margin-right: 10px;
         }
     </style>
-<!--    <div th:insert="partials/navbar :: nav-bar"></div>-->
+    <!--    <div th:insert="partials/navbar :: nav-bar"></div>-->
 </head>
 <div th:insert="partials/navbar :: nav-bar"></div>
 <body class="bg-gold">
@@ -25,30 +25,33 @@
 
                     <!-- Avatar and Username section -->
                     <div class="card-header d-flex align-items-center">
-                        <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle" width="40" height="40">
+                        <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"
+                             width="40" height="40">
                         <span class="ms-3" th:text="${verse.getUser().getUsername()}">Username</span>
                     </div>
 
                     <div class="card-body">
                         <p class="card-text" th:text="${verse.getContent()}">Song verse here...</p>
+                        <p th:text="${verse.getId()}"></p>
 
                         <!-- Comments Section - Start hidden by default -->
                         <div class="comments-section mt-3" style="display: none;">
 
                             <!-- Add Comment Section -->
                             <div class="add-comment mt-2">
-                                <form th:action="@{/explore}">
-                                <input type="text" name="userComment" class="form-control" placeholder="Add a comment..." />
-                                <input class="btn btn-primary mt-2" value="Post Comment" type="submit">
+                                <form th:action="@{/explore}" th:method="post">
+                                    <input type="hidden" name="postid" th:value="${verse.getId()}">
+                                    <input type="text" name="userComment" class="form-control"
+                                           placeholder="Add a comment..."/>
+                                    <input class="btn btn-primary mt-2" value="Post Comment" type="submit">
                                 </form>
                             </div>
 
                             <!-- List of all comments -->
-                            <div class="comment">
-                                <strong>Username1:</strong> Great song!
-                            </div>
-                            <div class="comment">
-                                <strong>Username2:</strong> Love this!
+                            <div th:each="comment : ${comments}" class="comment">
+                                <div th:if="${comment.getId() eq verse.getId()}">
+                                   <span th:text="${comment.getContent()}"></span>
+                                </div>
                             </div>
                             <!-- ... add more comments as needed -->
                         </div>
@@ -57,10 +60,13 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <!-- Add data-comments-toggle attribute to identify it as the button that will toggle comments -->
-                                <button type="button" class="btn btn-sm btn-outline-secondary" data-comments-toggle>Show Comments</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" data-comments-toggle>Show
+                                    Comments
+                                </button>
                                 <button type="button" class="btn btn-sm btn-outline-secondary">Like</button>
                             </div>
-                            <span class="latest-comment">Latest: <strong>Username1:</strong> Great song!</span> <!-- Display the most recent comment -->
+                            <span class="latest-comment">Latest: <strong>Username1:</strong> Great song!</span>
+                            <!-- Display the most recent comment -->
                         </div>
 
                     </div>

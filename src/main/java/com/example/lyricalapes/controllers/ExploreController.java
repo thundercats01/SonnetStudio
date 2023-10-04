@@ -20,29 +20,32 @@ public class ExploreController {
     private UserRepo usersDAO;
     private VerseRepo versesDAO;
 
-    private CommentRepo CommentDAO;
+    private CommentRepo commentDAO;
 
     public ExploreController(UserRepo usersDAO, VerseRepo versesDAO, CommentRepo commentDAO) {
         this.usersDAO = usersDAO;
         this.versesDAO = versesDAO;
-        this.CommentDAO = commentDAO;
+        this.commentDAO = commentDAO;
     }
 
     @GetMapping("/explore")
     public String showExplorePage(Model model) {
         model.addAttribute("verses", versesDAO.findAll());
+        model.addAttribute("comments", commentDAO.findAll());
 
         return "explore";
     }
 
     @PostMapping("/explore")
-    public String handleComments(@RequestParam Comment userComment) {
+    public String handleComments(@RequestParam String userComment, @RequestParam Long postid) {
         Comment comment = new Comment();
-        comment.setContent(String.valueOf(userComment));
+        comment.setContent(userComment);
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        comment.setVerse();
         comment.setUser(loggedInUser);
-        CommentDAO.save(userComment);
-        return "redirect:explore";
+        commentDAO.save(comment);
+//        System.out.println("blank");
+        return "explore";
     }
 
 }
