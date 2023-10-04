@@ -40,12 +40,13 @@ public class ExploreController {
     public String handleComments(@RequestParam String userComment, @RequestParam Long postid) {
         Comment comment = new Comment();
         comment.setContent(userComment);
-        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        comment.setVerse();
+        User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
+        comment.setPostId(postid);
         comment.setUser(loggedInUser);
         commentDAO.save(comment);
 //        System.out.println("blank");
-        return "explore";
+        return "redirect:explore";
     }
 
 }
