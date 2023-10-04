@@ -46,7 +46,14 @@
                             <!-- List of all comments -->
                             <div th:each="comment : ${comments}" class="comment">
                                 <div th:if="${comment.getPostId() eq verse.getId()}">
-                                   <span th:text="${comment.getContent()}"></span>
+                                    <div class="row card">
+                                        <div>
+                                           <a <span  th:text="${comment.getUser().getUsername()}"><strong>Username</strong></span> >
+                                        </div>
+                                        <div>
+                                            <span class="ms-3" th:text="${comment.getContent()}"></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- ... add more comments as needed -->
@@ -61,7 +68,7 @@
                                 </button>
                                 <button type="button" class="btn btn-sm btn-outline-secondary">Like</button>
                             </div>
-                            <span class="latest-comment">Latest: <strong>Username1:</strong> Great song!</span>
+
                             <!-- Display the most recent comment -->
                         </div>
 
