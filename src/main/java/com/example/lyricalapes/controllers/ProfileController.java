@@ -4,6 +4,7 @@ import com.example.lyricalapes.models.User;
 import com.example.lyricalapes.repositories.CommentRepo;
 import com.example.lyricalapes.repositories.UserRepo;
 import com.example.lyricalapes.repositories.VerseRepo;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,10 +31,13 @@ public class ProfileController {
         // Get the logged-in user
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String loggedInUsername = auth.getName();
 
         // Fetch posts and comments made by the logged-in user
         model.addAttribute("verses", verseRepo.findAllByUser(loggedInUser));
         model.addAttribute("comments", commentRepo.findAll());
+        model.addAttribute("username", loggedInUsername);
 
         return "profile/profileview";
     }
