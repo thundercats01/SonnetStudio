@@ -431,8 +431,6 @@
 .wrapper {
     display: inline-flex;
     list-style: none;
-    font-family: "Poppins", sans-serif;
-    justify-content: center;
 }
 
 .wrapper .icon {
@@ -441,9 +439,7 @@
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    font-size: 18px;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);

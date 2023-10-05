@@ -30,7 +30,12 @@ public class CreateVerseController {
 
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     String loggedInUsername = auth.getName();
+
+        User loggedInUser = usersDAO.findByUsername(loggedInUsername);
+
+        String userBadge = loggedInUser.getCurrentBadge();
     model.addAttribute("username",loggedInUsername);
+    model.addAttribute("currentBadge", userBadge);
     return"profile/createverse";
 }
 
