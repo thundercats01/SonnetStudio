@@ -391,3 +391,22 @@
         opacity: 1;
     }
 }
+
+.navbar-toggler{
+    border-style: unset;
+}
+
+/* TESTING */
+.contents-reverse {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slide-in1 1s forwards;
+}
+
+@keyframes slide-in1 {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
