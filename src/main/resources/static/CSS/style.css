@@ -129,6 +129,9 @@
 }
 
 .first-content1 {
+    border-style: solid;
+    border-color: darkorange;
+    overflow: hidden;
     background-color: #2D4355;
     height: 100%;
     width: 100%;
@@ -146,6 +149,7 @@
 }
 
 .second-content1 {
+    overflow: hidden;
     height: 0%;
     width: 100%;
     opacity: 0;
@@ -167,4 +171,84 @@
 
 .bg-index2{
     background-color: #1a3f5e;
+}
+
+/*Beta test*/
+
+.card-1 {
+    display: flex;
+    height: 70px;
+    width: 270px;
+}
+
+.card-1 svg {
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    opacity: 1;
+    transition: opacity 0.25s;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.card-1 .social-link1,.card-1 .social-link2,.card-1 .social-link3,.card-1 .social-link4 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    color: whitesmoke;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.25s;
+    border-radius: 50px;
+}
+
+.card-1 svg {
+    transform: scale(1);
+}
+
+.card-1 .social-link1:hover {
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    animation: bounce_613 0.4s linear;
+}
+
+.card-1 .social-link2:hover {
+    background-color: #00ccff;
+    animation: bounce_613 0.4s linear;
+}
+
+.card-1 .social-link3:hover {
+    background-color: #5865f2;
+    animation: bounce_613 0.4s linear;
+}
+
+.card-1 .social-link4:hover {
+    background-color: #12a50b;
+    animation: bounce_613 0.4s linear;
+}
+
+@keyframes bounce_613 {
+    40% {
+        transform: scale(1.4);
+    }
+
+    60% {
+        transform: scale(0.8);
+    }
+
+    80% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
