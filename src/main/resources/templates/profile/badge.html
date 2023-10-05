@@ -83,7 +83,9 @@
                         </div>
                     </div>
                     <div class="col d-flex align-items-center">
-                        <button type="button" class="btn btn-primary">Select</button>
+                        <form th:action="@{/apple-badge}" th:method="POST">
+                        <input type="submit" value="Select" class="btn btn-primary">
+                        </form>
                     </div>
                 </div>
             </div>

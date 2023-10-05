@@ -18,15 +18,21 @@
                         <div class="text-center mb-4">
                             <h4 class="text-uppercase mt-0">Edit Profile</h4>
                         </div>
-                        <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+                        <form th:action="@{/edit-profile}" method="POST">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
-                                <input th:field="*{username}" class="form-control" type="text" id="username" placeholder="Enter your username" required="">
+                                <input name="username" class="form-control" type="text" id="username" placeholder="Enter your username" required="">
                             </div>
                             <div class="mb-3">
                                 <label for="emailaddress" class="form-label">Email address</label>
-                                <input th:field="*{email}" class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                <input name="email" class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
                             </div>
+
+                            <div class="mb-3">
+                                <label for="bio" class="form-label">Bio</label>
+                                <input name="bio" class="form-control" type="text" id="bio" required="" placeholder="Enter Bio">
+                            </div>
+
                             <div class="mb-3 text-center d-grid">
                                 <button class="btn btn-primary" type="submit"> Save </button>
                             </div>
