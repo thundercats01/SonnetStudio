@@ -177,14 +177,14 @@
 
 .card-1 {
     display: flex;
-    height: 70px;
+    height: 5rem;
     width: 25rem;
 }
 
 .card-1 svg {
     position: absolute;
     display: flex;
-    width: 60%;
+    width: 35%;
     height: 100%;
     font-size: 24px;
     font-weight: 700;
@@ -199,7 +199,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25%;
+    width: 4rem;
+    height: 4rem;
     color: whitesmoke;
     font-size: 24px;
     text-decoration: none;
@@ -374,3 +375,19 @@
 }
 
 
+
+.contents {
+    animation: slideIn 0.5s forwards;
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
