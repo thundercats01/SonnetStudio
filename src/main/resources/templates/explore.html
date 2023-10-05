@@ -12,15 +12,24 @@
 <body >
 
 <div class="container mt-5">
-    <div class="card p-4">
-
+    <div class="row">
+        <div class="col">
+            <div class="search-panels">
+                <div class="search-group">
+                    <input required="" type="text" name="text" autocomplete="on" class="input">
+                    <label class="enter-label">Search</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-4">
         <!-- Example of a Post with Avatar, Username and Comments -->
         <div class="row mb-4">
-            <div class="col-md-12">
-                <div class="card shadow-sm" th:each="verse : ${verses}">
+            <div class="col-md-12 pt-4" th:each="verse : ${verses}">
+                <div class="card shadow-sm radius-card-c">
 
                     <!-- Avatar and Username section -->
-                    <div class="card-header d-flex align-items-center">
+                    <div class="card-header d-flex align-items-center radius-card-c">
                         <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"
                              width="40" height="40">
                         <span class="ms-3" th:text="${verse.getUser().getUsername()}">Username</span>
@@ -45,7 +54,7 @@
 
                             <!-- List of all comments -->
                             <div th:each="comment : ${comments}" class="comment">
-                                <div th:if="${comment.getPostId() eq verse.getId()}">
+                                <div th:if="${comment.getPostId() eq verse.getId()}" class="pt-5">
                                     <div class="row card border-primary">
                                         <div class="card-header">
                                            <span  th:text="${comment.getUser().getUsername()}"><strong>Username</strong></span>
