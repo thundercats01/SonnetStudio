@@ -59,7 +59,7 @@ public class ProfileController {
 
         verseRepo.deleteById(postid);
 
-        return "profile/usersprofileview";
+        return "profile/profileview";
     }
 
 }
