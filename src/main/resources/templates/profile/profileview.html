@@ -74,6 +74,10 @@
                                     </button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Like</button>
                                 </div>
+                                <form th:action="@{/post_delete}" th:method="post">
+                                    <input type="hidden" name="postid" th:value="${verse.getId()}">
+                                    <input type="submit" class="btn btn-primary" value="Delete">
+                                </form>
                                 <span class="latest-comment">Latest: <strong>Username1:</strong> Great song!</span>
                                 <!-- Display the most recent comment -->
                             </div>
