@@ -19,7 +19,7 @@
 <header>
     <div th:insert="partials/navbar :: nav-bar"></div>
 </header>
-<body class="bg-gold">
+<body>
 
 <div class="container">
     <div class="row pt-5">
@@ -78,8 +78,6 @@
                                     <input type="hidden" name="postid" th:value="${verse.getId()}">
                                     <input type="submit" class="btn btn-primary" value="Delete">
                                 </form>
-                                <span class="latest-comment">Latest: <strong>Username1:</strong> Great song!</span>
-                                <!-- Display the most recent comment -->
                             </div>
 
                         </div>
@@ -107,34 +105,34 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="row pt-4 pb-4">
-                                <a class="nav-link d-flex justify-content-center btn-sm" th:href="@{/badge}">View
-                                    Badges</a>
+                        <div class="row pt-3">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <a class="nav-link d-flex justify-content-center btn-sm" th:href="@{/badge}">View
+                                            Badges</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-
-                        <div class="row d-flex justify-content-center">
-                            (USERNAME)
-                        </div>
-
+                        <h2 class="row d-flex justify-content-center active" th:text="${username}">username</h2>
                         <div class="card shadow-sm">
                             <div class="card-body">
                                 <p class="card-text">
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid, animi at atque enim expedita illum incidunt ipsam nihil nisi nostrum nulla odio officia reiciendis reprehenderit rerum similique sint voluptate.</span>
+                                    <span>Bio</span>
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row pt-3">
                         <div class="col d-flex justify-content-center">
-                            FOLLOWERS, a button
+                            <button type="button" class="btn border-primary">FOLLOWERS</button>
                         </div>
                         <div class="col d-flex justify-content-center">
-                            FOLLOWING, a button
+                            <button type="button" class="btn border-primary">FOLLOWING</button>
                         </div>
                     </div>
 

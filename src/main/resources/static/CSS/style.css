@@ -14,14 +14,16 @@
     right: -400px;
     width: 400px;
     height: 100%;
-    background-color: #f7f7f7;
-    /*padding: 20px;*/
-    border-style: solid;
+    background-color: rgb(164 81 0 / 39%);
+    backdrop-filter: blur(10px);
     transition: right 0.3s;
-    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
     overflow-y: auto; /* for content scrolling */
+    border-radius: 2%;
+    border: solid;
+
 }
+
 
 .side-panel::before,
 .side-panel::after {
@@ -29,8 +31,10 @@
     position: absolute;
     width: 24px;
     height: 100%;
-    background-color: #d6d6d6;
-    border-radius: 12px 0 0 12px;
+    background-color: rgb(164 81 0 / 39%);
+    backdrop-filter: blur(10px);
+    border-radius: 2%;
+    border: solid;
 }
 
 .side-panel::before {
@@ -46,14 +50,12 @@
 }
 
 .btn-md{
-    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
     width: 7rem;
-    background-color: #333333;
+
     color: white;
 }
 
 .profile-card{
-    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
     border-style: solid;
 }
 
@@ -107,3 +109,62 @@
     backdrop-filter: blur(10px);
 }
 
+/* Testing */
+
+.card1 {
+    height: 13rem;
+    transition: all 0.4s;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.705);
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.card1:hover {
+    border-radius: 1rem;
+    /*cursor: pointer;*/
+    transform: scale(1.2);
+    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+    background: #4E5D6C;
+}
+
+.first-content1 {
+    background-color: #2D4355;
+    height: 100%;
+    width: 100%;
+    transition: all 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    border-radius: 1rem;
+}
+
+.card1:hover .first-content1 {
+    height: 0px;
+    opacity: 0;
+}
+
+.second-content1 {
+    height: 0%;
+    width: 100%;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    transition: all 0.4s;
+    font-size: 15px!important;
+    transform: rotate(90deg) scale(-1);
+}
+
+.card1:hover .second-content1 {
+    opacity: 1;
+    height: 100%;
+    font-size: 1.8rem;
+    transform: rotate(0deg);
+}
+
+.bg-index2{
+    background-color: #1a3f5e;
+}
