@@ -41,6 +41,8 @@ public class ProfileController {
         model.addAttribute("verses", verses);
         model.addAttribute("comments", commentRepo.findAll());
         model.addAttribute("username", loggedInUsername);
+        model.addAttribute("bio",loggedInUser.getBio());
+        model.addAttribute("currentBadge",loggedInUser.getCurrentBadge());
 
         return "profile/profileview";
     }

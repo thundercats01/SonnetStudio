@@ -90,7 +90,7 @@
             <div class="container-fluid profile-container">
                 <div class="row">
                     <div class="col justify-content-center">
-                        <img src="/capstone_IMGs/badges/badge-default.png"
+                        <img th:src="@{|${currentBadge}|}"
                              class="img-fluid rounded-circle badge-img-profile border border-dark"
                              alt="Responsive image">
                         <!--                        Ask Jason-->
@@ -129,7 +129,7 @@
                         <div class="card shadow-sm">
                             <div class="card-body">
                                 <p class="card-text">
-                                    <span>Bio</span>
+                                    <span th:text="${bio}">Bio</span>
                                 </p>
                             </div>
                         </div>
