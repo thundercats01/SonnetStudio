@@ -178,7 +178,7 @@
 .card-1 {
     display: flex;
     height: 70px;
-    width: 270px;
+    width: 25rem;
 }
 
 .card-1 svg {
@@ -194,7 +194,7 @@
     cursor: pointer;
 }
 
-.card-1 .social-link1,.card-1 .social-link2,.card-1 .social-link3,.card-1 .social-link4 {
+.card-1 .social-link1,.card-1 .social-link2,.card-1 .social-link3,.card-1 .social-link4,.card-1 .social-link5  {
     position: relative;
     display: flex;
     align-items: center;
@@ -231,7 +231,12 @@
 }
 
 .card-1 .social-link4:hover {
-    background-color: #12a50b;
+    background-color: #0765FF;
+    animation: bounce_613 0.4s linear;
+}
+
+.card-1 .social-link5:hover{
+    background-color: #080808;
     animation: bounce_613 0.4s linear;
 }
 
