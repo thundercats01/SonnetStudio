@@ -18,7 +18,7 @@ public class EditProfileController {
     }
 
 
-    @GetMapping("edit-profile")
+    @GetMapping("/edit-profile")
     public String showEditProfile(Model model) {
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = userRepo.findByUsername(loggedInPrinciple.getUsername());
