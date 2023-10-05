@@ -25,23 +25,37 @@
                 </div>
 
                 <div class="row pt-4">
-                    <div class="col">
-                        <div class="d-flex align-items-start">
-                            <h1>Create Post</h1>
-                        </div>
-                    </div>
-                    <div class="col d-flex justify-content-end">
-                        <a id="toggleBtn"
-                           class="btn btn-primary btn-sm btn-size waves-effect waves-light ">Shakespeare</a>
-                    </div>
                     <div class="row">
                         <div class="col">
-                            <form id="myForm" th:action="@{/create}" method="post">
-                            <textarea name="verseText" rows="3" style="min-height: 40vh" class="form-control flex-grow-1" placeholder="Post a new message"></textarea>
-                                <div class="row pt-1">
-                                    <input type="submit" class="btn btn-dark border-primary my-3">
+                            <div class="card" style="width: 100%; border-radius: 2rem;">
+                                <div class="card-body">
+                                    <div class="card-title border-bottom row">
+                                        <h5 class="col">Create Post</h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-big">
+                                            <form id="myForm" th:action="@{/create}" method="post">
+                                                <textarea name="verseText" rows="3" style="min-height: 40vh" class="form-control form-custom flex-grow-1" placeholder="Post a new message"></textarea>
+                                                <div class="row pt-1">
+                                                    <input type="submit" class="btn btn-dark border-primary my-3">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-sm">
+                                            <ul class="wrapper pt-5">
+                                                <li class="icon facebook">
+                                                    <span class="tooltip"> Shakespeare </span>
+                                                    <span><i class="fab fa-facebook-f">
+                                                        <a id="toggleBtn"
+                                                           class="btn btn-sm btn-size waves-effect waves-light col align-self-end">
+                                                        </a>
+                                                    </i></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
