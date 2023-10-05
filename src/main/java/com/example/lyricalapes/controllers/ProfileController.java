@@ -55,11 +55,11 @@ public class ProfileController {
     }
 
     @PostMapping("/post_delete")
-    public String RemoveSelectedPost(@PathVariable @RequestParam Long postid) {
+    public String RemoveSelectedPost(@RequestParam Long postid) {
 
         verseRepo.deleteById(postid);
 
-        return "profile/profileview";
+        return "redirect:/profile";
     }
 
 }
