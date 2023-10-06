@@ -56,7 +56,10 @@
 }
 
 .profile-card{
+    /*background-color: #df6919cf;*/
     border-style: solid;
+    border-radius: 2rem;
+
 }
 
 /* test */
@@ -541,4 +544,8 @@
     padding-left: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.card-radius{
+    border-radius: 2rem;
 }
