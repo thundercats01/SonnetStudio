@@ -56,7 +56,10 @@
 }
 
 .profile-card{
+    /*background-color: #df6919cf;*/
     border-style: solid;
+    border-radius: 2rem;
+
 }
 
 /* test */
@@ -545,7 +548,8 @@
     padding-bottom: 1rem;
 }
 
-
+.card-radius{
+    border-radius: 2rem;
 
 .nav-link {
     background-image: linear-gradient(
@@ -582,4 +586,5 @@
 
 .nav-link:hover::before {
     width:100%;
+
 }
