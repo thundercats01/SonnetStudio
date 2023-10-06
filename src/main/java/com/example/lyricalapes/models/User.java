@@ -45,12 +45,6 @@ public class User {
     @Column
     private String currentBadge = "/capstone_IMGs/badges/badge-default.png";
 
-    @Column
-    private int likesCount;
-
-    @Column
-    private int pointsCount;
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Like> likes;
 
@@ -84,8 +78,6 @@ public class User {
         this.following = following;
         this.comments = comments;
         this.bio = bio;
-        this.likesCount = likesCount;
-        this.pointsCount = pointsCount;
     }
 
     public User() {
@@ -151,21 +143,6 @@ public class User {
         this.bio = bio;
     }
 
-    public int getLikesCount() {
-        return likesCount;
-    }
-
-    public void setLikesCount(int likesCount) {
-        this.likesCount = likesCount;
-    }
-
-    public int getPointsCount() {
-        return pointsCount;
-    }
-
-    public void setPointsCount(int pointsCount) {
-        this.pointsCount = pointsCount;
-    }
 
     public List<User> getFollowers() {
         return followers;
