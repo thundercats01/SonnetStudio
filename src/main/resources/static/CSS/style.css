@@ -246,10 +246,11 @@
 }
 
 .input {
-    width: var(--width-input);
+    width: 100%;
     border: solid 1.5px var(--default-color);
     border-radius: 80px;
-    background: none;
+    background: rgb(255 255 255 / 10%);
+    backdrop-filter: blur(10px);
     padding: 1rem;
     padding-right: 3rem;
     font-size: 1rem;
@@ -527,5 +528,17 @@
     left: -40px;
 }
 
+.card-size1{
+    height: 41rem;
+    border-radius: 2rem;
+}
 
 
+.card-2{
+    background-color: rgb(255 255 255 / 50%);
+    color: black;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
