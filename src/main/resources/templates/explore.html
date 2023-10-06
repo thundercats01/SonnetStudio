@@ -9,7 +9,7 @@
     </style>
 </head>
 <div th:insert="partials/navbar :: nav-bar"></div>
-<body >
+<body>
 
 <div class="container mt-5">
     <div class="row">
@@ -29,10 +29,16 @@
                 <div class="card shadow-sm radius-card-c">
 
                     <!-- Avatar and Username section -->
+                    <!--                    <div class="card-header d-flex align-items-center radius-card-c">-->
+                    <!--                        <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"-->
+                    <!--                             width="40" height="40">-->
+                    <!--                        <span class="ms-3" th:text="${verse.getUser().getUsername()}">Username</span>-->
+                    <!--                    </div>-->
+
                     <div class="card-header d-flex align-items-center radius-card-c">
                         <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"
                              width="40" height="40">
-                        <span class="ms-3" th:text="${verse.getUser().getUsername()}">Username</span>
+                        <a th:href="@{|/profile/${verse.user.id}|}" th:text="${verse.getUser().getUsername()}">Username</a>
                     </div>
 
                     <div class="card-body">
@@ -56,11 +62,20 @@
                             <div th:each="comment : ${comments}" class="comment">
                                 <div th:if="${comment.getPostId() eq verse.getId()}" class="pt-5">
                                     <div class="row card border-primary">
+                                        <!--                                        <div class="card-header">-->
+                                        <!--                                            <img th:src="${comment.getUser().getCurrentBadge()}" alt="badge" class="rounded-circle"-->
+                                        <!--                                                 width="40" height="40">-->
+                                        <!--                                           <span  th:text="${comment.getUser().getUsername()}"><strong>Username</strong></span>-->
+                                        <!--                                        </div>-->
                                         <div class="card-header">
-                                            <img th:src="${comment.getUser().getCurrentBadge()}" alt="badge" class="rounded-circle"
+                                            <img th:src="${comment.getUser().getCurrentBadge()}" alt="badge"
+                                                 class="rounded-circle"
                                                  width="40" height="40">
-                                           <span  th:text="${comment.getUser().getUsername()}"><strong>Username</strong></span>
+<!--                                            <a th:href="@{/profile/{id}(id=${comment.user.id})}"-->
+                                            <a th:href="@{|/profile/${comment.user.id}|}"
+                                               th:text="${comment.getUser().getUsername()}">Username</a>
                                         </div>
+
                                         <div class="card-body">
                                             <span class=" card-title" th:text="${comment.getContent()}"></span>
                                         </div>
