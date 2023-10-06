@@ -57,7 +57,6 @@ public class ProfileController {
         model.addAttribute("username", loggedInUsername);
         model.addAttribute("bio",loggedInUser.getBio());
         model.addAttribute("currentBadge",loggedInUser.getCurrentBadge());
-        model.addAttribute("points",loggedInUser.getPointsCount());
         model.addAttribute("likes",totalLikesOfLoggedinUser);
 
         return "profile/profileview";
