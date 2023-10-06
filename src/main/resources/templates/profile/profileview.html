@@ -119,7 +119,7 @@
                                 <form th:action="@{/explore}" th:method="post">
                                     <input type="hidden" name="postid" th:value="${verse.getId()}">
                                     <input type="text" name="userComment" class="form-control"
-                                           placeholder="Add a comment..."/>
+                                           placeholder="Add a comment..." required/>
                                     <input class="btn btn-primary  mt-2" value="Post Comment" type="submit">
                                 </form>
                             </div>
