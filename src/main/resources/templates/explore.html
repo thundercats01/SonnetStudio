@@ -89,7 +89,11 @@
                                     <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show
                                         Comments
                                     </button>
-                                    <button type="button" class="btn btn-sm btn-primary">Like</button>
+                                    <form th:method="POST" th:action="@{/like}">
+                                        <input hidden name="verse-id" th:value="${verse.id}">
+                                        <input type="submit" value="Like" class="btn btn-sm btn-primary">
+                                    </form>
+                                    <div class="btn btn-sm btn-primary"><span th:text="${#lists.size(verse.likes)}"></span> Likes</div>
                                 </div>
 
                                 <!-- Display the most recent comment -->

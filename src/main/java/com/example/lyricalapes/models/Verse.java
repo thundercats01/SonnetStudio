@@ -25,6 +25,12 @@ public class Verse {
 
     @Column
     private String genre;
+
+    @OneToMany(mappedBy = "verse", cascade = CascadeType.PERSIST)
+    private List<Comment> comments;
+
+    @OneToMany(mappedBy = "verse", cascade = CascadeType.PERSIST)
+    private List<Like> likes;
     ///////CONSTRUCTORS ////////
 
     public Verse() {
@@ -41,11 +47,7 @@ public class Verse {
         this.likes = likes;
     }
 
-    @OneToMany(mappedBy = "verse", cascade = CascadeType.PERSIST)
-    private List<Comment> comments;
 
-    @OneToMany(mappedBy = "verse", cascade = CascadeType.PERSIST)
-    private List<Like> likes;
     //////GETTER & SETTER//////
     public long getId() {
         return id;
