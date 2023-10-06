@@ -60,40 +60,9 @@
 }
 
 /* test */
-.icon-container {
-    position: relative;
-    width: 200px;
-    height: 50px;
-    overflow: hidden;
-}
 
-.icon {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    cursor: pointer;
-    position: absolute;
-    left: 0;
-    transition: left 0.3s ease;
-}
 
-.text {
-    width: 150px;
-    height: 50px;
-    line-height: 50px;
-    /*color: #fff;*/
-    position: absolute;
-    left: -150px;
-    transition: left 0.3s ease;
-}
-
-.icon-container:hover .icon {
-    left: 150px;
-}
-
-.icon-container:hover .text {
-    left: 0;
-}
+/* end */
 
 .bg-color-index{
     background-color: #D7B55F;
