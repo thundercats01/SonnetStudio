@@ -52,10 +52,41 @@ public class ProfileController {
 
     @GetMapping("/profile/{id}")
     public String ShowOtherUserProfile(@PathVariable Long id, Model model) {
+        // Get the logged-in user
+        User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
+
         User clickedUser = usersDAO.findById(id).get();
-        model.addAttribute("user", clickedUser);
-        return "profile/usersprofileview";
+
+        // Check if the profile being viewed is of the logged-in user
+        if (loggedInUser.getId() == clickedUser.getId()) { // <-- Use == for primitive long comparison
+            // Fetch posts made by the logged-in user in descending order by ID
+            List<Verse> verses = verseRepo.findAllByUserOrderByIdDesc(loggedInUser);
+
+            model.addAttribute("verses", verses);
+            model.addAttribute("comments", commentRepo.findAll());
+            model.addAttribute("username", loggedInUser.getUsername());
+            model.addAttribute("bio", loggedInUser.getBio());
+            model.addAttribute("currentBadge", loggedInUser.getCurrentBadge());
+
+            return "profile/profileview";
+        } else {
+            // Fetch posts and comments made by the clicked user
+            List<Verse> verses = verseRepo.findAllByUserOrderByIdDesc(clickedUser);
+            model.addAttribute("verses", verses);
+            model.addAttribute("comments", commentRepo.findAll());
+
+            // Additional data for the clicked user
+            model.addAttribute("user", clickedUser);
+            model.addAttribute("bio", clickedUser.getBio());
+            model.addAttribute("currentBadge", clickedUser.getCurrentBadge());
+
+            return "profile/usersprofileview";
+        }
     }
+
+
+
 
     @PostMapping("/post_delete")
     public String RemoveSelectedPost(@RequestParam Long postid) {
