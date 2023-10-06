@@ -42,6 +42,7 @@
 
                             <p class="card-2 card-text" th:text="${verse.getContent()}">Song verse here...</p>
 
+
                             <!-- Comments Section - Start hidden by default -->
                             <div class="comments-section mt-3" style="display: none;">
 
@@ -50,7 +51,7 @@
                                     <form th:action="@{/explore}" th:method="post">
                                         <input type="hidden" name="postid" th:value="${verse.getId()}">
                                         <input type="text" name="userComment" class="form-control"
-                                               placeholder="Add a comment..."/>
+                                               placeholder="Add a comment..." required/>
                                         <input class="btn btn-primary  mt-2" value="Post Comment" type="submit">
                                     </form>
                                 </div>
@@ -81,6 +82,8 @@
                                 </div>
                                 <!-- ... add more comments as needed -->
                             </div>
+
+
 
                             <!-- The Comments and Like buttons -->
                             <div class="d-flex justify-content-between align-items-center">

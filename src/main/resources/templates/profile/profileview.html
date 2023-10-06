@@ -23,130 +23,69 @@
 
 <div class="container">
     <div class="row pt-5">
-        <div class="col-8">
-
-
-            <!-- Example of a Post with Avatar, Username and Comments -->
-            <div class="row mb-4">
-                <div class="col-md-12">
-                    <div class="card shadow-sm" th:each="verse : ${verses}">
-
-
-                        <div class="row">
-                            <div class="col">
-                                <!-- Avatar and Username section -->
-                                <div class="card-header d-flex align-items-center">
-                                    <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"
-                                         width="40" height="40">
-                                    <span class="ms-3" th:text="${verse.getUser().getUsername()}">Username</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text" th:text="${verse.getContent()}">Song verse here...</p>
-
-                            <!-- Comments Section - Start hidden by default -->
-                            <div class="comments-section mt-3" style="display: none;">
-
-                                <!-- Add Comment Section -->
-                                <div class="add-comment mt-2">
-                                    <form th:action="@{/explore}" th:method="post">
-                                        <input type="hidden" name="postid" th:value="${verse.getId()}">
-                                        <input type="text" name="userComment" class="form-control"
-                                               placeholder="Add a comment..."/>
-                                        <input class="btn btn-primary mt-2" value="Post Comment" type="submit">
-                                    </form>
-                                </div>
-
-                                <!-- List of all comments -->
-                                <div th:each="comment : ${comments}" class="comment">
-                                    <div th:if="${comment.getPostId() eq verse.getId()}">
-                                        <span th:text="${comment.getContent()}"></span>
-                                    </div>
-                                </div>
-                                <!-- ... add more comments as needed -->
-                            </div>
-
-                            <!-- The Comments and Like buttons -->
-                            <div class="align-items-center">
-                                <div class="btn-group">
-                                    <!-- Add data-comments-toggle attribute to identify it as the button that will toggle comments -->
-                                    <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>
-                                        Show
-                                        Comments
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-primary">Like</button>
-                                    <form th:action="@{/post_delete}" th:method="post">
-                                        <input type="hidden" name="postid" th:value="${verse.getId()}">
-                                        <button class="noselect custom-button">
-                                            <span class="text1">Delete</span>
-                                            <span class="icon1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="col-4 pt-4 pb-2 profile-card">
-
             <div class="container-fluid profile-container">
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col justify-content-center">
+<!--                        IMG-->
                         <img th:src="@{|${currentBadge}|}"
                              class="img-fluid rounded-circle badge-img-profile border border-dark"
                              alt="Responsive image">
-                        <!--                        Ask Jason-->
-                        <!--                        <button class="btn1">edit</button>-->
-                        <div class="row pt-3">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <span class="d-flex justify-content-center" th:text="${likes + ' Likes'}"></span>
-                                    </p>
-                                </div>
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="active text-center pt-4" th:text="${username}">username</h3>
                             </div>
                         </div>
-                        <div class="row pt-3">
-                            <div class="btn btn-outline-primary">
+                    </div>
+
+
+                    <div class="col">
+                        <!--                        BADGES-->
+                        <div class="row pt-2">
+                            <div class="btn-group">
                                 <div class="card-body">
                                     <p class="card-text">
-                                        <a class="nav-link d-flex justify-content-center btn-sm" th:href="@{/badge}">View
+                                        <a class="btn btn-outline-primary d-flex justify-content-center " th:href="@{/badge}">View
                                             Badges</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="row pt-3">
-                            <div class="btn btn-outline-primary">
+                        <!--                        EDIT PROFILE-->
+                        <div class="row pt-2">
+                            <div class="btn-group">
                                 <div class="card-body">
                                     <p class="card-text">
-                                        <a class="nav-link d-flex justify-content-center btn-sm"
+                                        <a class=" btn btn-outline-primary d-flex justify-content-center "
                                            th:href="@{/edit-profile}">Edit Profile</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
+                        <!--                        POINT-->
+                        <div class="row pt-2">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                            <span class="d-flex justify-content-center" th:text="${likes + ' Likes'}"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <h2 class="row d-flex justify-content-center active" th:text="${username}">username</h2>
-                        <div class="card shadow-sm">
+
+                    <div class="row pt-4">
+                        <div class="card shadow-sm card-radius">
                             <div class="card-body">
+                                <h5 class="card-title">BIO:</h5>
                                 <p class="card-text">
                                     <span th:text="${bio}">Bio</span>
                                 </p>
                             </div>
                         </div>
                     </div>
-
                     <div class="row pt-3">
                         <div class="col d-flex justify-content-center">
                             <button type="button" class="btn btn-primary">FOLLOWERS</button>
@@ -155,12 +94,81 @@
                             <button type="button" class="btn btn-primary">FOLLOWING</button>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
+        <div class="col-8">
+            <div class="col-md-12 pb-3" th:each="verse : ${verses}">
+                <div class="card shadow-sm radius-card-c">
+                    <div class="card-header d-flex align-items-center radius-card-c">
+                        <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"
+                             width="40" height="40">
+                        <a th:href="@{|/profile/${verse.user.id}|}" th:text="${verse.getUser().getUsername()}">Username</a>
+                    </div>
+                    <div class="card-body">
 
+                        <p class="card-2 card-text" th:text="${verse.getContent()}">Song verse here...</p>
+
+
+                        <!-- Comments Section - Start hidden by default -->
+                        <div class="comments-section mt-3" style="display: none;">
+
+                            <!-- Add Comment Section -->
+                            <div class="add-comment mt-2">
+                                <form th:action="@{/explore}" th:method="post">
+                                    <input type="hidden" name="postid" th:value="${verse.getId()}">
+                                    <input type="text" name="userComment" class="form-control"
+                                           placeholder="Add a comment..." required/>
+                                    <input class="btn btn-primary  mt-2" value="Post Comment" type="submit">
+                                </form>
+                            </div>
+
+                            <!-- List of all comments -->
+                            <div th:each="comment : ${comments}" class="comment">
+                                <div th:if="${comment.getPostId() eq verse.getId()}" class="pt-5">
+                                    <div class="row card border-primary">
+                                        <!--                                        <div class="card-header">-->
+                                        <!--                                            <img th:src="${comment.getUser().getCurrentBadge()}" alt="badge" class="rounded-circle"-->
+                                        <!--                                                 width="40" height="40">-->
+                                        <!--                                           <span  th:text="${comment.getUser().getUsername()}"><strong>Username</strong></span>-->
+                                        <!--                                        </div>-->
+                                        <div class="card-header">
+                                            <img th:src="${comment.getUser().getCurrentBadge()}" alt="badge"
+                                                 class="rounded-circle"
+                                                 width="40" height="40">
+                                            <!--                                            <a th:href="@{/profile/{id}(id=${comment.user.id})}"-->
+                                            <a th:href="@{|/profile/${comment.user.id}|}"
+                                               th:text="${comment.getUser().getUsername()}">Username</a>
+                                        </div>
+
+                                        <div class="card-body">
+                                            <span class=" card-title" th:text="${comment.getContent()}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ... add more comments as needed -->
+                        </div>
+
+
+
+                        <!-- The Comments and Like buttons -->
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <!-- Add data-comments-toggle attribute to identify it as the button that will toggle comments -->
+                                <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show
+                                    Comments
+                                </button>
+                                <button type="button" class="btn btn-sm btn-primary">Like</button>
+                            </div>
+
+                            <!-- Display the most recent comment -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

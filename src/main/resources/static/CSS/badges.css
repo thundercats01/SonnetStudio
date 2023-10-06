@@ -5,7 +5,10 @@
 }
 
 .badge-img-profile{
-    width: 11rem;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .btn1 {
