@@ -366,7 +366,9 @@
 }
 
 .navbar-toggler{
-    border-style: unset;
+    border-style: none;
+    background-color: rgba(0, 0, 0, 0.27);
+
 }
 
 /* TESTING */
@@ -548,4 +550,41 @@
 
 .card-radius{
     border-radius: 2rem;
+
+.nav-link {
+    background-image: linear-gradient(
+            to right,
+            white,
+            white 50%,
+            white 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:before {
+    content: '';
+    background: white;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    background-position: 0;
+}
+
+.nav-link:hover::before {
+    width:100%;
+
 }
