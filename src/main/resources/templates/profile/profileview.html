@@ -42,10 +42,10 @@
                     <div class="col">
                         <!--                        BADGES-->
                         <div class="row pt-2">
-                            <div class="btn btn-outline-primary">
+                            <div class="btn-group">
                                 <div class="card-body">
                                     <p class="card-text">
-                                        <a class="nav-link d-flex justify-content-center btn-sm" th:href="@{/badge}">View
+                                        <a class="btn btn-outline-primary d-flex justify-content-center " th:href="@{/badge}">View
                                             Badges</a>
                                     </p>
                                 </div>
@@ -53,10 +53,10 @@
                         </div>
                         <!--                        EDIT PROFILE-->
                         <div class="row pt-2">
-                            <div class="btn btn-outline-primary">
+                            <div class="btn-group">
                                 <div class="card-body">
                                     <p class="card-text">
-                                        <a class="nav-link d-flex justify-content-center btn-sm"
+                                        <a class=" btn btn-outline-primary d-flex justify-content-center "
                                            th:href="@{/edit-profile}">Edit Profile</a>
                                     </p>
                                 </div>
@@ -64,12 +64,14 @@
                         </div>
                         <!--                        POINT-->
                         <div class="row pt-2">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="card-text text-center">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
                                         <span class="d-flex justify-content-center"
                                               th:text="${points + ' Points'}"></span>
-                                    </p>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
