@@ -1,4 +1,5 @@
 package com.example.lyricalapes.repositories;
+
 import com.example.lyricalapes.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 

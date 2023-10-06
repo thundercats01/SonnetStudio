@@ -1,8 +1,12 @@
 package com.example.lyricalapes.controllers;
 
+import com.example.lyricalapes.models.Like;
 import com.example.lyricalapes.models.User;
+import com.example.lyricalapes.models.Verse;
 import com.example.lyricalapes.repositories.BadgeRepo;
+import com.example.lyricalapes.repositories.LikeRepo;
 import com.example.lyricalapes.repositories.UserRepo;
+import com.example.lyricalapes.repositories.VerseRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,25 +14,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/")
 public class BadgePageController {
     private UserRepo userDao;
-    private BadgeRepo BadgesDao;
+    private BadgeRepo badgesDao;
+    private LikeRepo likesDao;
+    private VerseRepo versesDao;
 
-    public BadgePageController(UserRepo userDao, BadgeRepo badgesDao) {
+    public BadgePageController(UserRepo userDao, BadgeRepo badgesDao, LikeRepo likesDao, VerseRepo versesDao) {
         this.userDao = userDao;
-        BadgesDao = badgesDao;
+        this.badgesDao = badgesDao;
+        this.likesDao = likesDao;
+        this.versesDao = versesDao;
     }
 
     @GetMapping("/badge")
     public String showBadgePage(Model model) {
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = userDao.findByUsername(loggedInPrinciple.getUsername());
-        User user = userDao.findById(loggedInUser.getId()).get();
-
-        int likesCount = user.getLikesCount();
-        model.addAttribute("likes", likesCount);
+//        User user = userDao.findById(loggedInUser.getId()).get();
+        long totalLikesOfLoggedinUser = 0;
+        for(Verse verse : loggedInUser.getVerses()) {
+            List<Like> likesForThisVerse = likesDao.findAllByVerse(verse);
+            System.out.println(likesForThisVerse);
+            totalLikesOfLoggedinUser += likesForThisVerse.size();
+        }
+        model.addAttribute("likes",totalLikesOfLoggedinUser);
 
         return "profile/badge";
     }
