@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Controller
 //@RequestMapping("/")
@@ -37,14 +35,20 @@ public class ExploreController {
 
     @GetMapping("/explore")
     public String showExplorePage(Model model) {
+        User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
         List<Verse> allVersesInDescOrder = versesDAO.findAllByOrderByIdDesc();
+
+
+
         model.addAttribute("verses", allVersesInDescOrder);
         List<Comment> allComments = commentDAO.findAll();
         model.addAttribute("comments", commentDAO.findAll());
 
-        Map<Long, Long> commentCounts = allComments.stream()
-                .collect(Collectors.groupingBy(Comment::getPostId, Collectors.counting()));
-        model.addAttribute("commentCounts", commentCounts);
+
+//        Map<Verse, Long> commentCounts = allComments.stream()
+//                .collect(Collectors.groupingBy(Comment::getVerse, Collectors.counting()));
+//        model.addAttribute("commentCounts", commentCounts);
 
 
         return "explore";
@@ -60,12 +64,12 @@ public class ExploreController {
 //    }
 
     @PostMapping("/explore")
-    public String handleComments(@RequestParam String userComment, @RequestParam Long postid) {
+    public String handleComments(@RequestParam String userComment, @RequestParam Long verseId) {
         Comment comment = new Comment();
         comment.setContent(userComment);
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
-        comment.setPostId(postid);
+        comment.setVerse(versesDAO.findById(verseId).get());
         comment.setUser(loggedInUser);
         commentDAO.save(comment);
 //        System.out.println("blank");

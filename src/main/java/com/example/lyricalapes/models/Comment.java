@@ -20,9 +20,6 @@ public class Comment {
     @JoinColumn(name = "verse_id")
     private Verse verse;
 
-    @Column
-    private Long postId;
-
     ///////CONSTRUCTORS ////////
 
     public Comment() {
@@ -33,14 +30,6 @@ public class Comment {
         Content = content;
         this.user = user;
         this.verse = verse;
-    }
-
-    public Comment(long id, String content, User user, Verse verse, Long postId) {
-        this.id = id;
-        Content = content;
-        this.user = user;
-        this.verse = verse;
-        this.postId = postId;
     }
 
     //////GETTER & SETTER//////
@@ -76,13 +65,5 @@ public class Comment {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Long getPostId() {
-        return postId;
-    }
-
-    public void setPostId(Long postId) {
-        this.postId = postId;
     }
 }

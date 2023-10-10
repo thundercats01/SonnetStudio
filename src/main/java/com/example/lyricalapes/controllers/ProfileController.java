@@ -1,5 +1,6 @@
 package com.example.lyricalapes.controllers;
 
+import com.example.lyricalapes.models.Comment;
 import com.example.lyricalapes.models.Like;
 import com.example.lyricalapes.models.User;
 import com.example.lyricalapes.models.Verse;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -51,6 +53,13 @@ public class ProfileController {
             totalLikesOfLoggedinUser += likesForThisVerse.size();
         }
 
+        List<Comment> commentsPerVerse = new ArrayList<>();
+        for (Verse verse : loggedInUser.getVerses()) {
+            for (Comment comment : verse.getComments()) {
+                commentsPerVerse.add(comment);
+            }
+        }
+
 
         model.addAttribute("verses", verses);
         model.addAttribute("comments", commentRepo.findAll());
@@ -60,6 +69,7 @@ public class ProfileController {
         model.addAttribute("likes", totalLikesOfLoggedinUser);
         model.addAttribute("following", loggedInUser.getFollowers().size());
         model.addAttribute("followers", loggedInUser.getFollowing().size());
+        model.addAttribute("totalComments", commentsPerVerse.size());
 
         return "profile/profileview";
     }
@@ -114,9 +124,9 @@ public class ProfileController {
 //////  DELETE
 
     @PostMapping("/post_delete")
-    public String RemoveSelectedPost(@RequestParam Long postid) {
+    public String RemoveSelectedPost(@RequestParam Long verseId) {
 
-        verseRepo.deleteById(postid);
+        verseRepo.deleteById(verseId);
 
         return "redirect:/profile";
     }
