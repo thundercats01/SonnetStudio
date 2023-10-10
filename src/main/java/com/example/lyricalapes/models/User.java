@@ -1,5 +1,6 @@
 package com.example.lyricalapes.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,10 +16,13 @@ public class User {
     private String username;
     @Column(unique = true)
     private String email;
+    @JsonIgnore
     @Column
     private String password;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<Verse> verses;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "user_badges",
@@ -26,8 +30,10 @@ public class User {
             inverseJoinColumns = {@JoinColumn(name = "badges_id")}
     )
     private List<Badge> badges;
+    @JsonIgnore
     @ManyToMany(mappedBy = "following", cascade = CascadeType.PERSIST)
     private List<User> followers;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "followers",
@@ -36,6 +42,7 @@ public class User {
     )
     private List<User> following;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Comment> comments;
 
@@ -45,6 +52,7 @@ public class User {
     @Column
     private String currentBadge = "/capstone_IMGs/badges/badge-default.png";
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Like> likes;
 
