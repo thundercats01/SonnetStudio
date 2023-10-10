@@ -45,7 +45,7 @@ public class ProfileController {
 
         long totalLikesOfLoggedinUser = 0;
 //            for(Verse verse : versesByLoggedInUser) {
-        for(Verse verse : loggedInUser.getVerses()) {
+        for (Verse verse : loggedInUser.getVerses()) {
             List<Like> likesForThisVerse = likesDao.findAllByVerse(verse);
             System.out.println(likesForThisVerse);
             totalLikesOfLoggedinUser += likesForThisVerse.size();
@@ -55,13 +55,14 @@ public class ProfileController {
         model.addAttribute("verses", verses);
         model.addAttribute("comments", commentRepo.findAll());
         model.addAttribute("username", loggedInUsername);
-        model.addAttribute("bio",loggedInUser.getBio());
-        model.addAttribute("currentBadge",loggedInUser.getCurrentBadge());
-        model.addAttribute("likes",totalLikesOfLoggedinUser);
+        model.addAttribute("bio", loggedInUser.getBio());
+        model.addAttribute("currentBadge", loggedInUser.getCurrentBadge());
+        model.addAttribute("likes", totalLikesOfLoggedinUser);
+        model.addAttribute("following", loggedInUser.getFollowers().size());
+        model.addAttribute("followers", loggedInUser.getFollowing().size());
 
         return "profile/profileview";
     }
-
 
 
     @GetMapping("/profile/{id}")
@@ -98,12 +99,11 @@ public class ProfileController {
 //            List<Verse> versesByLoggedInUser = verseRepo.findAllByUserOrderByIdDesc(loggedInUser);
             long totalLikesOfLoggedinUser = 0;
 //            for(Verse verse : versesByLoggedInUser) {
-            for(Verse verse : loggedInUser.getVerses()) {
-               List<Like> likesForThisVerse = likesDao.findAllByVerse(verse);
+            for (Verse verse : loggedInUser.getVerses()) {
+                List<Like> likesForThisVerse = likesDao.findAllByVerse(verse);
                 System.out.println(likesForThisVerse);
                 totalLikesOfLoggedinUser += likesForThisVerse.size();
             }
-
 
 
             return "profile/usersprofileview";
@@ -111,13 +111,31 @@ public class ProfileController {
     }
 
 
-
+//////  DELETE
 
     @PostMapping("/post_delete")
     public String RemoveSelectedPost(@RequestParam Long postid) {
 
         verseRepo.deleteById(postid);
 
+        return "redirect:/profile";
+    }
+
+    ///////
+    @PostMapping("/follow")
+    public String FollowThatUser(@RequestParam Long userId) {
+        //other user
+        User userToFollow = usersDAO.findById(userId).get();
+        //logged in user
+        User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
+        /// adds user to my follower list
+        loggedInUser.addNewFollower(userToFollow);
+        // adds me too their following list
+        userToFollow.addNewFollowing(loggedInUser);
+
+        usersDAO.save(loggedInUser);
+        usersDAO.save(userToFollow);
         return "redirect:/profile";
     }
 

@@ -62,13 +62,27 @@
                                 </div>
                             </div>
                         </div>
-                        <!--                        POINT-->
+                        <!--                        LIKES-->
                         <div class="row pt-2">
                             <div class="col">
                                 <div class="card">
                                     <div class="card-body">
                                         <p class="card-text text-center">
                                             <span class="d-flex justify-content-center" th:text="${likes + ' Likes'}"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pt-2">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                            <span class="d-flex justify-content-center" th:text="${followers + ' followers'}"></span>
+                                            <span class="d-flex justify-content-center" th:text="${following + ' following'}"></span>
+
                                         </p>
                                     </div>
                                 </div>
