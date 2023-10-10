@@ -56,7 +56,14 @@
 }
 
 .profile-card{
-    /*background-color: #df6919cf;*/
+    background: linear-gradient(to right,
+    rgba(223, 105, 25, 1) 0%,
+    rgba(223, 105, 25, 0.83) 16.66%,
+    rgba(223, 105, 25, 0.66) 33.33%,
+    rgba(223, 105, 25, 0.5) 50%,
+    rgba(223, 105, 25, 0.33) 66.66%,
+    rgba(223, 105, 25, 0.16) 83.33%,
+    rgba(223, 105, 25, 0) 100%);
     border-style: solid;
     border-radius: 2rem;
 
@@ -588,4 +595,50 @@
 
 .nav-link:hover::before {
     width:100%;
+}
+
+.carousel.slide {
+    height: 100%;
+}
+
+.carousel .carousel-inner {
+    height: 100%;
+}
+
+.carousel .carousel-inner .carousel-item {
+    height: 100%;
+}
+
+.carousel .carousel-inner .carousel-item > img:first-of-type {
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.video-background {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-background video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.slow-video {
+    playback-rate: 0.5; /* Slow down the video to half its normal speed */
+}
+
+
+
+.content {
+    z-index: 1;
+    position: relative;
+    color: #ffffff; /* Adjust the text color for visibility */
 }
