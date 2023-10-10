@@ -1,12 +1,10 @@
 package com.example.lyricalapes.controllers;
 
+import com.example.lyricalapes.models.Comment;
 import com.example.lyricalapes.models.Like;
 import com.example.lyricalapes.models.User;
 import com.example.lyricalapes.models.Verse;
-import com.example.lyricalapes.repositories.BadgeRepo;
-import com.example.lyricalapes.repositories.LikeRepo;
-import com.example.lyricalapes.repositories.UserRepo;
-import com.example.lyricalapes.repositories.VerseRepo;
+import com.example.lyricalapes.repositories.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -23,12 +22,14 @@ public class BadgePageController {
     private BadgeRepo badgesDao;
     private LikeRepo likesDao;
     private VerseRepo versesDao;
+    private CommentRepo commentDao;
 
-    public BadgePageController(UserRepo userDao, BadgeRepo badgesDao, LikeRepo likesDao, VerseRepo versesDao) {
+    public BadgePageController(UserRepo userDao, BadgeRepo badgesDao, LikeRepo likesDao, VerseRepo versesDao, CommentRepo commentDao) {
         this.userDao = userDao;
         this.badgesDao = badgesDao;
         this.likesDao = likesDao;
         this.versesDao = versesDao;
+        this.commentDao = commentDao;
     }
 
     @GetMapping("/badge")
@@ -36,13 +37,22 @@ public class BadgePageController {
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = userDao.findByUsername(loggedInPrinciple.getUsername());
 //        User user = userDao.findById(loggedInUser.getId()).get();
+        List<Comment> commentsPerVerse = new ArrayList<>();
+        for (Verse verse : loggedInUser.getVerses()) {
+            for (Comment comment : verse.getComments()) {
+                commentsPerVerse.add(comment);
+            }
+        }
         long totalLikesOfLoggedinUser = 0;
         for(Verse verse : loggedInUser.getVerses()) {
             List<Like> likesForThisVerse = likesDao.findAllByVerse(verse);
             System.out.println(likesForThisVerse);
             totalLikesOfLoggedinUser += likesForThisVerse.size();
         }
-        model.addAttribute("likes",totalLikesOfLoggedinUser);
+        model.addAttribute("totalCommentsOfLoggedInUser", commentsPerVerse.size());
+        model.addAttribute("totalFollowersOfLoggedInUser", loggedInUser.getFollowing().size());
+        model.addAttribute("totalFollowingOfLoggedInUser", loggedInUser.getFollowers().size());
+        model.addAttribute("totalLikesOfLoggedInUser",totalLikesOfLoggedinUser);
 
         return "profile/badge";
     }
