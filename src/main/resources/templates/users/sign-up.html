@@ -19,15 +19,15 @@
                     <form th:action="@{/sign-up}" method="POST" th:object="${user}">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input th:field="*{username}" class="form-control" type="text" id="username" placeholder="Enter your username" required="">
+                            <input th:field="*{username}" class="form-control" type="text" id="username" placeholder="Enter your username" required="" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label for="emailaddress" class="form-label">Email address</label>
-                            <input th:field="*{email}" class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                            <input th:field="*{email}" class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input th:field="*{password}" class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                            <input th:field="*{password}" class="form-control" type="password" required="" id="password" placeholder="Enter your password" autocomplete="off">
                         </div>
                         <div class="mb-3 text-center d-grid">
                             <button class="btn btn-primary" type="submit"> Sign Up </button>
