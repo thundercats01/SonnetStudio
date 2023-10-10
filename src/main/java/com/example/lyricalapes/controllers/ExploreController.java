@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 //@RequestMapping("/")
@@ -37,11 +39,25 @@ public class ExploreController {
     public String showExplorePage(Model model) {
         List<Verse> allVersesInDescOrder = versesDAO.findAllByOrderByIdDesc();
         model.addAttribute("verses", allVersesInDescOrder);
+        List<Comment> allComments = commentDAO.findAll();
         model.addAttribute("comments", commentDAO.findAll());
+
+        Map<Long, Long> commentCounts = allComments.stream()
+                .collect(Collectors.groupingBy(Comment::getPostId, Collectors.counting()));
+        model.addAttribute("commentCounts", commentCounts);
+
 
         return "explore";
     }
 
+//    @GetMapping("/explore")
+//    public String showExplorePage(Model model) {
+//        List<Verse> allVersesInDescOrder = versesDAO.findAllByOrderByIdDesc();
+//        model.addAttribute("verses", allVersesInDescOrder);
+//        model.addAttribute("comments", commentDAO.findAll());
+//
+//        return "explore";
+//    }
 
     @PostMapping("/explore")
     public String handleComments(@RequestParam String userComment, @RequestParam Long postid) {
