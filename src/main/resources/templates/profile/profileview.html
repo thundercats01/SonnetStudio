@@ -163,18 +163,20 @@
                                         <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show
                                             Comments
                                         </button>
+                                        <!-- Delete-->
+                                        <div class="like-space">
+                                            <form th:action="@{/post_delete}" th:method="post">
+                                                <input type="hidden" name="postid" th:value="${verse.getId()}">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <span>Delete</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <!-- Like-->
                                         <div class="like-space">
                                             <button type="button" class="btn btn-sm btn-primary">Like</button>
                                         </div>
-                                        <!-- Delete-->
-                                        <div class="like-space">
-                                        <form th:action="@{/post_delete}" th:method="post">
-                                            <input type="hidden" name="postid" th:value="${verse.getId()}">
-                                            <button class="btn btn-sm btn-primary">
-                                                <span>Delete</span>
-                                            </button>
-                                        </form>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
