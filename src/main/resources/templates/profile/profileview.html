@@ -27,7 +27,7 @@
             <div class="container-fluid profile-container">
                 <div class="row justify-content-center">
                     <div class="col justify-content-center">
-                        <!--                        IMG-->
+<!--                        IMG-->
                         <img th:src="@{|${currentBadge}|}"
                              class="img-fluid rounded-circle badge-img-profile border border-dark"
                              alt="Responsive image">
@@ -45,8 +45,7 @@
                             <div class="btn-group">
                                 <div class="card-body">
                                     <p class="card-text">
-                                        <a class="btn btn-outline-primary d-flex justify-content-center "
-                                           th:href="@{/badge}">View
+                                        <a class="btn btn-outline-primary d-flex justify-content-center " th:href="@{/badge}">View
                                             Badges</a>
                                     </p>
                                 </div>
@@ -69,8 +68,20 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <p class="card-text text-center">
-                                            <span class="d-flex justify-content-center"
-                                                  th:text="${likes + ' Likes'}"></span>
+                                            <span class="d-flex justify-content-center" th:text="${likes + ' Likes'}"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pt-2">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                            <span class="d-flex justify-content-center" th:text="${totalComments + ' Comments'}"></span>
+
                                         </p>
                                     </div>
                                 </div>
@@ -90,10 +101,10 @@
                     </div>
                     <div class="row pt-3">
                         <div class="col d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary">FOLLOWERS</button>
+                            <button type="button" class="btn btn-primary" th:text="${followers + ' FOLLOWERS'}"></button>
                         </div>
                         <div class="col d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary">FOLLOWING</button>
+                            <button type="button" class="btn btn-primary" th:text="${following + ' FOLLOWING'}"></button>
                         </div>
                     </div>
                 </div>
@@ -119,7 +130,7 @@
                             <!-- Add Comment Section -->
                             <div class="add-comment mt-2">
                                 <form th:action="@{/explore}" th:method="post">
-                                    <input type="hidden" name="postid" th:value="${verse.getId()}">
+                                    <input type="hidden" name="verseId" th:value="${verse.getId()}">
                                     <input type="text" name="userComment" class="form-control"
                                            placeholder="Add a comment..." required/>
                                     <input class="btn btn-primary  mt-2" value="Post Comment" type="submit">
@@ -128,7 +139,7 @@
 
                             <!-- List of all comments -->
                             <div th:each="comment : ${comments}" class="comment">
-                                <div th:if="${comment.getPostId() eq verse.getId()}" class="pt-3">
+                                <div th:if="${comment.verse.id eq verse.getId()}" class="pt-5">
                                     <div class="row card border-primary">
                                         <!--                                        <div class="card-header">-->
                                         <!--                                            <img th:src="${comment.getUser().getCurrentBadge()}" alt="badge" class="rounded-circle"-->

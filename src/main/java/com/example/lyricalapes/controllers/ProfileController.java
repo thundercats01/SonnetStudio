@@ -1,5 +1,6 @@
 package com.example.lyricalapes.controllers;
 
+import com.example.lyricalapes.models.Comment;
 import com.example.lyricalapes.models.Like;
 import com.example.lyricalapes.models.User;
 import com.example.lyricalapes.models.Verse;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -45,23 +47,32 @@ public class ProfileController {
 
         long totalLikesOfLoggedinUser = 0;
 //            for(Verse verse : versesByLoggedInUser) {
-        for(Verse verse : loggedInUser.getVerses()) {
+        for (Verse verse : loggedInUser.getVerses()) {
             List<Like> likesForThisVerse = likesDao.findAllByVerse(verse);
             System.out.println(likesForThisVerse);
             totalLikesOfLoggedinUser += likesForThisVerse.size();
+        }
+
+        List<Comment> commentsPerVerse = new ArrayList<>();
+        for (Verse verse : loggedInUser.getVerses()) {
+            for (Comment comment : verse.getComments()) {
+                commentsPerVerse.add(comment);
+            }
         }
 
 
         model.addAttribute("verses", verses);
         model.addAttribute("comments", commentRepo.findAll());
         model.addAttribute("username", loggedInUsername);
-        model.addAttribute("bio",loggedInUser.getBio());
-        model.addAttribute("currentBadge",loggedInUser.getCurrentBadge());
-        model.addAttribute("likes",totalLikesOfLoggedinUser);
+        model.addAttribute("bio", loggedInUser.getBio());
+        model.addAttribute("currentBadge", loggedInUser.getCurrentBadge());
+        model.addAttribute("likes", totalLikesOfLoggedinUser);
+        model.addAttribute("following", loggedInUser.getFollowers().size());
+        model.addAttribute("followers", loggedInUser.getFollowing().size());
+        model.addAttribute("totalComments", commentsPerVerse.size());
 
         return "profile/profileview";
     }
-
 
 
     @GetMapping("/profile/{id}")
@@ -98,12 +109,11 @@ public class ProfileController {
 //            List<Verse> versesByLoggedInUser = verseRepo.findAllByUserOrderByIdDesc(loggedInUser);
             long totalLikesOfLoggedinUser = 0;
 //            for(Verse verse : versesByLoggedInUser) {
-            for(Verse verse : loggedInUser.getVerses()) {
-               List<Like> likesForThisVerse = likesDao.findAllByVerse(verse);
+            for (Verse verse : loggedInUser.getVerses()) {
+                List<Like> likesForThisVerse = likesDao.findAllByVerse(verse);
                 System.out.println(likesForThisVerse);
                 totalLikesOfLoggedinUser += likesForThisVerse.size();
             }
-
 
 
             return "profile/usersprofileview";
@@ -111,13 +121,31 @@ public class ProfileController {
     }
 
 
-
+//////  DELETE
 
     @PostMapping("/post_delete")
-    public String RemoveSelectedPost(@RequestParam Long postid) {
+    public String RemoveSelectedPost(@RequestParam Long verseId) {
 
-        verseRepo.deleteById(postid);
+        verseRepo.deleteById(verseId);
 
+        return "redirect:/profile";
+    }
+
+    ///////
+    @PostMapping("/follow")
+    public String FollowThatUser(@RequestParam Long userId) {
+        //other user
+        User userToFollow = usersDAO.findById(userId).get();
+        //logged in user
+        User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
+        /// adds user to my follower list
+        loggedInUser.addNewFollower(userToFollow);
+        // adds me too their following list
+        userToFollow.addNewFollowing(loggedInUser);
+
+        usersDAO.save(loggedInUser);
+        usersDAO.save(userToFollow);
         return "redirect:/profile";
     }
 

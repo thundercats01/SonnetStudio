@@ -9,6 +9,7 @@
             padding: 10px;
             margin-left: 20px;
         }
+
         .card-header img {
             margin-right: 10px;
         }
@@ -57,6 +58,16 @@
                             <div class="card-body">
                                 <p class="card-text">
                                     <span th:text="${bio}">Bio</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">
+                                <form th:action="@{/follow}" th:method="POST">
+                                    <input type="hidden" name="userId" th:value="${user.id}">
+                                    <input type="submit" th:value="Follow" class="btn btn-primary">
+                                </form>
                                 </p>
                             </div>
                         </div>

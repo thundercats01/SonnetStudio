@@ -42,7 +42,9 @@
                                th:text="${verse.getUser().getUsername()}">Username</a>
                         </div>
                         <div class="card-body">
+
                             <p class="card-2 card-text" th:text="${verse.getContent()}">Song verse here...</p>
+
 
                             <!-- Comments Section - Start hidden by default -->
                             <div class="comments-section mt-3" style="display: none;">
@@ -50,7 +52,7 @@
                                 <!-- Add Comment Section -->
                                 <div class="add-comment mt-2">
                                     <form th:action="@{/explore}" th:method="post">
-                                        <input type="hidden" name="postid" th:value="${verse.getId()}">
+                                        <input type="hidden" name="verseId" th:value="${verse.getId()}">
                                         <input type="text" name="userComment" class="form-control"
                                                placeholder="Add a comment..." autocomplete="off" required/>
                                         <input class="btn btn-primary  mt-2" value="Post Comment" type="submit">
@@ -59,9 +61,7 @@
 
                                 <!-- List of all comments -->
                                 <div th:each="comment : ${comments}" class="comment">
-
-                                    <div th:if="${comment.getPostId() eq verse.getId()}" class="pt-3">
-
+                                    <div th:if="${comment.verse.id eq verse.getId()}" class="pt-5">
                                         <div class="card-header">
                                             <img th:src="${comment.getUser().getCurrentBadge()}" alt="badge"
                                                  class="rounded-circle"
@@ -72,9 +72,12 @@
 
                                                th:text="${comment.getUser().getUsername()}">Username</a>
                                         </div>
+
                                         <div class="card-body">
                                             <span class=" card-title" th:text="${comment.getContent()}"></span>
                                         </div>
+
+
                                     </div>
                                 </div>
                                 <!-- ... add more comments as needed -->
@@ -84,9 +87,22 @@
                             <!-- The Comments and Like buttons -->
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
+                                    <!-- Add data-comments-toggle attribute to identify it as the button that will toggle comments -->
+                                    <!--                                    <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show-->
+                                    <!--                                        Comments-->
+                                    <!--                                    </button>-->
+                                    <!--                                    <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show-->
+                                    <!--                                        Comments (<span th:text="${#lists.size(comments)}">0</span>)-->
+                                    <!--                                    </button>-->
+                                    <!--                                    <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>-->
+                                    <!--                                        Show Comments (<span th:text="${verse.comments.size()}">0</span>)-->
+                                    <!--                                    </button>-->
+                                    <!--                                    <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show-->
+                                    <!--                                        Comments (<span th:text="${#lists.size(verse.comments)}">0</span>)-->
+                                    <!--                                    </button>-->
                                     <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>
                                         Show Comments (<span
-                                            th:text="${commentCounts[verse.id] != null ? commentCounts[verse.id] : 0}">0</span>)
+                                            th:text="${verse.getComments().size()}">0</span>)
                                     </button>
 
 
@@ -101,7 +117,11 @@
 
                                     <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span> Likes
                                     </div>
+                                    <!--                                    <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show-->
+                                    <!--                                        Comments (<span th:text="${#lists.size(comments)}">0</span>)-->
+                                    <!--                                    </button>-->
                                 </div>
+
                                 <!-- Display the most recent comment -->
                             </div>
 
@@ -185,5 +205,6 @@
         }
     });
 </script>
+
 </body>
 </html>

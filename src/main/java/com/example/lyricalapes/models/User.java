@@ -159,13 +159,18 @@ public class User {
     public void setFollowers(List<User> followers) {
         this.followers = followers;
     }
-
+    public void addNewFollower(User newFollower) {
+        this.followers.add(newFollower);
+    }
     public List<User> getFollowing() {
         return following;
     }
 
     public void setFollowing(List<User> following) {
         this.following = following;
+    }
+    public void addNewFollowing(User newFollowing) {
+        this.following.add(newFollowing);
     }
 
     public List<Comment> getComments() {
