@@ -95,6 +95,14 @@
 
 /* Testing */
 
+.a-1{
+    margin-left: 12px;
+}
+
+.like-space{
+    padding-left: 10px;
+}
+
 .card1 {
     height: 13rem;
     transition: all 0.4s;
@@ -641,4 +649,62 @@
     z-index: 1;
     position: relative;
     color: #ffffff; /* Adjust the text color for visibility */
+}
+
+.form-style{
+    background-color: rgba(255, 255, 255, 0.5)!important;
+    border-radius: 2rem!important;
+    padding: 1rem!important;
+}
+
+.form-pad{
+    padding-left: 1rem;
+}
+
+.btn-custom-Login {
+    border-radius: 2rem;
+    width: 50%;
+}
+
+/* === removing default button style ===*/
+.button {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+/* button styling */
+.button {
+    --border-right: 6px;
+    --text-stroke-color: rgba(255,255,255,0.6);
+    --animation-color: #df6919;
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.button:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
 }
