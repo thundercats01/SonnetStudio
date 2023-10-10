@@ -1,6 +1,11 @@
 @import "badges.css";
 @import "color.css";
 
+.h1-SonnetStudio{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .page-wrapper{
     display: flex;
     min-height: 100dvh;
@@ -83,14 +88,20 @@
     height: 15rem;
 }
 
-
-
 .blurry-bg {
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
 }
 
 /* Testing */
+
+.a-1{
+    margin-left: 12px;
+}
+
+.like-space{
+    padding-left: 10px;
+}
 
 .card1 {
     height: 13rem;
@@ -547,7 +558,6 @@
     border-radius: 2rem;
 }
 
-
 .card-2{
     background-color: rgb(255 255 255 / 50%);
     border-radius: 1rem;
@@ -577,7 +587,6 @@
     -webkit-text-fill-color: transparent;
     transition: all 0.3s ease-in-out;
 }
-
 
 .nav-link:before {
     content: '';
@@ -616,7 +625,6 @@
     object-fit: cover;
 }
 
-
 .video-background {
     position: relative;
     width: 100%;
@@ -636,8 +644,6 @@
 .slow-video {
     playback-rate: 0.5; /* Slow down the video to half its normal speed */
 }
-
-
 
 .content {
     z-index: 1;
