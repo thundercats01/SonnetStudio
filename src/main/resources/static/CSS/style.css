@@ -95,6 +95,14 @@
 
 /* Testing */
 
+.a-1{
+    margin-left: 12px;
+}
+
+.like-space{
+    padding-left: 10px;
+}
+
 .card1 {
     height: 13rem;
     transition: all 0.4s;
