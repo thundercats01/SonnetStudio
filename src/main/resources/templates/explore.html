@@ -36,7 +36,8 @@
                         <div class="card-header d-flex align-items-center radius-card-c">
                             <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"
                                  width="40" height="40">
-                            <a th:href="@{|/profile/${verse.user.id}|}" th:text="${verse.getUser().getUsername()}">Username</a>
+                            <a class="a-1" th:href="@{|/profile/${verse.user.id}|}"
+                               th:text="${verse.getUser().getUsername()}">Username</a>
                         </div>
                         <div class="card-body">
 
@@ -58,13 +59,13 @@
 
                                 <!-- List of all comments -->
                                 <div th:each="comment : ${comments}" class="comment">
-                                    <div th:if="${comment.getPostId() eq verse.getId()}" class="pt-5">
+                                    <div th:if="${comment.getPostId() eq verse.getId()}" class="pt-3">
                                         <div class="card-header">
                                             <img th:src="${comment.getUser().getCurrentBadge()}" alt="badge"
                                                  class="rounded-circle"
                                                  width="40" height="40">
                                             <!--                                            <a th:href="@{/profile/{id}(id=${comment.user.id})}"-->
-                                            <a th:href="@{|/profile/${comment.user.id}|}"
+                                            <a class="a-1" th:href="@{|/profile/${comment.user.id}|}"
                                                th:text="${comment.getUser().getUsername()}">Username</a>
                                         </div>
 
@@ -101,10 +102,13 @@
                                     </button>
 
 
-                                    <form th:method="POST" th:action="@{/like}">
-                                        <input hidden name="verse-id" th:value="${verse.id}">
-                                        <input type="submit" value="Like" class="btn btn-sm btn-primary">
-                                    </form>
+                                        <form th:method="POST" th:action="@{/like}">
+                                            <input hidden name="verse-id" th:value="${verse.id}">
+                                            <div class="like-space">
+                                                <input type="submit" value="Like" class="btn btn-sm btn-primary">
+                                            </div>
+                                        </form>
+
                                     <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span> Likes
                                     </div>
                                     <!--                                    <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show-->

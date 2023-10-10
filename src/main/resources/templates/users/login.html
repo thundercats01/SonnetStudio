@@ -28,18 +28,20 @@
 
                     <form th:action="@{/login}" method="post">
                         <div class="mb-3">
-                            <label for="floatingInput">Username</label>
-                            <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Username" autocomplete="off">
+                            <label for="floatingInput" class="form-label form-pad">Username</label>
+                            <input type="text" name="username" class="form-control form-style" id="floatingInput" placeholder="Enter your Username">
+
+                           
                         </div>
 
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input class="form-control" type="password" name="password" required="" id="password"
+                            <label for="password" class="form-label form-pad">Password</label>
+                            <input class="form-control form-style" type="password" name="password" required="" id="password"
                                    placeholder="Enter your password">
                         </div>
 
-                        <div class="mb-3 d-grid text-center">
-                            <button class="btn btn-primary" type="submit"> Log In</button>
+                        <div class="mb-3 d-grid text-center d-flex justify-content-around pt-4">
+                            <button class="btn btn-primary btn-custom-Login" type="submit"> Log In</button>
                         </div>
                     </form>
 
