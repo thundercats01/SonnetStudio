@@ -408,17 +408,9 @@
 .form-custom{
     background-color: unset!important;
     color: whitesmoke!important;
+    resize: none;
 }
 
-.col-big{
-    flex: 0 0 auto;
-    width: 89.666667%;
-}
-
-.col-sm{
-    flex: 0 0 auto;
-    width: 10.333333%;
-}
 
 /* Testing */
 
@@ -708,3 +700,4 @@
     width: 100%;
     filter: drop-shadow(0 0 23px var(--animation-color))
 }
+
