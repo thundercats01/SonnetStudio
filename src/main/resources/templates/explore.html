@@ -14,20 +14,22 @@
 <div class="container mt-5">
 
     <div class="row">
-
+        <!--Search on the left side-->
         <div class="col-4">
             <div class="card card-size1">
                 <div class="card-body">
                     <h5 class="card-title text-center">Search for User</h5>
                     <div class="search-panels pt-4">
                         <div class="search-group">
-                            <input required="" type="text" name="text" autocomplete="on" class="input">
+                            <input id="searchInput" type="text" name="text" autocomplete="off" class="input">
                             <label class="enter-label">Search</label>
+                            <div id="searchResults" class="search-results"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <div class="col-8">
             <div class="mb-4">
@@ -36,7 +38,8 @@
                         <div class="card-header d-flex align-items-center radius-card-c">
                             <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"
                                  width="40" height="40">
-                            <a th:href="@{|/profile/${verse.user.id}|}" th:text="${verse.getUser().getUsername()}">Username</a>
+                            <a class="a-1" th:href="@{|/profile/${verse.user.id}|}"
+                               th:text="${verse.getUser().getUsername()}">Username</a>
                         </div>
                         <div class="card-body">
 
@@ -63,8 +66,10 @@
                                             <img th:src="${comment.getUser().getCurrentBadge()}" alt="badge"
                                                  class="rounded-circle"
                                                  width="40" height="40">
+
                                             <!--                                            <a th:href="@{/profile/{id}(id=${comment.user.id})}"-->
-                                            <a th:href="@{|/profile/${comment.user.id}|}"
+                                            <a class="a-1" th:href="@{|/profile/${comment.user.id}|}"
+
                                                th:text="${comment.getUser().getUsername()}">Username</a>
                                         </div>
 
@@ -101,10 +106,15 @@
                                     </button>
 
 
-                                    <form th:method="POST" th:action="@{/like}">
-                                        <input hidden name="verse-id" th:value="${verse.id}">
-                                        <input type="submit" value="Like" class="btn btn-sm btn-primary">
-                                    </form>
+
+                                        <form th:method="POST" th:action="@{/like}">
+                                            <input hidden name="verse-id" th:value="${verse.id}">
+                                            <div class="like-space">
+                                                <input type="submit" value="Like" class="btn btn-sm btn-primary">
+                                            </div>
+                                        </form>
+
+
                                     <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span> Likes
                                     </div>
                                     <!--                                    <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show-->
@@ -128,6 +138,30 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+    // Event listener for search
+    document.getElementById("searchInput").addEventListener("input", function () {
+        console.log("inside searchInput event listener");
+        const query = this.value;
+        if (query.length === 0) {
+            document.getElementById("searchResults").innerHTML = '';
+            return;
+        }
+        fetch(`/searchUsers?query=${query}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                let html = '';
+                data.forEach(user => {
+                    html += `
+                        <div>
+                            <a href="/profile/${user.id}" class="search-item">${user.username}</a>
+                        </div>
+                    `;
+                });
+                document.getElementById("searchResults").innerHTML = html;
+            });
+    });
+
     // Event listener for the comments toggle button
     document.addEventListener('click', function (e) {
         if (e.target && e.target.hasAttribute('data-comments-toggle')) {

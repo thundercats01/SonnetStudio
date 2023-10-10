@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class ExploreController {
         return "explore";
     }
 
-//    @GetMapping("/explore")
+//    @GetMapping("/explore")  THIS IS OLD CODE
 //    public String showExplorePage(Model model) {
 //        List<Verse> allVersesInDescOrder = versesDAO.findAllByOrderByIdDesc();
 //        model.addAttribute("verses", allVersesInDescOrder);
@@ -87,7 +88,7 @@ public class ExploreController {
         // set them to like object
         like.setUser(loggedInUser);
         like.setVerse(versesDAO.findById(verseId).get());
-        if(!likesDAO.existsByUserAndVerse(like.getUser(), like.getVerse())) {
+        if (!likesDAO.existsByUserAndVerse(like.getUser(), like.getVerse())) {
             // save to likes table
             likesDAO.save(like);
         }
@@ -96,5 +97,13 @@ public class ExploreController {
         return "redirect:explore";
     }
 
+    //    For Search of userNames
+    @GetMapping("/searchUsers")
+    @ResponseBody
+    public List<User> searchUsers(@RequestParam("query") String search) {
+        System.out.println("inside searchUsers");
+        System.out.println(search);
+        return usersDAO.findByUsernameContainingIgnoreCase(search);
+    }
 
 }

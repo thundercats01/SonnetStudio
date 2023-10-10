@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:insert="partials/head :: head">
     <title>Sonnet Studio (landing page)</title>
 </head>
@@ -11,7 +11,7 @@
     <div class="content">
         <div class="border-bottom border-dark">
             <video id="myVideo" width="640" height="480" controls loop muted class="slow-video">
-                <source th:src="@{/capstone_IMGs/test.mp4}" type="video/mp4">
+                <source th:src="@{/capstone_IMGs/testing.mp4}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -30,16 +30,26 @@
                 <div class="row py-5 contents">
                     <div class="col">
                         <br><br><br><br><br>
-                        <div class="card blurry-bg">
+                        <div class="">
                             <h1> SONNET STUDIOS </h1>
-                            <p> Dive into a universe where words dance to the rhythm of your soul! LyricVerse beckons you into a
+                            <p> Dive into a universe where words dance to the rhythm of your soul! Sonnet Studios beckons you into a
                                 world where lyrics transform into conversations, where your poetic expressions find a global stage,
                                 and where every word resonates like a chord in a heart-stirring melody.</p>
                         </div>
+
+                        <div class="d-flex justify-content-end">
+                            <a th:href="@{/sign-up}" sec:authorize="!isAuthenticated()">
+                            <button data-text="Awesome" class="button">
+                                <span class="actual-text">&nbsp;Sign&nbsp;Up&nbsp;</span>
+                                <span class="hover-text" aria-hidden="true">&nbsp;Sign&nbsp;Up&nbsp;</span>
+                            </button>
+                            </a>
+                        </div>
+
                         <br><br><br><br><br>
                     </div>
                     <div class="col ">
-                        <div class="card blurry-bg" style="height: 100%">
+                        <div class="">
                             <div class="card-body">
 
                             </div>
