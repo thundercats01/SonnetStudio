@@ -27,7 +27,7 @@
             <div class="container-fluid profile-container">
                 <div class="row justify-content-center">
                     <div class="col justify-content-center">
-<!--                        IMG-->
+                        <!--                        IMG-->
                         <img th:src="@{|${currentBadge}|}"
                              class="img-fluid rounded-circle badge-img-profile border border-dark"
                              alt="Responsive image">
@@ -45,7 +45,8 @@
                             <div class="btn-group">
                                 <div class="card-body">
                                     <p class="card-text">
-                                        <a class="btn btn-outline-primary d-flex justify-content-center " th:href="@{/badge}">View
+                                        <a class="btn btn-outline-primary d-flex justify-content-center "
+                                           th:href="@{/badge}">View
                                             Badges</a>
                                     </p>
                                 </div>
@@ -68,7 +69,8 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <p class="card-text text-center">
-                                            <span class="d-flex justify-content-center" th:text="${likes + ' Likes'}"></span>
+                                            <span class="d-flex justify-content-center"
+                                                  th:text="${likes + ' Likes'}"></span>
                                         </p>
                                     </div>
                                 </div>
@@ -103,7 +105,8 @@
                     <div class="card-header d-flex align-items-center radius-card-c">
                         <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"
                              width="40" height="40">
-                        <a th:href="@{|/profile/${verse.user.id}|}" th:text="${verse.getUser().getUsername()}">Username</a>
+                        <a class="a-1" th:href="@{|/profile/${verse.user.id}|}"
+                           th:text="${verse.getUser().getUsername()}">Username</a>
                     </div>
                     <div class="card-body">
 
@@ -125,7 +128,7 @@
 
                             <!-- List of all comments -->
                             <div th:each="comment : ${comments}" class="comment">
-                                <div th:if="${comment.getPostId() eq verse.getId()}" class="pt-5">
+                                <div th:if="${comment.getPostId() eq verse.getId()}" class="pt-3">
                                     <div class="row card border-primary">
                                         <!--                                        <div class="card-header">-->
                                         <!--                                            <img th:src="${comment.getUser().getCurrentBadge()}" alt="badge" class="rounded-circle"-->
@@ -137,7 +140,7 @@
                                                  class="rounded-circle"
                                                  width="40" height="40">
                                             <!--                                            <a th:href="@{/profile/{id}(id=${comment.user.id})}"-->
-                                            <a th:href="@{|/profile/${comment.user.id}|}"
+                                            <a class="a-1" th:href="@{|/profile/${comment.user.id}|}"
                                                th:text="${comment.getUser().getUsername()}">Username</a>
                                         </div>
 
@@ -151,7 +154,6 @@
                         </div>
 
 
-
                         <!-- The Comments and Like buttons -->
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
@@ -159,7 +161,9 @@
                                 <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show
                                     Comments
                                 </button>
-                                <button type="button" class="btn btn-sm btn-primary">Like</button>
+                                <div class="like-space">
+                                    <button type="button" class="btn btn-sm btn-primary">Like</button>
+                                </div>
                             </div>
 
                             <!-- Display the most recent comment -->
