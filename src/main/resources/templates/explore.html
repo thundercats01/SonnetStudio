@@ -84,19 +84,25 @@
                             </div>
 
 
-
                             <!-- The Comments and Like buttons -->
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <!-- Add data-comments-toggle attribute to identify it as the button that will toggle comments -->
+                                    <!--                                    <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show-->
+                                    <!--                                        Comments-->
+                                    <!--                                    </button>-->
                                     <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show
-                                        Comments
+                                        Comments (<span th:text="${#lists.size(comments)}">0</span>)
                                     </button>
                                     <form th:method="POST" th:action="@{/like}">
                                         <input hidden name="verse-id" th:value="${verse.id}">
                                         <input type="submit" value="Like" class="btn btn-sm btn-primary">
                                     </form>
-                                    <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span> Likes</div>
+                                    <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span> Likes
+                                    </div>
+<!--                                    <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>Show-->
+<!--                                        Comments (<span th:text="${#lists.size(comments)}">0</span>)-->
+<!--                                    </button>-->
                                 </div>
 
                                 <!-- Display the most recent comment -->
@@ -120,18 +126,19 @@
         if (e.target && e.target.hasAttribute('data-comments-toggle')) {
             // Get the comments section related to the clicked button
             const commentsSection = e.target.closest('.card-body').querySelector('.comments-section');
+            const counterSpan = e.target.querySelector('span'); // Get the span that contains the comment count
 
             // Toggle its visibility
             if (commentsSection.style.display === 'none') {
                 commentsSection.style.display = 'block';
-                e.target.textContent = 'Hide Comments'; // Change button text
+                e.target.innerHTML = `Hide Comments (<span>${counterSpan.textContent}</span>)`; // Change button text
             } else {
                 commentsSection.style.display = 'none';
-                e.target.textContent = 'Show Comments'; // Change button text
+                e.target.innerHTML = `Show Comments (<span>${counterSpan.textContent}</span>)`; // Change button text
             }
         }
 
-        if (e.target && e.target.textContent === 'Post Comment') {
+        if (e.target && e.target.textContent.startsWith('Post Comment')) {
             const commentInput = e.target.previousElementSibling;
             const commentText = commentInput.value.trim();
 
@@ -146,6 +153,11 @@
 
                 // Clear the input field
                 commentInput.value = '';
+
+                // Update the counter after a new comment
+                const counterSpan = e.target.closest('.card-body').querySelector('[data-comments-toggle] span');
+                let currentCount = parseInt(counterSpan.textContent, 10);
+                counterSpan.textContent = currentCount + 1;
             } else {
                 alert('Please enter a comment.');
             }
