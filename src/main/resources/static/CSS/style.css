@@ -701,3 +701,12 @@
     filter: drop-shadow(0 0 23px var(--animation-color))
 }
 
+.blurry-bg1{
+    background-color: rgb(0 0 0 / 28%);
+}
+
+.bg-index3{
+    position: absolute;
+    z-index: -1;
+    box-shadow: inset -1px -20px 20px 0px rgb(255, 255, 255);
+}
