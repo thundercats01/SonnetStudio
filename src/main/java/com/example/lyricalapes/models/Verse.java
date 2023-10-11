@@ -16,9 +16,6 @@ public class Verse {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column
-    private String title;
-
 
     @Column(columnDefinition = "TEXT")
     private String Content;
@@ -26,11 +23,11 @@ public class Verse {
     @Column
     private String genre;
 
-    @OneToMany(mappedBy = "verse", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "verse", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
-    @OneToMany(mappedBy = "verse", cascade = CascadeType.PERSIST)
-    private List<Like> likes;
+  @OneToMany(mappedBy = "verse", cascade = CascadeType.ALL)
+  private List<Like> likes;
     ///////CONSTRUCTORS ////////
 
     public Verse() {
@@ -40,7 +37,6 @@ public class Verse {
     public Verse(long id, User user, String title, String content, String genre, List<Comment> comments, List<Like> likes) {
         this.id = id;
         this.user = user;
-        this.title = title;
         this.Content = content;
         this.genre = genre;
         this.comments = comments;
@@ -63,14 +59,6 @@ public class Verse {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getContent() {

@@ -10,7 +10,7 @@
 <div class="video-background shadow">
     <div class="content">
         <div class="border-bottom border-dark">
-            <video id="myVideo" width="640" height="480" controls loop muted class="slow-video">
+            <video id="myVideo" width="640" height="480" loop muted class="slow-video">
                 <source th:src="@{/capstone_IMGs/testing.mp4}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -22,7 +22,7 @@
                 video.play();
             }
 
-            setTimeout(playVideo, 1000); // Delayed playback after 1 second
+            setTimeout(playVideo, 1); // Delayed playback after 1 second
         </script>
 
         <div class="border-bottom border-dark">
