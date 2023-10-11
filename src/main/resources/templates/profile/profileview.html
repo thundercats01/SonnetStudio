@@ -185,8 +185,15 @@
 
                                         </div>
                                         <!-- Like-->
-                                        <div class="like-space">
-                                            <button type="button" class="btn btn-sm btn-primary">Like</button>
+                                        <form th:method="POST" th:action="@{/like/profile}">
+                                            <input hidden name="verse-id" th:value="${verse.id}">
+                                            <div class="like-space">
+                                                <input type="submit" value="Like" class="btn btn-sm btn-primary">
+                                            </div>
+                                        </form>
+
+
+                                        <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span> Likes
                                         </div>
 
                                     </div>

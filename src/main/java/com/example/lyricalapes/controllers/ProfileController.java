@@ -147,4 +147,21 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
+    @PostMapping("/like/profile")
+    public String handleLikes(@RequestParam("verse-id") Long verseId) {
+        User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
+        // get user id
+        Like like = new Like();
+        // get verse id
+        // set them to like object
+        like.setUser(loggedInUser);
+        like.setVerse(verseRepo.findById(verseId).get());
+        if (!likesDao.existsByUserAndVerse(like.getUser(), like.getVerse())) {
+            // save to likes table
+            likesDao.save(like);
+        }
+        return "redirect:/profile";
+    }
+
 }
