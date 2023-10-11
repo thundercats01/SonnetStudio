@@ -86,15 +86,16 @@ public class ProfileController {
         // Check if the profile being viewed is of the logged-in user
         if (loggedInUser.getId() == clickedUser.getId()) { // <-- Use == for primitive long comparison
             // Fetch posts made by the logged-in user in descending order by ID
-            List<Verse> verses = verseRepo.findAllByUserOrderByIdDesc(loggedInUser);
-
-            model.addAttribute("verses", verses);
-            model.addAttribute("comments", commentRepo.findAll());
-            model.addAttribute("username", loggedInUser.getUsername());
-            model.addAttribute("bio", loggedInUser.getBio());
-            model.addAttribute("currentBadge", loggedInUser.getCurrentBadge());
-
-            return "profile/profileview";
+//            List<Verse> verses = verseRepo.findAllByUserOrderByIdDesc(loggedInUser);
+//
+//            model.addAttribute("verses", verses);
+//            model.addAttribute("comments", commentRepo.findAll());
+//            model.addAttribute("username", loggedInUser.getUsername());
+//            model.addAttribute("bio", loggedInUser.getBio());
+//            model.addAttribute("currentBadge", loggedInUser.getCurrentBadge());
+//
+//            return "profile/profileview";
+            return "redirect:/profile";
         } else {
             // Fetch posts and comments made by the clicked user
             List<Verse> verses = verseRepo.findAllByUserOrderByIdDesc(clickedUser);
