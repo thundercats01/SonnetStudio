@@ -76,7 +76,6 @@ public class ExploreController {
 //        System.out.println("blank");
         return "redirect:explore";
     }
-
     @PostMapping("/like")
     public String handleLikes(@RequestParam("verse-id") Long verseId) {
         System.out.println("inside handleLikes");
