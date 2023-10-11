@@ -723,3 +723,9 @@
     height: 100%;
     object-fit: cover; /* Ensures the image covers the entire div even if it's not the same aspect ratio */
 }
+
+.footer-pic{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 2rem;
+}
