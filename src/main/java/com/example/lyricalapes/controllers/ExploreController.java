@@ -65,7 +65,9 @@ public class ExploreController {
 //    }
 
     @PostMapping("/explore")
-    public String handleComments(@RequestParam String userComment, @RequestParam Long verseId) {
+    public String handleComments(@RequestParam String userComment,
+                                 @RequestParam Long verseId,
+                                 @RequestParam(name = "currentProfileUrl", required = false) String profileUrl) {
         Comment comment = new Comment();
         comment.setContent(userComment);
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -73,9 +75,14 @@ public class ExploreController {
         comment.setVerse(versesDAO.findById(verseId).get());
         comment.setUser(loggedInUser);
         commentDAO.save(comment);
-//        System.out.println("blank");
-        return "redirect:explore";
+
+        if (profileUrl != null && !profileUrl.trim().isEmpty()) {
+            return "redirect:" + profileUrl;  // Redirect to the profile page where the comment was added.
+        } else {
+            return "redirect:explore";  // Default redirection to the explore page.
+        }
     }
+
 
     @PostMapping("/like")
     public String handleLikes(@RequestParam("verse-id") Long verseId) {
