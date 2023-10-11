@@ -28,7 +28,7 @@ CREATE TABLE `badges` (
   `name` varchar(255) DEFAULT NULL,
   `path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `badges` (
 
 LOCK TABLES `badges` WRITE;
 /*!40000 ALTER TABLE `badges` DISABLE KEYS */;
-INSERT INTO `badges` VALUES (1,'Default badge','Default','/capstone_IMGs/badges/badge-default.png'),(2,'Apple badge','Apple','/capstone_IMGs/badges/badge-apple.jpeg'),(3,'Einstein badge','Einstein','/capstone_IMGs/badges/badge-einstein.jpeg'),(4,'Pearl badge','Pearl','/capstone_IMGs/badges/badge-pearl.avif'),(5,'Joan badge','Joan','/capstone_IMGs/badges/badge-joan.jpeg'),(6,'Default badge','Default','/capstone_IMGs/badges/badge-default.png'),(7,'Apple badge','Apple','/capstone_IMGs/badges/badge-apple.jpeg'),(8,'Einstein badge','Einstein','/capstone_IMGs/badges/badge-einstein.jpeg'),(9,'Pearl badge','Pearl','/capstone_IMGs/badges/badge-pearl.avif'),(10,'Joan badge','Joan','/capstone_IMGs/badges/badge-joan.jpeg'),(11,'Default badge','Default','/capstone_IMGs/badges/badge-default.png'),(12,'Apple badge','Apple','/capstone_IMGs/badges/badge-apple.jpeg'),(13,'Einstein badge','Einstein','/capstone_IMGs/badges/badge-einstein.jpeg'),(14,'Pearl badge','Pearl','/capstone_IMGs/badges/badge-pearl.avif'),(15,'Joan badge','Joan','/capstone_IMGs/badges/badge-joan.jpeg');
+INSERT INTO `badges` VALUES (1,'Default badge','Default','/capstone_IMGs/badges/badge-default.png'),(2,'Apple badge','Apple','/capstone_IMGs/badges/badge-apple.jpeg'),(3,'Einstein badge','Einstein','/capstone_IMGs/badges/badge-einstein.jpeg'),(4,'Pearl badge','Pearl','/capstone_IMGs/badges/badge-pearl.avif'),(5,'Joan badge','Joan','/capstone_IMGs/badges/badge-joan.jpeg');
 /*!40000 ALTER TABLE `badges` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +58,7 @@ CREATE TABLE `comments` (
   KEY `FK3f3dty25lqmo30se1si2vvbsh` (`verse_id`),
   CONSTRAINT `FK3f3dty25lqmo30se1si2vvbsh` FOREIGN KEY (`verse_id`) REFERENCES `verses` (`id`),
   CONSTRAINT `FK8omq0tc18jd43bu5tjh6jvraq` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,'This is wonderful!',1,1),(2,'Amazing!',2,2),(3,'I resonate with this.',3,3),(4,'Well written!',1,2),(5,'I love the imagery.',2,3),(6,'Keep up the good work!',3,1),(7,'Incredible!',1,3),(8,'This speaks to my soul.',2,1),(9,'Beautifully expressed.',3,2),(10,'I can feel the emotion.',1,3);
+INSERT INTO `comments` VALUES (1,'This is wonderful!',1,1),(2,'Amazing!',2,2),(3,'I resonate with this.',3,12),(4,'Well written!',1,2),(5,'I love the imagery.',2,3),(6,'Keep up the good work!',3,1),(7,'Incredible!',1,11),(8,'This speaks to my soul.',2,12),(9,'Beautifully expressed.',3,2),(10,'I can feel the emotion.',1,3),(11,'Your words paint a vivid picture.',4,4),(12,'I feel the nostalgia in every line.',5,5),(13,'This is pure artistry.',6,6),(14,'Your creativity knows no bounds.',7,7),(15,'A beautiful expression of eternal love.',3,8),(16,'I can almost hear the laughter in your words.',4,11),(17,'Your words touch the heart.',1,10),(18,'Incredible imagery!',4,5),(19,'You have a gift for storytelling.',5,6),(20,'This verse speaks volumes.',6,7),(21,'I\'m inspired by your words.',7,8),(22,'A masterpiece of emotions.',2,9),(23,'This is poetry in its purest form.',6,10),(24,'Your verses light up the page.',1,1),(25,'I can feel the passion in your words.',6,4),(26,'Your verse carries a sense of mystery.',3,5),(27,'This is a journey through ink and paper.',3,6),(28,'A beautiful tribute to nature\'s stories.',4,7),(29,'Your words are a balm for the soul.',5,8),(30,'A symphony of joy indeed!',6,9),(31,'Your verse is a source of inspiration.',7,10);
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,6 +94,7 @@ CREATE TABLE `followers` (
 
 LOCK TABLES `followers` WRITE;
 /*!40000 ALTER TABLE `followers` DISABLE KEYS */;
+INSERT INTO `followers` VALUES (1,2),(2,3),(3,1),(4,2),(5,1),(6,3),(2,4),(3,4),(4,5),(5,6),(6,5),(1,4),(2,5),(3,6),(4,6),(5,2),(6,1),(1,3),(2,6),(3,5),(7,1),(7,2),(7,3),(7,4),(7,5),(7,6),(1,7),(2,7),(3,7),(4,7),(5,7),(6,7);
 /*!40000 ALTER TABLE `followers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +114,7 @@ CREATE TABLE `likes` (
   KEY `FKl05svhwymjdh4scv2lhtf0flj` (`verse_id`),
   CONSTRAINT `FKl05svhwymjdh4scv2lhtf0flj` FOREIGN KEY (`verse_id`) REFERENCES `verses` (`id`),
   CONSTRAINT `FKnvx9seeqqyy71bij291pwiwrg` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +123,7 @@ CREATE TABLE `likes` (
 
 LOCK TABLES `likes` WRITE;
 /*!40000 ALTER TABLE `likes` DISABLE KEYS */;
-INSERT INTO `likes` VALUES (1,1,2),(2,2,3),(3,3,1),(4,1,3),(5,2,1),(6,3,2),(7,1,3),(8,2,1),(9,3,2),(10,1,3);
+INSERT INTO `likes` VALUES (1,1,2),(2,2,3),(3,3,1),(4,1,3),(5,2,1),(6,3,2),(7,1,3),(8,2,1),(9,3,2),(10,1,3),(11,4,2),(12,5,3),(13,6,1),(14,2,4),(15,3,5),(16,4,6),(17,5,7),(18,6,8),(19,7,9),(20,3,10),(21,7,1),(22,6,2),(23,4,3),(24,5,4),(25,6,5),(26,4,6),(27,3,7),(28,2,8),(29,1,9);
 /*!40000 ALTER TABLE `likes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +170,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_6dotkott2kjsp8vw4d0m25fb7` (`email`),
   UNIQUE KEY `UK_r43af9ap4edm43mmtq01oddj6` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +179,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Passionate about expressing through words.','/capstone_IMGs/badges/badge-joan.jpeg','poetrylover@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','PoetryLover123'),(2,'Exploring the depths of creativity.','/capstone_IMGs/badges/badge-apple.jpeg','creative@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','CreativeSoul89'),(3,'Seeking inspiration in every word.','/capstone_IMGs/badges/badge-einstein.jpeg','writer@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','InspiredWriter55'),(4,'Admiring the world through verse.','/capstone_IMGs/badges/badge-joan.jpeg','graceful@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','GracefulGazer'),(5,'Finding tranquility in writing.','/capstone_IMGs/badges/badge-pearl.avif','serene@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','SereneScribe');
+INSERT INTO `users` VALUES (1,'Passionate about expressing through words.','/capstone_IMGs/badges/badge-default.png','poetrylover@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','PoetryLover123'),(2,'Exploring the depths of creativity.','/capstone_IMGs/badges/badge-apple.jpeg','creative@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','CreativeSoul89'),(3,'Seeking inspiration in every word.','/capstone_IMGs/badges/badge-einstein.jpeg','writer@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','InspiredWriter55'),(4,'Admiring the world through verse.','/capstone_IMGs/badges/badge-joan.jpeg','graceful@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','GracefulGazer'),(5,'Finding tranquility in writing.','/capstone_IMGs/badges/badge-pearl.avif','serene@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','SereneScribe'),(6,'Weaving dreams with words.','/capstone_IMGs/badges/badge-joan.jpeg','dreamweaver@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','DreamWeaver123'),(7,'Singing through verses.','/capstone_IMGs/badges/badge-pearl.avif','soulful@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','SoulfulSinger');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +198,7 @@ CREATE TABLE `verses` (
   PRIMARY KEY (`id`),
   KEY `FK805olp0ojtdq1u08jabhpf9ax` (`user_id`),
   CONSTRAINT `FK805olp0ojtdq1u08jabhpf9ax` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,7 +207,7 @@ CREATE TABLE `verses` (
 
 LOCK TABLES `verses` WRITE;
 /*!40000 ALTER TABLE `verses` DISABLE KEYS */;
-INSERT INTO `verses` VALUES (1,'Beneath the starry night, I find my solace.','Romantic',1),(2,'In the hustle and bustle, silence speaks.','Reflective',2),(3,'A dance of colors in the morning sky.','Nature',3),(4,'Whispers of the wind carry secrets untold.','Mysterious',1),(5,'Lost in a world of ink and paper.','Creative',2),(6,'Footprints in the sand, memories left behind.','Nostalgic',3),(7,'Eternal love, a flame that never fades.','Romantic',1),(8,'Echoes of laughter in the autumn breeze.','Joyful',2),(9,'Silent tears, stories only the heart knows.','Reflective',3),(10,'Underneath the city lights, dreams take flight.','Inspiring',1);
+INSERT INTO `verses` VALUES (1,'In the quiet moments before dawn, the world holds its breath, awaiting the first light of day. It is in this hushed stillness that my thoughts find their voice, and my heart speaks its truth. The world awakens, and so do I, with pen in hand and soul laid bare.','Reflective',4),(2,'Beneath the ancient oak tree, where whispers of the past linger in the breeze, I find solace. Each rustling leaf, a page in nature\'s book, tells a story of time gone by. Here, I pen my own tales, a tribute to the tales that came before.','Nostalgic',5),(3,'Beneath the starry night, I find my solace.','Romantic',1),(4,'In the hustle and bustle, silence speaks.','Reflective',2),(5,'A dance of colors in the morning sky.','Nature',3),(6,'Whispers of the wind carry secrets untold. In their gentle embrace, I find sanctuary, a place where my words can roam free.','Mysterious',4),(7,'Lost in a world of ink and paper, I dance upon the blank canvas, letting my thoughts flow like a river, winding and weaving through the pages.','Creative',5),(8,'Footprints in the sand, memories left behind. Each step a story, each grain of sand a witness to the journey.','Nostalgic',6),(9,'Eternal love, a flame that never fades. It burns bright in the darkest night, a beacon of hope for weary hearts.','Romantic',7),(10,'Echoes of laughter in the autumn breeze, a symphony of joy that resonates through the golden leaves. In this moment, I find pure bliss.','Joyful',5),(11,'Silent tears, stories only the heart knows. They speak of battles fought and victories won, of strength and resilience in the face of adversity.','Reflective',3),(12,'Underneath the city lights, dreams take flight. In the midst of chaos, I find my sanctuary, where imagination knows no bounds.','Inspiring',7);
 /*!40000 ALTER TABLE `verses` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -219,4 +220,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-11 15:18:14
+-- Dump completed on 2023-10-11 15:48:37
