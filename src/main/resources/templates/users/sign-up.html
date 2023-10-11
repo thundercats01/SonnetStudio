@@ -7,15 +7,16 @@
     <div th:insert="partials/navbar :: nav-bar"></div>
 </header>
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-8">
-            <img th:src="@{/capstone_IMGs/carousel-img/test5.jpeg}" class="d-block w-100" alt="...">
-            <div></div>
-        </div>
-        <div class="col-4 pt-5">
+<br>
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 col-xl-4">
             <div class="card blurry-bg ">
                 <div class="card-body">
+                    <div class="text-center mb-4">
+                        <h4 class="text-uppercase mt-0">Sign-Up</h4>
+                    </div>
                     <form th:action="@{/sign-up}" method="POST" th:object="${user}">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
@@ -35,7 +36,11 @@
                     </form>
                 </div>
             </div>
-
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <p class="text-muted">Already have an account? <a href="/login" class=" ms-1"><b>Login</b></a></p>
+                </div>
+            </div>
         </div>
     </div>
     <div th:insert="partials/footer :: footer"></div>
