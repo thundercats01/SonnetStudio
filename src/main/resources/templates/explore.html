@@ -23,7 +23,14 @@
                         <div class="search-group">
                             <input id="searchInput" type="text" name="text" autocomplete="off" class="input">
                             <label class="enter-label">Search</label>
-                            <div id="searchResults" class="search-results"></div>
+
+                            <div id="searchResults" class="search-results">
+
+                            </div>
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -106,13 +113,12 @@
                                     </button>
 
 
-
-                                        <form th:method="POST" th:action="@{/like}">
-                                            <input hidden name="verse-id" th:value="${verse.id}">
-                                            <div class="like-space">
-                                                <input type="submit" value="Like" class="btn btn-sm btn-primary">
-                                            </div>
-                                        </form>
+                                    <form th:method="POST" th:action="@{/like}">
+                                        <input hidden name="verse-id" th:value="${verse.id}">
+                                        <div class="like-space">
+                                            <input type="submit" value="Like" class="btn btn-sm btn-primary">
+                                        </div>
+                                    </form>
 
 
                                     <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span> Likes
@@ -131,8 +137,8 @@
             </div>
         </div>
 
-    </div>
 
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -147,15 +153,37 @@
             return;
         }
         fetch(`/searchUsers?query=${query}`)
-            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+                return response.json()
+            })
             .then(data => {
                 console.log(data);
                 let html = '';
                 data.forEach(user => {
                     html += `
-                        <div>
-                            <a href="/profile/${user.id}" class="search-item">${user.username}</a>
-                        </div>
+
+                    <div class="pt-3 d-flex justify-content-start">
+                        <button id="btn-message" class="button-message">
+                            <div class="content-avatar">
+                                <div class="status-user"></div>
+                                    <div class="avatar">
+                                        <img class="user-img" src="${user.currentBadge}">
+                                    </div>
+                                </div>
+                                <div class="notice-content">
+
+                                <a href="/profile/${user.id}" class="search-item d-flex username a-text">
+                                    <div class="user-id">
+                                        ${user.username}
+                                    </div>
+                                </a>
+                                    <div class="lable-message"> ${user.username}
+<!--                                    <span class="number-message">3</span>-->
+                                    </div>
+                                </div>
+                        </button>
+                    </div>
                     `;
                 });
                 document.getElementById("searchResults").innerHTML = html;

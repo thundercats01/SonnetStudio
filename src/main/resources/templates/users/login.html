@@ -7,39 +7,32 @@
 <header>
     <div th:insert="partials/navbar :: nav-bar"></div>
 </header>
-<body >
-
+<body>
+<br>
+<br>
 <div class="container">
-
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6 col-xl-4">
-            <br>
-            <br>
-            <div class="card">
-                <div class="card-body p-4">
-
+            <div class="card blurry-bg">
+                <div class="card-body">
                     <div class="text-center mb-4">
                         <h4 class="text-uppercase mt-0">Sign In</h4>
                     </div>
-
                     <div th:if="${param.error}">-->
                         Invalid Username and Password.
                     </div>
-
                     <form th:action="@{/login}" method="post">
                         <div class="mb-3">
                             <label for="floatingInput" class="form-label form-pad">Username</label>
-                            <input type="text" name="username" class="form-control form-style" id="floatingInput" placeholder="Enter your Username">
-
-                           
+                            <input type="text" name="username" class="form-control form-style" id="floatingInput"
+                                   placeholder="Enter your Username">
                         </div>
-
                         <div class="mb-3">
                             <label for="password" class="form-label form-pad">Password</label>
-                            <input class="form-control form-style" type="password" name="password" required="" id="password"
+                            <input class="form-control form-style" type="password" name="password" required=""
+                                   id="password"
                                    placeholder="Enter your password">
                         </div>
-
                         <div class="mb-3 d-grid text-center d-flex justify-content-around pt-4">
                             <button class="btn btn-primary btn-custom-Login" type="submit"> Log In</button>
                         </div>
@@ -47,7 +40,6 @@
 
                 </div>
             </div>
-
             <div class="row mt-3">
                 <div class="col-12 text-center">
                     <p class="text-muted">Don't have an account? <a href="/sign-up" class=" ms-1"><b>Sign Up</b></a></p>
@@ -55,6 +47,10 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
     <div th:insert="partials/footer :: footer"></div>
 </div>
 
