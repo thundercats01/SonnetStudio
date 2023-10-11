@@ -149,7 +149,6 @@ public class ProfileController {
 
     @PostMapping("/like/profile")
     public String handleLikes(@RequestParam("verse-id") Long verseId) {
-        System.out.println("inside handleLikes");
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
         // get user id
@@ -162,8 +161,6 @@ public class ProfileController {
             // save to likes table
             likesDao.save(like);
         }
-
-        System.out.println("blank");
         return "redirect:/profile";
     }
 
