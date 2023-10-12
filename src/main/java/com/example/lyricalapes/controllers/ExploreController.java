@@ -8,6 +8,7 @@ import com.example.lyricalapes.repositories.CommentRepo;
 import com.example.lyricalapes.repositories.LikeRepo;
 import com.example.lyricalapes.repositories.UserRepo;
 import com.example.lyricalapes.repositories.VerseRepo;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,7 +40,6 @@ public class ExploreController {
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
         List<Verse> allVersesInDescOrder = versesDAO.findAllByOrderByIdDesc();
-
 
 
         model.addAttribute("verses", allVersesInDescOrder);
@@ -84,8 +84,8 @@ public class ExploreController {
     }
 
 
-    @PostMapping("/like")
-    public String handleLikes(@RequestParam("verse-id") Long verseId) {
+    @PostMapping("/like/")
+    public String handleLikesFromExplorePage(@RequestParam("verse-id") Long verseId) {
         System.out.println("inside handleLikes");
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
@@ -94,14 +94,46 @@ public class ExploreController {
         // get verse id
         // set them to like object
         like.setUser(loggedInUser);
-        like.setVerse(versesDAO.findById(verseId).get());
+        Verse likedVerse = versesDAO.findById(verseId).get();
+        Long userId =likedVerse.getUser().getId();
+        like.setVerse(likedVerse);
+
+        if (!likesDAO.existsByUserAndVerse(like.getUser(), like.getVerse())) {
+            // save to likes table
+            likesDAO.save(like);
+        }
+        System.out.println("blank");
+        return "redirect:explore";
+    }
+
+    @PostMapping("/like")
+    public String handleLikesOnOtherUsersProfilePage(@RequestParam("verse-id") Long verseId,
+                                                     HttpServletRequest request) {
+        System.out.println("inside handleLikes");
+        User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
+
+        // get user id
+        Like like = new Like();
+        // get verse id
+        // set them to like object
+        like.setUser(loggedInUser);
+        Verse likedVerse = versesDAO.findById(verseId).get();
+        Long userId =likedVerse.getUser().getId();
+        like.setVerse(likedVerse);
         if (!likesDAO.existsByUserAndVerse(like.getUser(), like.getVerse())) {
             // save to likes table
             likesDAO.save(like);
         }
 
         System.out.println("blank");
+        String referer = request.getHeader("Referer");
+        System.out.println("This is the REFERER" + referer);
+        if (referer.contains("explore")) {
         return "redirect:explore";
+        } else {
+            return "redirect:profile/" +userId;
+        }
     }
 
     //    For Search of userNames
