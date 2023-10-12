@@ -40,7 +40,7 @@ public class SecurityConfiguration {
                          * anyone can visit the home page, register, login, and view ads */
                         .requestMatchers("/", "/sign-up", "/login").permitAll()
                         // allow loading of static resources
-                        .requestMatchers("/CSS/**", "/css/**", "/js/**", "/capstone_IMGs/**", "/static/**").permitAll()
+                        .requestMatchers("/CSS/**", "/css/**", "/JS/**", "/capstone_IMGs/**", "/static/**").permitAll()
                 )
                 /* Login configuration */
                 .formLogin((login) -> login
