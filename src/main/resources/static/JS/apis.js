@@ -1,7 +1,6 @@
 (() => {
 
-    async function checkSpelling() {
-        console.log("Inside Donalds Mom");
+    const checkSpelling = async() => {
         const textToCheck = document.getElementById('textToCheck').value;
         const encodedText = encodeURIComponent(textToCheck);
         const url = `https://webspellchecker-webspellcheckernet.p.rapidapi.com/ssrv.cgi?cmd=check_spelling&user_dictionary=Input_Dictionary_Name&text=${encodedText}&slang=en_US&out_type=words&format=xml`;
@@ -34,12 +33,13 @@
                 output = '<h5>No spelling errors found.</h5>';
             }
 
-            document.getElementById('spellingCheckResults').innerHTML = output;
+            document.querySelector('#checkSpelling').innerHTML = output;
 
         } catch (error) {
-            console.error(error);
+            console.log(error);
         }
     }
+
 
     document.querySelector('#checkSpelling').addEventListener('click', checkSpelling);
 
