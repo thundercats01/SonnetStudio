@@ -38,7 +38,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/explore", "/profile", "/profile/**","/badge","/like","/create/**","/edit-profile","/comments/**", "/post_delete","edit-user-profile","/follow","/searchUsers","/apple-badge","/default-badge","/einstein-badge","/joan-badge","/masterkey-badge","/pearl-badge","/socrates-badge","/king-badge", "/keys.js").authenticated()
                         /* Pages that do not require authentication
                          * anyone can visit the home page, register, login, and view ads */
-                        .requestMatchers("/", "/sign-up", "/login").permitAll()
+                        .requestMatchers("/","/meettheteam", "/sign-up", "/login").permitAll()
                         // allow loading of static resources
                         .requestMatchers("/CSS/**", "/css/**", "/JS/**", "/capstone_IMGs/**", "/static/**").permitAll()
                 )
