@@ -69,7 +69,7 @@
     rgba(223, 105, 25, 0.33) 66.66%,
     rgba(223, 105, 25, 0.16) 83.33%,
     rgba(223, 105, 25, 0) 100%);
-    border-style: unset;
+    border-style: solid;
     border-radius: 2rem;
 
 }
