@@ -9,6 +9,7 @@ import com.example.lyricalapes.repositories.LikeRepo;
 import com.example.lyricalapes.repositories.UserRepo;
 import com.example.lyricalapes.repositories.VerseRepo;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,10 +36,10 @@ public class ProfileController {
     }
 
     @GetMapping("/profile")
-    public String showProfile(Model model) {
+    public String showProfile(Model model, @CurrentSecurityContext(expression="authentication?.name") String username) {
         // Get the logged-in user
-        User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
+        User loggedInUser = usersDAO.findByUsername(username);
+//        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String loggedInUsername = auth.getName();
 
@@ -70,6 +71,9 @@ public class ProfileController {
         model.addAttribute("following", loggedInUser.getFollowers().size());
         model.addAttribute("followers", loggedInUser.getFollowing().size());
         model.addAttribute("totalComments", commentsPerVerse.size());
+        model.addAttribute("followingList", loggedInUser.getFollowers());
+        model.addAttribute("followersList", loggedInUser.getFollowing());
+//        System.out.println(loggedInUser.getFollowing());
 
         return "profile/profileview";
     }
@@ -86,15 +90,16 @@ public class ProfileController {
         // Check if the profile being viewed is of the logged-in user
         if (loggedInUser.getId() == clickedUser.getId()) { // <-- Use == for primitive long comparison
             // Fetch posts made by the logged-in user in descending order by ID
-            List<Verse> verses = verseRepo.findAllByUserOrderByIdDesc(loggedInUser);
-
-            model.addAttribute("verses", verses);
-            model.addAttribute("comments", commentRepo.findAll());
-            model.addAttribute("username", loggedInUser.getUsername());
-            model.addAttribute("bio", loggedInUser.getBio());
-            model.addAttribute("currentBadge", loggedInUser.getCurrentBadge());
-
-            return "profile/profileview";
+//            List<Verse> verses = verseRepo.findAllByUserOrderByIdDesc(loggedInUser);
+//
+//            model.addAttribute("verses", verses);
+//            model.addAttribute("comments", commentRepo.findAll());
+//            model.addAttribute("username", loggedInUser.getUsername());
+//            model.addAttribute("bio", loggedInUser.getBio());
+//            model.addAttribute("currentBadge", loggedInUser.getCurrentBadge());
+//
+//            return "profile/profileview";
+            return "redirect:/profile";
         } else {
             // Fetch posts and comments made by the clicked user
             List<Verse> verses = verseRepo.findAllByUserOrderByIdDesc(clickedUser);

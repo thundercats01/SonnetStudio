@@ -22,27 +22,41 @@
 
 <div class="container">
     <div class="row pt-5">
-<!--        <div class="col-8">-->
-            <!-- Display posts of the user -->
-<!--            <div class="row mb-4" th:each="verse : ${verses}">-->
-<!--                <div class="col-md-12">-->
-<!--                    <div class="card shadow-sm">-->
-<!--                        &lt;!&ndash; Avatar and Username section &ndash;&gt;-->
-<!--                        <div class="card-header d-flex align-items-center">-->
-<!--                            <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"-->
-<!--                                 width="40" height="40">-->
-<!--                            <span class="ms-3" th:text="${verse.getUser().getUsername()}">Username</span>-->
-<!--                        </div>-->
+        <div class="col-4 pt-4 pb-2 profile-card">
+            <div class="container-fluid profile-container">
+                <div class="row">
+                    <div class="col justify-content-center">
+                        <img th:src="@{|${currentBadge}|}"
+                             class="img-fluid rounded-circle badge-img-profile border border-dark"
+                             alt="Responsive image">
+                        <!-- Profile details and actions for the logged-in user -->
+                    </div>
+                    <div class="col">
+                        <h2 class="row d-flex justify-content-center active" th:text="${username}">username</h2>
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <span th:text="${bio}">Bio</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">
+                                <form th:action="@{/follow}" th:method="POST">
+                                    <input type="hidden" name="userId" th:value="${user.id}">
+                                    <input type="submit" th:value="Follow" class="btn btn-primary">
+                                </form>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ... more of your profile details ... -->
+                </div>
+            </div>
+        </div>
 
-<!--                        <div class="card-body">-->
-<!--                            <p class="card-text" th:text="${verse.getContent()}">Song verse here...</p>-->
-<!--                            &lt;!&ndash; ... rest of the post details ... &ndash;&gt;-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-            <div class="col-8">
+        <div class="col-8">
                 <div class="mb-4">
                     <div class="col-md-12 pb-3" th:each="verse : ${verses}">
                         <div class="card shadow-sm radius-card-c">
@@ -143,40 +157,6 @@
                     </div>
                 </div>
             </div>
-
-        <div class="col-4 pt-4 pb-2 profile-card">
-            <div class="container-fluid profile-container">
-                <div class="row">
-                    <div class="col justify-content-center">
-                        <img th:src="@{|${currentBadge}|}"
-                             class="img-fluid rounded-circle badge-img-profile border border-dark"
-                             alt="Responsive image">
-                        <!-- Profile details and actions for the logged-in user -->
-                    </div>
-                    <div class="col">
-                        <h2 class="row d-flex justify-content-center active" th:text="${username}">username</h2>
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <span th:text="${bio}">Bio</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <p class="card-text">
-                                <form th:action="@{/follow}" th:method="POST">
-                                    <input type="hidden" name="userId" th:value="${user.id}">
-                                    <input type="submit" th:value="Follow" class="btn btn-primary">
-                                </form>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ... more of your profile details ... -->
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
