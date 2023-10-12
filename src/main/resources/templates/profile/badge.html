@@ -169,7 +169,7 @@
                     </div>
                     <div class="col d-flex align-items-center">
                         <form th:action="@{/king-badge}" th:method="POST">
-                            <input type="submit" value="Select" class="btn btn-primary" th:disabled="${totalFollowersOfLoggedInUser < 6}">
+                            <input type="submit" value="Select" class="btn btn-primary" th:disabled="${totalFollowersOfLoggedInUser < 20}">
                         </form>
                     </div>
                 </div>
@@ -224,8 +224,8 @@
                     <div class="col d-flex align-items-center">
                         <form th:action="@{/masterkey-badge}" th:method="POST">
                             <input type="submit" value="Select" class="btn btn-primary"
-                                   th:disabled="${totalLikesOfLoggedInUser < 25 && totalFollowersOfLoggedInUser < 20
-                                   && totalFollowingOfLoggedInUser < 5 && totalCommentsOfLoggedInUser < 1}">
+                                   th:disabled="${totalLikesOfLoggedInUser < 25 || totalFollowersOfLoggedInUser < 20
+                                   || totalFollowingOfLoggedInUser < 5 || totalCommentsOfLoggedInUser < 1}">
                         </form>
                     </div>
                 </div>
