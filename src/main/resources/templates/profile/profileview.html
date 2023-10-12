@@ -27,7 +27,7 @@
             <div class="container-fluid profile-container">
                 <div class="row justify-content-center">
                     <div class="col justify-content-center">
-<!--                        IMG-->
+                        <!--                        IMG-->
                         <img th:src="@{|${currentBadge}|}"
                              class="img-fluid rounded-circle badge-img-profile border border-dark"
                              alt="Responsive image">
@@ -45,7 +45,8 @@
                             <div class="btn-group">
                                 <div class="card-body">
                                     <p class="card-text">
-                                        <a class="btn btn-outline-primary d-flex justify-content-center " th:href="@{/badge}">View
+                                        <a class="btn btn-outline-primary d-flex justify-content-center "
+                                           th:href="@{/badge}">View
                                             Badges</a>
                                     </p>
                                 </div>
@@ -68,7 +69,8 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <p class="card-text text-center">
-                                            <span class="d-flex justify-content-center" th:text="${likes + ' Likes'}"></span>
+                                            <span class="d-flex justify-content-center"
+                                                  th:text="${likes + ' Likes'}"></span>
                                         </p>
                                     </div>
                                 </div>
@@ -80,7 +82,8 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <p class="card-text text-center">
-                                            <span class="d-flex justify-content-center" th:text="${totalComments + ' Comments'}"></span>
+                                            <span class="d-flex justify-content-center"
+                                                  th:text="${totalComments + ' Comments'}"></span>
 
                                         </p>
                                     </div>
@@ -100,13 +103,24 @@
                         </div>
                     </div>
                     <div class="row pt-3">
+
                         <div class="col d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary" th:text="${followers + ' FOLLOWERS'}"></button>
+                            <button type="button" class="btn btn-primary"
+                                    th:text="${followers + ' FOLLOWERS'}"></button>
                         </div>
                         <div class="col d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary" th:text="${following + ' FOLLOWING'}"></button>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseExample" aria-expanded="false"
+                                    aria-controls="collapseExample" th:text="${following + ' FOLLOWING'}">
+                            </button>
+                        </div>
+                        <div class="collapse" id="collapseExample">
+                            <ul class="card card-body">
+                                <li th:each="user : ${followingList}" th:text="${user.username}"></li>
+                            </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -185,8 +199,15 @@
 
                                         </div>
                                         <!-- Like-->
-                                        <div class="like-space">
-                                            <button type="button" class="btn btn-sm btn-primary">Like</button>
+                                        <form th:method="POST" th:action="@{/like/profile}">
+                                            <input hidden name="verse-id" th:value="${verse.id}">
+                                            <div class="like-space">
+                                                <input type="submit" value="Like" class="btn btn-sm btn-primary">
+                                            </div>
+                                        </form>
+
+
+                                        <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span> Likes
                                         </div>
 
                                     </div>

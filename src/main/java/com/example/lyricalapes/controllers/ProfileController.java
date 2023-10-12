@@ -9,6 +9,7 @@ import com.example.lyricalapes.repositories.LikeRepo;
 import com.example.lyricalapes.repositories.UserRepo;
 import com.example.lyricalapes.repositories.VerseRepo;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,10 +36,10 @@ public class ProfileController {
     }
 
     @GetMapping("/profile")
-    public String showProfile(Model model) {
+    public String showProfile(Model model, @CurrentSecurityContext(expression="authentication?.name") String username) {
         // Get the logged-in user
-        User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
+        User loggedInUser = usersDAO.findByUsername(username);
+//        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String loggedInUsername = auth.getName();
 
@@ -70,6 +71,8 @@ public class ProfileController {
         model.addAttribute("following", loggedInUser.getFollowers().size());
         model.addAttribute("followers", loggedInUser.getFollowing().size());
         model.addAttribute("totalComments", commentsPerVerse.size());
+        model.addAttribute("followingList", loggedInUser.getFollowers());
+        System.out.println(loggedInUser.getFollowing());
 
         return "profile/profileview";
     }
@@ -144,6 +147,23 @@ public class ProfileController {
 
         usersDAO.save(loggedInUser);
         usersDAO.save(userToFollow);
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/like/profile")
+    public String handleLikes(@RequestParam("verse-id") Long verseId) {
+        User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
+        // get user id
+        Like like = new Like();
+        // get verse id
+        // set them to like object
+        like.setUser(loggedInUser);
+        like.setVerse(verseRepo.findById(verseId).get());
+        if (!likesDao.existsByUserAndVerse(like.getUser(), like.getVerse())) {
+            // save to likes table
+            likesDao.save(like);
+        }
         return "redirect:/profile";
     }
 
