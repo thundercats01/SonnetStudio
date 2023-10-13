@@ -4,7 +4,7 @@
     <title>Sonnet Studio (landing page)</title>
 </head>
 <div th:insert="partials/navbar :: nav-bar"></div>
-<body >
+<body>
 <!--1st Div-->
 <div class="video-background shadow">
     <div class="content">
@@ -31,17 +31,19 @@
                         <br><br><br><br><br>
                         <div class="">
                             <h1> SONNET STUDIOS </h1>
-                            <p> Dive into a universe where words dance to the rhythm of your soul! Sonnet Studios beckons you into a
-                                world where lyrics transform into conversations, where your poetic expressions find a global stage,
+                            <p> Dive into a universe where words dance to the rhythm of your soul! Sonnet Studios
+                                beckons you into a
+                                world where lyrics transform into conversations, where your poetic expressions find a
+                                global stage,
                                 and where every word resonates like a chord in a heart-stirring melody.</p>
                         </div>
 
                         <div class="d-flex">
                             <a th:href="@{/sign-up}" sec:authorize="!isAuthenticated()">
-                            <button data-text="Awesome" class="button">
-                                <span class="actual-text">&nbsp;Sign&nbsp;Up&nbsp;</span>
-                                <span class="hover-text" aria-hidden="true">&nbsp;Sign&nbsp;Up&nbsp;</span>
-                            </button>
+                                <button data-text="Awesome" class="button">
+                                    <span class="actual-text">&nbsp;Sign&nbsp;Up&nbsp;</span>
+                                    <span class="hover-text" aria-hidden="true">&nbsp;Sign&nbsp;Up&nbsp;</span>
+                                </button>
                             </a>
                         </div>
 
@@ -69,12 +71,11 @@
                     <div class="col">
                         <div class="card1">
                             <div class="first-content1 text-center">
-                                <span class="card-title">Share Your Muse</span>
+                                <span class="card-title">Earn Badges</span>
                             </div>
                             <div class="second-content1">
                                 <div class="container">
-                                    <span class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</span>
+                                    <span class="card-text">Accomplish challenges to earn badges, showcasing your achievements on your profile for a distinguished presence.</span>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +103,7 @@
                             <div class="second-content1">
                                 <div class="container">
                                     <span class="card-text">Be part of a tight-knit community of music lovers, lyric
-                                    enthusiasts, and poets. Discover new artists, discuss timeless classics, and make
+                                    enthusiasts, and poets. Discover new artists, and make
                                     meaningful connections.</span>
                                 </div>
                             </div>
@@ -151,11 +152,19 @@
                 </div>
             </div>
             <div class="col-4 contents-reverse">
-                <h3> Test </h3>
-                <h1> Testing</h1>
+                <h2 class="mt-5">Lost for words?</h2>
+                <h1>Shakespeare Ai</h1>
                 <br>
                 <p>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dolor eaque illo nesciunt obcaecati optio perspiciatis quam repellendus, rerum saepe sapiente suscipit voluptatibus. Cupiditate, dolorem inventore non perspiciatis vitae voluptates.</span><span>Ab accusamus accusantium amet dolorum eius eligendi, eos eveniet ex harum illum inventore laboriosam laborum magnam magni maiores odit officia pariatur quae qui quia suscipit tenetur ullam unde voluptate voluptatibus.</span>
+                <ul>
+                    <li>
+                        <span>Shakespeare" is an advanced AI-powered chat bot designed to assist aspiring songwriters in creating compelling and evocative lyrics. This innovative tool leverages state-of-the-art natural language processing and machine learning to provide suggestions, generate rhymes, offer creative prompts, and even help with refining existing lyrics.</span>
+                    </li>
+                    <li>
+                        <span>With Shakespeare, songwriters can tap into a wellspring of creativity, receiving invaluable assistance in crafting lyrics that resonate with their audience. It is the perfect companion for both seasoned songwriters looking for inspiration and novices seeking guidance in the world of songwriting.</span>
+
+                    </li>
+                </ul>
                 </p>
             </div>
         </div>
