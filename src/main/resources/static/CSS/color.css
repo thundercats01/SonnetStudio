@@ -4,3 +4,7 @@
 .bg-black{
     background-color: #080808;
 }
+
+:root {
+    --poet: #0F2537;
+}
