@@ -53,6 +53,7 @@ public class BadgePageController {
         model.addAttribute("totalFollowersOfLoggedInUser", loggedInUser.getFollowing().size());
         model.addAttribute("totalFollowingOfLoggedInUser", loggedInUser.getFollowers().size());
         model.addAttribute("totalLikesOfLoggedInUser",totalLikesOfLoggedinUser);
+        model.addAttribute("pageTitle", "Badges");
 
         return "profile/badge";
     }

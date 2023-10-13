@@ -36,6 +36,7 @@ public class CreateVerseController {
         String userBadge = loggedInUser.getCurrentBadge();
     model.addAttribute("username",loggedInUsername);
     model.addAttribute("currentBadge", userBadge);
+    model.addAttribute("pageTitle", "Create Verse");
     return"profile/createverse";
 }
 

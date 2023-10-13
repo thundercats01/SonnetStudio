@@ -73,6 +73,7 @@ public class ProfileController {
         model.addAttribute("totalComments", commentsPerVerse.size());
         model.addAttribute("followingList", loggedInUser.getFollowers());
         model.addAttribute("followersList", loggedInUser.getFollowing());
+        model.addAttribute("pageTitle", "Profile");
 //        System.out.println(loggedInUser.getFollowing());
 
         return "profile/profileview";
