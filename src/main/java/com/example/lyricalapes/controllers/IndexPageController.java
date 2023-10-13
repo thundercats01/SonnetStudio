@@ -24,7 +24,8 @@ public class IndexPageController {
     }
 
     @GetMapping
-    public String showLandingPage() {
+    public String showLandingPage(Model model) {
+        model.addAttribute("pageTitle", "Sonnet Studio");
         return "index";
     }
 

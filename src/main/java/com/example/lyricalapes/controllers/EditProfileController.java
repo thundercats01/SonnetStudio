@@ -22,6 +22,7 @@ public class EditProfileController {
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = userRepo.findByUsername(loggedInPrinciple.getUsername());
         model.addAttribute("user", loggedInUser);
+        model.addAttribute("pageTitle", "Edit Profile");
 
         return "profile/editprofile";
 

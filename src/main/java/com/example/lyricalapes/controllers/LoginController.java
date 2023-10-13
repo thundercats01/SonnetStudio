@@ -23,7 +23,8 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public String showLogIn() {
+    public String showLogIn(Model model) {
+        model.addAttribute("pageTitle", "Login");
         return "users/login";
     }
 
@@ -31,6 +32,7 @@ public class LoginController {
     @GetMapping("/sign-up")
     public String showSignupForm(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("pageTitle", "Sign Up");
         return "users/sign-up";
     }
 

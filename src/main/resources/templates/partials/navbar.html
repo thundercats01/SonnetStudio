@@ -9,7 +9,7 @@
                     </div>
                 </a>
                 <div >
-                    <h1 class="h1-SonnetStudio"> Sonnet Studio </h1>
+                    <h1 class="h1-SonnetStudio" th:text="${pageTitle}"></h1>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -67,3 +67,38 @@
         </nav>
     </header>
 </div>
+<!--<script>-->
+
+<!--    window.addEventListener('DOMContentLoaded', (event) => {-->
+<!--        // Get the h1 element-->
+<!--        const h1Element = document.querySelector('.h1-SonnetStudio');-->
+
+<!--        // Determine the title based on the current pathname-->
+<!--        switch (window.location.pathname) {-->
+<!--            case '/':-->
+<!--                h1Element.innerText = 'Sonnet Studio';-->
+<!--                break;-->
+<!--            case '/explore':-->
+<!--                h1Element.innerText = 'Explore';-->
+<!--                break;-->
+<!--            case '/create':-->
+<!--                h1Element.innerText = 'Create Post';-->
+<!--                break;-->
+<!--            case '/profile':-->
+<!--                h1Element.innerText = 'View Profile';-->
+<!--                break;-->
+<!--            case '/meettheteam':-->
+<!--                h1Element.innerText = 'Meet The Team';-->
+<!--                break;-->
+<!--            case '/sign-up':-->
+<!--                h1Element.innerText = 'Sign-Up';-->
+<!--                break;-->
+<!--            case '/login':-->
+<!--                h1Element.innerText = 'Login';-->
+<!--                break;-->
+<!--            default:-->
+<!--                h1Element.innerText = 'Sonnet Studio';-->
+<!--        }-->
+<!--    });-->
+
+<!--</script>-->

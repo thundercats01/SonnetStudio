@@ -45,6 +45,7 @@ public class ExploreController {
         model.addAttribute("verses", allVersesInDescOrder);
         List<Comment> allComments = commentDAO.findAll();
         model.addAttribute("comments", commentDAO.findAll());
+        model.addAttribute("pageTitle", "Explore Page");
 
 
 //        Map<Verse, Long> commentCounts = allComments.stream()
