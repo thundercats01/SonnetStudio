@@ -1013,5 +1013,9 @@
 }
 
 
-    background: rgb(166, 174, 182);
+.img-fit{
+    height: 100%!important;
 }
+/*    background: rgb(166, 174, 182);*/
+/*}*/
+
