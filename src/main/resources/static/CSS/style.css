@@ -132,6 +132,8 @@
     justify-content: center;
     align-items: center;
     opacity: 1;
+    flex-wrap: wrap;
+    flex-direction: column;
     border-radius: 1rem;
 }
 
@@ -682,7 +684,7 @@
     --border-right: 6px;
     --text-stroke-color: rgba(255, 255, 255, 0.6);
     --animation-color: #df6919;
-    --fs-size: 3rem;
+    --fs-size: 4rem;
     letter-spacing: 3px;
     text-decoration: none;
     font-size: var(--fs-size);
@@ -690,7 +692,7 @@
     position: relative;
     text-transform: uppercase;
     color: transparent;
-    -webkit-text-stroke: 1px var(--text-stroke-color);
+    -webkit-text-stroke: 2px var(--text-stroke-color);
 }
 
 /* this is the text, when you hover on button */
@@ -1020,3 +1022,32 @@
 /*    background: rgb(166, 174, 182);*/
 /*}*/
 
+.font-title{
+    font-size: 4rem;
+    font-weight: bolder;
+}
+
+/*.text-container{*/
+/*    font-size: 3rem;*/
+/*    text-align: center;*/
+/*}*/
+
+#output {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.p-text{
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+.text-container {
+    font-size: 24px;
+    white-space: nowrap; /* Ensures text stays in one line */
+}
