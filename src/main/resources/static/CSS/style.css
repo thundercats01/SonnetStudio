@@ -1015,6 +1015,7 @@
 
 .img-fit{
     height: 100%!important;
+    object-fit: cover;
 }
 /*    background: rgb(166, 174, 182);*/
 /*}*/
