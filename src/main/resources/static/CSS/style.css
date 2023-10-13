@@ -88,6 +88,10 @@
     height: 15rem;
 }
 
+.card-text{
+    color: var(--poet);
+}
+
 .blurry-bg {
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
@@ -289,7 +293,7 @@
     padding: 1rem;
     padding-right: 3rem;
     font-size: 1rem;
-    color: var(--color-active-input);
+    color: var(--poet);
     transition: border var(--transition);
 }
 
@@ -658,7 +662,7 @@
     background-color: rgba(255, 255, 255, 0.5) !important;
     border-radius: 2rem !important;
     padding: 1rem !important;
-    color: white !important;
+    color: var(--poet);
 }
 
 .form-pad {
@@ -938,6 +942,7 @@
     background: rgb(166,174,182);
 }
 
+.
 
 /*test*/
 
