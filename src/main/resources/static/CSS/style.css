@@ -186,7 +186,7 @@
 
 .card-1 {
     display: flex;
-    width: 25rem;
+    /*width: 25rem;*/
 }
 
 .card-1 svg {
@@ -697,11 +697,10 @@
     --border-right: 6px;
     --text-stroke-color: rgba(255, 255, 255, 0.6);
     --animation-color: #df6919;
-    --fs-size: 4rem;
+    --fs-size: 45px;
     letter-spacing: 3px;
     text-decoration: none;
     font-size: var(--fs-size);
-    font-family: "Arial";
     position: relative;
     text-transform: uppercase;
     color: transparent;
@@ -1078,7 +1077,6 @@
 
 .text-container {
     font-size: 24px;
-    white-space: nowrap; /* Ensures text stays in one line */
 }
 
 .iframe-container {
@@ -1116,3 +1114,4 @@
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
 }
+
