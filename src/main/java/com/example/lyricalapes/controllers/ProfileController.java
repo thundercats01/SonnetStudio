@@ -46,6 +46,9 @@ public class ProfileController {
         // Fetch posts made by the logged-in user in descending order by ID
         List<Verse> verses = verseRepo.findAllByUserOrderByIdDesc(loggedInUser);
 
+        System.out.println("Verses size: " + verses.size());
+
+
         long totalLikesOfLoggedinUser = 0;
 //            for(Verse verse : versesByLoggedInUser) {
         for (Verse verse : loggedInUser.getVerses()) {
