@@ -1075,3 +1075,13 @@
 .iframe-container {
     background-color: unset;
 }
+
+.unset-padding{
+    padding: unset!important;
+}
+
+.offcanvas-header{
+    position: absolute;
+    left: 85%;
+    top: 2%;
+}
