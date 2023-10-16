@@ -578,6 +578,11 @@
     border-radius: 2rem;
 }
 
+.card-border{
+    background-color: unset;
+    border: none;
+}
+
 .nav-link {
     background-image: linear-gradient(
             to right,
