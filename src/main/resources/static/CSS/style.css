@@ -583,6 +583,10 @@
     border: none;
 }
 
+.text-color{
+    color: white;
+}
+
 .nav-link {
     background-image: linear-gradient(
             to right,
