@@ -20,65 +20,70 @@
         <div class="row">
             <div class="d-flex flex-column justify-content-center text-center">
                 <div class="row pt-3">
-                    <div class="col">
+                    <div class="col-4">
+                        <div class="card blurry-bg1 d-flex" style="border-radius: 2rem">
+                            <div class="card-body">
+                                <div class="col">
+                                    <button id="checkSpelling" type="button"
+                                            class="spelling-btn my-3">Check Spelling
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8">
                         <div class="card blurry-bg1 d-flex" style="border-radius: 2rem;">
                             <div class="card-body">
-
-
-
                                 <div class="card-title border-bottom row">
-
-                                    <h5 class="col">Create Post</h5>
+                                    <h2 class="col">Create Post</h2>
                                 </div>
                                 <div class="row">
-                                    <div class="col">
+
                                         <form id="myForm" th:action="@{/create}" method="post">
                                                     <textarea id="textToCheck" name="verseText" rows="3"
                                                               style="min-height: 40vh"
                                                               class="form-control form-custom flex-grow-1"
                                                               placeholder="Post a new message" required=""></textarea>
-                                            <div class="row pt-1">
-                                                <input type="button" class="btn btn-dark border-primary my-3"
+                                        </form>
+                                    <div class="container">
+                                        <div class="row pt-2 pb-2 px-5">
+                                            <div class="col unset-padding">
+                                                <input type="button" class="btn btn-dark border-primary w-100 one-pill"
                                                        id="createSubmit" value="Submit" onkeyup="checkProfanity()">
                                             </div>
-                                        </form>
-                                        <button id="checkSpelling" type="button"
-                                                class="btn btn-dark border-primary my-3">Check Spelling
-                                        </button>
-                                    </div>
+                                            <div class="col unset-padding">
+                                                <a class="btn btn-primary w-100 one-pill1" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                                   role="button" aria-controls="offcanvasExample">
+                                                    Talk to Shakespeare
+                                                </a>
+                                                <div class="offcanvas offcanvas-end unset-padding" tabindex="-1"
+                                                     id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                                    <div class="offcanvas-header">
+                                                        <button type="button" class="btn-close text-reset"
+                                                                data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <iframe id=WQSZ7UVE5R loading="eager"
+                                                            src="https://embed.pickaxeproject.com/axe?id=Shakespeare_AI_M68AN&mode=embed_gold&host=beta&theme=custom&opacity=100&font_header=Real+Head+Pro&size_header=30&font_body=Real+Head+Pro&size_body=16&font_labels=Real+Head+Pro&size_labels=14&font_button=Real+Head+Pro&size_button=16&c_fb=4397DF&c_ff=FFFFFF&c_fbd=888888&c_bb=FFFFFF&c_bt=FFFFFF&c_t=FFFFFF&s_ffo=100&s_f=minimalist&s_b=outline&s_t=2&s_r=2"
+                                                            width="100%" height="840px"
+                                                            onMouseOver="this.style.boxShadow='0px 6px 6px -3px rgba(0,0,0,0.1)'"
+                                                            onMouseOut="this.style.boxShadow='none'"
+                                                            style="border:1px solid rgba(0, 0, 0, 1);transition:.3s;border-radius:4px;"
+                                                            frameBorder="0"></iframe>
 
-
-                                    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                                        Talk to Shakespeare
-                                    </a>
-                                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                                        <div class="offcanvas-header">
-                                            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-                                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <iframe id="0OGDPFX6T0" loading="eager"
-                                                src="https://embed.pickaxeproject.com/axe?id=Shakespeare_AI_M68AN&mode=embed_gold&host=beta&theme=dark&opacity=100&font_header=Real+Head+Pro&size_header=30&font_body=Real+Head+Pro&size_body=16&font_labels=Real+Head+Pro&size_labels=14&font_button=Real+Head+Pro&size_button=16&c_fb=08090B&c_ff=000000&c_fbd=FFFFFF&c_bb=FFFFFF&c_bt=FFFFFF&c_t=FFFFFF&s_ffo=100&s_f=minimalist&s_b=outline&s_t=2&s_r=2"
-                                                width="100%" height="720rem"
-                                                onMouseOver="this.style.boxShadow='0px 6px 6px -3px rgba(0,0,0,0.1)'"
-                                                onMouseOut="this.style.boxShadow='none'"
-                                                style="border:1px solid rgba(0, 0, 0, 1); transition:.3s; border-radius:4px;"
-                                                frameBorder="0" allowtransparency="true">
-                                        </iframe>
 
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 
 <script th:src="@{/JS/apis.js}"></script>
