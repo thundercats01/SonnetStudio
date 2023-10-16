@@ -1116,3 +1116,7 @@
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
 }
+
+.row-max-width{
+    width: 10rem;
+}
