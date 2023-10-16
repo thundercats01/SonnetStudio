@@ -1071,3 +1071,7 @@
     font-size: 24px;
     white-space: nowrap; /* Ensures text stays in one line */
 }
+
+.iframe-container {
+    background-color: unset;
+}
