@@ -42,7 +42,7 @@
     }
 
 
-    document.querySelector('#checkSpelling').addEventListener('click', checkSpelling);
+    // document.querySelector('#checkSpelling').addEventListener('click', checkSpelling);
 
     const profanityFilter = async () => {
         const textToCheck = document.getElementById('textToCheck');
