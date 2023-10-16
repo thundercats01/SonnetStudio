@@ -1085,3 +1085,25 @@
     left: 85%;
     top: 2%;
 }
+
+.spelling-btn{
+    background-color: #DF6919;
+    box-shadow: black;
+    color: white;
+    border-radius: 2rem;
+    width: 100%;
+    border-style: unset;
+    padding: 1rem;
+}
+
+.one-pill{
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    padding: unset;
+    height: 100%;
+}
+
+.one-pill1{
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}

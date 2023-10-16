@@ -24,7 +24,8 @@
 
             let output = '';
             if (errors.length > 0) {
-                output = '<h5>Spelling Errors:</h5><ul>';
+                output = '' +
+                    '<div class="pb-4"><h5>Spelling Errors:</h5></div><ul>';
                 for (let i = 0; i < errors.length; i++) {
                     output += `<li>${errors[i].textContent}</li>`;
                 }
