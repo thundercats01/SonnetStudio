@@ -114,6 +114,7 @@
     box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.705);
     font-size: 20px;
     font-weight: 900;
+    width: 90%;
 }
 
 .card1:hover {
