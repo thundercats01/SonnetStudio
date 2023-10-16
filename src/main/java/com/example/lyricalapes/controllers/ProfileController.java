@@ -146,13 +146,23 @@ public class ProfileController {
         //logged in user
         User loggedInPrinciple = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User loggedInUser = usersDAO.findByUsername(loggedInPrinciple.getUsername());
-        /// adds user to my follower list
-        loggedInUser.addNewFollower(userToFollow);
-        // adds me too their following list
-        userToFollow.addNewFollowing(loggedInUser);
 
-        usersDAO.save(loggedInUser);
-        usersDAO.save(userToFollow);
+
+
+        if (!userToFollow.getFollowing().contains(loggedInUser)) {
+
+            /// adds user to my follower list
+            loggedInUser.addNewFollower(userToFollow);
+            // adds me too their following list
+            userToFollow.addNewFollowing(loggedInUser);
+
+            usersDAO.save(loggedInUser);
+            usersDAO.save(userToFollow);
+
+        }
+//
+
+
         return "redirect:/profile";
     }
 
