@@ -920,7 +920,9 @@
     background-color: var(--bg-color-sup);
     border-radius: 20px;
 }
-
+.card-header img {
+    margin-right: 10px;
+}
 /*==============================================*/
 @keyframes active-status {
     0% {
