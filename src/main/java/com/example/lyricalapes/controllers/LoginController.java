@@ -5,10 +5,7 @@ import com.example.lyricalapes.repositories.UserRepo;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
@@ -23,10 +20,14 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public String showLogIn(Model model) {
+    public String showLogIn(Model model, @RequestParam(required = false) Boolean registered) {
         model.addAttribute("pageTitle", "Login");
+        if (Boolean.TRUE.equals(registered)) {
+            model.addAttribute("registered", true);
+        }
         return "users/login";
     }
+
 
 
     @GetMapping("/sign-up")
@@ -42,6 +43,7 @@ public class LoginController {
         System.out.println(user.getPassword());
         user.setPassword(hash);
         usersDAO.save(user);
-        return "users/login";
+        return "redirect:/login?registered=true";
+
     }
 }
