@@ -29,7 +29,7 @@
                             <div class="btn-group">
                                 <div class="card-body">
                                     <p class="card-text">
-                                        <a class="btn btn-outline-primary d-flex justify-content-center "
+                                        <a class="btn btn-outline-primary rounded-pill d-flex justify-content-center "
                                            th:href="@{/badge}">View
                                             Badges</a>
                                     </p>
@@ -41,7 +41,7 @@
                             <div class="btn-group">
                                 <div class="card-body">
                                     <p class="card-text">
-                                        <a class=" btn btn-outline-primary d-flex justify-content-center "
+                                        <a class=" btn btn-outline-primary rounded-pill d-flex justify-content-center "
                                            th:href="@{/edit-profile}">Edit Profile</a>
                                     </p>
                                 </div>
@@ -88,7 +88,7 @@
                         <div class="row">
                             <!-- Followers Button -->
                             <div class="col d-flex justify-content-center">
-                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                <button class="btn btn-primary rounded-pill" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#followersCollapse" aria-expanded="false"
                                         aria-controls="followersCollapse"
                                         th:text="${followers + ' FOLLOWERS'}">
@@ -96,7 +96,7 @@
                             </div>
                             <!-- Following Button -->
                             <div class="col d-flex justify-content-center">
-                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                <button class="btn btn-primary rounded-pill" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#followingCollapse" aria-expanded="false"
                                         aria-controls="followingCollapse"
                                         th:text="${following + ' FOLLOWING'}">
@@ -202,7 +202,7 @@
                                             <input type="hidden" name="currentProfileUrl" th:value="@{/profile}">
                                             <input type="text" name="userComment" class="form-control"
                                                    placeholder="Add a comment..." autocomplete="off" required/>
-                                            <input class="btn btn-primary  mt-2" value="Post Comment" type="submit">
+                                            <input class="btn btn-primary rounded-pill mt-2" value="Post Comment" type="submit">
                                         </form>
                                     </div>
                                     <!-- List of all comments -->
@@ -226,7 +226,7 @@
                                 <!-- The Comments and Like buttons -->
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-primary" data-comments-toggle>
+                                        <button type="button" class="btn btn-sm btn-primary rounded-pill" data-comments-toggle>
                                             Show Comments (<span
                                                 th:text="${verse.getComments().size()}">0</span>)
                                         </button>
@@ -234,7 +234,7 @@
                                         <div class="like-space">
                                             <form th:action="@{/post_delete}" th:method="post">
                                                 <input type="hidden" name="verseId" th:value="${verse.getId()}">
-                                                <button class="btn btn-sm btn-primary">
+                                                <button class="btn btn-sm btn-primary rounded-pill">
                                                     <span>Delete</span>
                                                 </button>
                                             </form>
@@ -242,7 +242,7 @@
                                         <form th:method="POST" th:action="@{/like/profile}">
                                             <input hidden name="verse-id" th:value="${verse.id}">
                                             <div class="like-space">
-                                                <input type="submit" value="Like" class="btn btn-sm btn-primary">
+                                                <input type="submit" value="Like" class="btn btn-sm btn-primary rounded-pill">
                                             </div>
                                         </form>
                                         <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span>
