@@ -63,6 +63,7 @@
             // Update the value of the input field
             textToCheck.value = result.censored;
 
+
             // Get the form element
             const form = document.getElementById('myForm');
 
