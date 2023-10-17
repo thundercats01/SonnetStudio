@@ -114,6 +114,7 @@ public class ProfileController {
             model.addAttribute("user", clickedUser);
             model.addAttribute("bio", clickedUser.getBio());
             model.addAttribute("currentBadge", clickedUser.getCurrentBadge());
+            model.addAttribute("pageTitle", clickedUser.getUsername() + "'s Profile");
 
 //            List<Verse> versesByLoggedInUser = verseRepo.findAllByUserOrderByIdDesc(loggedInUser);
             long totalLikesOfLoggedinUser = 0;
