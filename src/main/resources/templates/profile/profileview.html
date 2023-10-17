@@ -25,189 +25,195 @@
 <div class="container">
     <div class="row pt-5">
         <div class="col-12 col-md-4 pt-4 pb-2 profile-card">
-                <div class="container-fluid profile-container">
+            <div class="container-fluid profile-container">
 
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <div class="d-flex justify-content-center">
-                                <img th:src="@{|${currentBadge}|}"
-                                     class="img-fluid rounded-circle badge-img-profile border border-dark"
-                                     alt="Responsive image">
-                            </div>
-                            <div class="row justify-content-center pt-2">
-                                    <h3 class="active text-center pt-4" th:text="${username}">username</h3>
-                            </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="d-flex justify-content-center">
+                            <img th:src="@{|${currentBadge}|}"
+                                 class="img-fluid rounded-circle badge-img-profile border border-dark"
+                                 alt="Responsive image">
                         </div>
-
-
-                        <div class="col-md-6">
-                            <!--                        BADGES-->
-                            <div class="row pt-2">
-                                <div class="btn-group">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <a class="btn btn-outline-primary d-flex justify-content-center "
-                                               th:href="@{/badge}">View
-                                                Badges</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--                        EDIT PROFILE-->
-                            <div class="row pt-2">
-                                <div class="btn-group">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <a class=" btn btn-outline-primary d-flex justify-content-center "
-                                               th:href="@{/edit-profile}">Edit Profile</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--                        POINT-->
-                            <div class="row pt-2">
-                                <div class="col">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <p class="card-text text-center">
-                                            <span class="d-flex justify-content-center text-color"
-                                                  th:text="${likes + ' Likes'}"></span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row pt-2">
-                                <div class="col">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <p class="card-text text-center">
-                                            <span class="d-flex justify-content-center text-color"
-                                                  th:text="${totalComments + ' Comments'}"></span>
-
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="row justify-content-center pt-2">
+                            <h3 class="active text-center pt-4" th:text="${username}">username</h3>
                         </div>
+                    </div>
 
-                        <div class="row pt-4">
-                            <div class="card shadow-sm card-radius">
+
+                    <div class="col-md-6">
+                        <!--                        BADGES-->
+                        <div class="row pt-2">
+                            <div class="btn-group">
                                 <div class="card-body">
-                                    <h5 class="card-title">BIO:</h5>
                                     <p class="card-text">
-                                        <span class="text-color" th:text="${bio}">Bio</span>
+                                        <a class="btn btn-outline-primary d-flex justify-content-center "
+                                           th:href="@{/badge}">View
+                                            Badges</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row pt-3">
-                            <div class="row">
-                                <!-- Followers Button -->
-                                <div class="col d-flex justify-content-center">
-                                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#followersCollapse" aria-expanded="false" aria-controls="followersCollapse"
-                                            th:text="${followers + ' FOLLOWERS'}">
-                                    </button>
-                                </div>
-
-                                <!-- Following Button -->
-                                <div class="col d-flex justify-content-center">
-                                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#followingCollapse" aria-expanded="false" aria-controls="followingCollapse"
-                                            th:text="${following + ' FOLLOWING'}">
-                                    </button>
+                        <!--                        EDIT PROFILE-->
+                        <div class="row pt-2">
+                            <div class="btn-group">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <a class=" btn btn-outline-primary d-flex justify-content-center "
+                                           th:href="@{/edit-profile}">Edit Profile</a>
+                                    </p>
                                 </div>
                             </div>
-                            <div class="row pt-3">
-                                <!-- Collapsible Content for Followers -->
-                                <div class="col d-flex justify-content-center">
-                                    <div class="collapse" id="followersCollapse">
-                                        <ul class="card">
-                                            <li th:each="user : ${followersList}">
-                                                <a th:href="@{'/profile/' + ${user.id}}" th:text="${user.username}"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-
-                                <!-- Collapsible Content for Following -->
-                                <div class="col d-flex justify-content-center">
-                                    <div class="collapse" id="followingCollapse">
-                                        <ul class="card card-body">
-                                            <li th:each="user : ${followingList}">
-                                                <a th:href="@{'/profile/' + ${user.id}}" th:text="${user.username}"></a>
-                                            </li>
-                                        </ul>
+                        </div>
+                        <!--                        POINT-->
+                        <div class="row pt-2">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                            <span class="d-flex justify-content-center text-color"
+                                                  th:text="${likes + ' Likes'}"></span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="row pt-2">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                            <span class="d-flex justify-content-center text-color"
+                                                  th:text="${totalComments + ' Comments'}"></span>
 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="row pt-4">
+                        <div class="card shadow-sm card-radius">
+                            <div class="card-body">
+                                <h5 class="card-title">BIO:</h5>
+                                <p class="card-text">
+                                    <span class="text-color" th:text="${bio}">Bio</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row pt-3">
+                        <div class="row">
+                            <!-- Followers Button -->
+                            <div class="col d-flex justify-content-center">
+                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#followersCollapse" aria-expanded="false"
+                                        aria-controls="followersCollapse"
+                                        th:text="${followers + ' FOLLOWERS'}">
+                                </button>
+                            </div>
+
+                            <!-- Following Button -->
+                            <div class="col d-flex justify-content-center">
+                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#followingCollapse" aria-expanded="false"
+                                        aria-controls="followingCollapse"
+                                        th:text="${following + ' FOLLOWING'}">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <!-- Collapsible Content for Followers -->
+                            <div class="col d-flex justify-content-center">
+                                <div class="collapse" id="followersCollapse">
+                                    <ul class="card">
+                                        <li th:each="user : ${followersList}">
+                                            <a th:href="@{'/profile/' + ${user.id}}" th:text="${user.username}"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <!-- Collapsible Content for Following -->
+                            <div class="col d-flex justify-content-center">
+                                <div class="collapse" id="followingCollapse">
+                                    <ul class="card card-body">
+                                        <li th:each="user : ${followingList}">
+                                            <a th:href="@{'/profile/' + ${user.id}}" th:text="${user.username}"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
+            </div>
         </div>
 
         <div class="col-12 col-md-8 d-flex justify-content-center">
+
             <div class="col-12 col-md-8" th:if="${#lists.isEmpty(verses)}">
-                <div class="pt-4 d-flex justify-content-center">
-                    <div class="loader">
-                        <div>
-                            <ul>
-                                <li>
-                                    <svg fill="currentColor" viewBox="0 0 90 120">
-                                        <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg fill="currentColor" viewBox="0 0 90 120">
-                                        <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg fill="currentColor" viewBox="0 0 90 120">
-                                        <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg fill="currentColor" viewBox="0 0 90 120">
-                                        <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg fill="currentColor" viewBox="0 0 90 120">
-                                        <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                    </svg>
-                                </li>
-                                <li>
-                                    <svg fill="currentColor" viewBox="0 0 90 120">
-                                        <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                    </svg>
-                                </li>
-                            </ul>
-                        </div><span>test</span></div>
+                <div class="container">
+                    <div class="row">
+                            <div class="pt-4 d-flex justify-content-center">
+                                <div class="loader">
+                                    <div>
+                                        <ul>
+                                            <li>
+                                                <svg fill="currentColor" viewBox="0 0 90 120">
+                                                    <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg fill="currentColor" viewBox="0 0 90 120">
+                                                    <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg fill="currentColor" viewBox="0 0 90 120">
+                                                    <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg fill="currentColor" viewBox="0 0 90 120">
+                                                    <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg fill="currentColor" viewBox="0 0 90 120">
+                                                    <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg fill="currentColor" viewBox="0 0 90 120">
+                                                    <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+                                                </svg>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <span></span></div>
+                            </div>
+                            <div class="text-center pt-4">
+                                <h1>You don't have any posts...
+                                    Create a Post to Begin Earning Rewards!</h1>
+                            </div>
+                    </div>
                 </div>
-
-
-                <div class="text-center pt-4">
-                    <h1>You don't have any posts...
-                        Create a Post to Begin Earning Rewards!</h1>
-                </div>
-
             </div>
+
             <div class="col-12 col-md-8 w-100" th:unless="${#lists.isEmpty(verses)}">
                 <!-- Existing code for displaying posts -->
                 <div class="mb-4">
                     <div class="col-md-12 pb-3" th:each="verse : ${verses}">
                         <div class="card shadow-sm radius-card-c">
                             <div class="card-header d-flex align-items-center radius-card-c">
-                                <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar" class="rounded-circle"
+                                <img th:src="${verse.getUser().getCurrentBadge()}" alt="User Avatar"
+                                     class="rounded-circle"
                                      width="40" height="40">
                                 <a class="a-1" th:href="@{|/profile/${verse.user.id}|}"
                                    th:text="${verse.getUser().getUsername()}">Username</a>
@@ -282,7 +288,8 @@
                                         </form>
 
 
-                                        <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span> Likes
+                                        <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span>
+                                            Likes
                                         </div>
                                     </div>
 
