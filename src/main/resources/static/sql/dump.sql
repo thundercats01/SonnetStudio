@@ -28,7 +28,7 @@ CREATE TABLE `badges` (
   `name` varchar(255) DEFAULT NULL,
   `path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `badges` (
 
 LOCK TABLES `badges` WRITE;
 /*!40000 ALTER TABLE `badges` DISABLE KEYS */;
-INSERT INTO `badges` VALUES (1,'Default badge','Default','/capstone_IMGs/badges/badge-default.png'),(2,'Apple badge','Apple','/capstone_IMGs/badges/badge-apple.jpeg'),(3,'Einstein badge','Einstein','/capstone_IMGs/badges/badge-einstein.jpeg'),(4,'Pearl badge','Pearl','/capstone_IMGs/badges/badge-pearl.avif'),(5,'Joan badge','Joan','/capstone_IMGs/badges/badge-joan.jpeg');
+INSERT INTO `badges` VALUES (1,'Default badge','Default','/capstone_IMGs/badges/badge-default.png'),(2,'Apple badge','Apple','/capstone_IMGs/badges/badge-apple.jpeg'),(3,'Einstein badge','Einstein','/capstone_IMGs/badges/badge-einstein.jpeg'),(4,'Pearl badge','Pearl','/capstone_IMGs/badges/badge-pearl.avif'),(5,'Joan badge','Joan','/capstone_IMGs/badges/badge-joan.jpeg'),(6,'Developer badge','Developer','/capstone_IMGs/badges/badge-developer.png');
 /*!40000 ALTER TABLE `badges` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +170,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_6dotkott2kjsp8vw4d0m25fb7` (`email`),
   UNIQUE KEY `UK_r43af9ap4edm43mmtq01oddj6` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +179,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Passionate about expressing through words.','/capstone_IMGs/badges/badge-default.png','poetrylover@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','PoetryLover123'),(2,'Exploring the depths of creativity.','/capstone_IMGs/badges/badge-apple.jpeg','creative@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','CreativeSoul89'),(3,'Seeking inspiration in every word.','/capstone_IMGs/badges/badge-einstein.jpeg','writer@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','InspiredWriter55'),(4,'Admiring the world through verse.','/capstone_IMGs/badges/badge-joan.jpeg','graceful@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','GracefulGazer'),(5,'Finding tranquility in writing.','/capstone_IMGs/badges/badge-pearl.avif','serene@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','SereneScribe'),(6,'Weaving dreams with words.','/capstone_IMGs/badges/badge-joan.jpeg','dreamweaver@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','DreamWeaver123'),(7,'Singing through verses.','/capstone_IMGs/badges/badge-pearl.avif','soulful@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','SoulfulSinger');
+INSERT INTO `users` VALUES (1,'Passionate about expressing through words.','/capstone_IMGs/badges/badge-default.png','poetrylover@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','PoetryLover123'),(2,'Exploring the depths of creativity.','/capstone_IMGs/badges/badge-apple.jpeg','creative@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','CreativeSoul89'),(3,'Seeking inspiration in every word.','/capstone_IMGs/badges/badge-einstein.jpeg','writer@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','InspiredWriter55'),(4,'Admiring the world through verse.','/capstone_IMGs/badges/badge-joan.jpeg','graceful@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','GracefulGazer'),(5,'Finding tranquility in writing.','/capstone_IMGs/badges/badge-pearl.avif','serene@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','SereneScribe'),(6,'Weaving dreams with words.','/capstone_IMGs/badges/badge-joan.jpeg','dreamweaver@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','DreamWeaver123'),(7,'Singing through verses.','/capstone_IMGs/badges/badge-pearl.avif','soulful@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','SoulfulSinger'),(8,'Diving into the realms of dreams and magic.','/capstone_IMGs/badges/badge-developer.png','magicmonkey@example.com','$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi','MagicMonkey');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,4 +220,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-11 15:48:37
+-- Dump completed on 2023-10-17  9:07:03
