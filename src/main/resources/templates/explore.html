@@ -49,7 +49,7 @@
                                 </div>
                                 <!-- List of all comments -->
                                 <div th:each="comment : ${comments}" class="comment">
-                                    <div th:if="${comment.verse.id eq verse.getId()}" class="pt-5">
+                                    <div th:if="${comment.verse.id eq verse.getId()}" class="pt-3">
                                         <div class="card-header">
                                             <img th:src="${comment.getUser().getCurrentBadge()}" alt="badge"
                                                  class="rounded-circle"
@@ -80,7 +80,6 @@
                                     <div class="btn btn-sm"><span th:text="${#lists.size(verse.likes)}"></span> Likes
                                     </div>
                                 </div>
-
                                 <!-- Display the most recent comment -->
                             </div>
 
@@ -92,7 +91,7 @@
     </div>
 </div>
 <!--                                === Scripts ====-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/JS/explore.js"></script>
 </body>
 </html>
