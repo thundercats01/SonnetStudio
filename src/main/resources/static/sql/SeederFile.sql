@@ -8,7 +8,8 @@ VALUES
     ('SereneScribe', 'serene@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'Finding tranquility in writing.', '/capstone_IMGs/badges/badge-pearl.avif'),
     ('DreamWeaver123', 'dreamweaver@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'Weaving dreams with words.', '/capstone_IMGs/badges/badge-joan.jpeg'),
     ('SoulfulSinger', 'soulful@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'Singing through verses.', '/capstone_IMGs/badges/badge-pearl.avif'),
-    ('MagicMonkey', 'magicmonkey@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'Every seen the movie Jungle Book?', '/capstone_IMGs/badges/badge-developer.png');
+    ('MagicMonkey', 'magicmonkey@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'Every seen the movie Jungle Book?', '/capstone_IMGs/badges/badge-developer.png'),
+    ('Phfirewire', 'phfirewire@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'I will be the Wizard King!!!', '/capstone_IMGs/badges/badge-developer.png');
 
 -- Verses
 INSERT INTO verses (user_id, Content, genre)
