@@ -7,7 +7,8 @@ VALUES
     ('GracefulGazer', 'graceful@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'Admiring the world through verse.', '/capstone_IMGs/badges/badge-joan.jpeg'),
     ('SereneScribe', 'serene@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'Finding tranquility in writing.', '/capstone_IMGs/badges/badge-pearl.avif'),
     ('DreamWeaver123', 'dreamweaver@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'Weaving dreams with words.', '/capstone_IMGs/badges/badge-joan.jpeg'),
-    ('SoulfulSinger', 'soulful@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'Singing through verses.', '/capstone_IMGs/badges/badge-pearl.avif');
+    ('SoulfulSinger', 'soulful@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'Singing through verses.', '/capstone_IMGs/badges/badge-pearl.avif'),
+    ('MagicMonkey', 'magicmonkey@example.com', '$2a$10$kMgLEcRRVC8TOATD4rWIR.PQVEoRHsH9BiuSktwyRNTq2rrKVPzmi', 'Every seen the movie Jungle Book?', '/capstone_IMGs/badges/badge-developer.png');
 
 -- Verses
 INSERT INTO verses (user_id, Content, genre)
@@ -32,7 +33,8 @@ VALUES
     ('Apple', 'Apple badge', '/capstone_IMGs/badges/badge-apple.jpeg'),
     ('Einstein', 'Einstein badge', '/capstone_IMGs/badges/badge-einstein.jpeg'),
     ('Pearl', 'Pearl badge', '/capstone_IMGs/badges/badge-pearl.avif'),
-    ('Joan', 'Joan badge', '/capstone_IMGs/badges/badge-joan.jpeg');
+    ('Joan', 'Joan badge', '/capstone_IMGs/badges/badge-joan.jpeg'),
+    ('Developer', 'Developer badge', '/capstone_IMGs/badges/badge-developer.png');
 
 -- Comments
 INSERT INTO comments (Content, user_id, verse_id)
@@ -137,4 +139,3 @@ VALUES
     (4, 7), -- User 4 is following User 7
     (5, 7), -- User 5 is following User 7
     (6, 7); -- User 6 is following User 7
-
