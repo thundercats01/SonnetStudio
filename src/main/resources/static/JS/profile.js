@@ -34,3 +34,15 @@ document.addEventListener('click', function(e) {
         }
     }
 });
+
+// ------------- Delete ------------
+function showConfirmationDialog() {
+    $('#confirmationDialog').modal('show');
+}
+
+function deleteItem() {
+    // Submit the form when user confirms deletion
+    $('#deleteForm').submit();
+    // Close the modal
+    $('#confirmationDialog').modal('hide');
+}
