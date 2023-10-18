@@ -45,8 +45,9 @@
     // document.querySelector('#checkSpelling').addEventListener('click', checkSpelling);
 
     const profanityFilter = async () => {
-        const textToCheck = document.getElementById('textToCheck');
-        const url = `https://profanity-filter-by-api-ninjas.p.rapidapi.com/v1/profanityfilter?text=${textToCheck.value}`;
+        const textToCheck = document.querySelector('#textToCheck');
+        // console.log(textToCheck);
+        const url = `https://profanity-filter-by-api-ninjas.p.rapidapi.com/v1/profanityfilter?text=${encodeURI(textToCheck.value)}`;
         const options = {
             method: 'GET',
             headers: {
@@ -58,7 +59,7 @@
         try {
             const response = await fetch(url, options);
             const result = await response.json(); // Assuming the API returns JSON
-            console.log(result.censored);
+            // console.log(result);
 
             // Update the value of the input field
             textToCheck.value = result.censored;
