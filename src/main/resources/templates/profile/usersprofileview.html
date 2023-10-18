@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <div class="row pt-5">
-        <div class="col-4 pt-4 pb-2 profile-card card-size-matter">
+        <div class="col-12 col-md-4 pt-4 pb-2 profile-card card-size-matter">
             <div class="container-fluid profile-container">
                 <div class="row">
                     <div class="col justify-content-center">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row pt-4 text-center">
+                <div class="row pt-4 text-center pb-5">
                     <form th:action="@{/follow}" th:method="POST">
                         <input type="hidden" name="userId" th:value="${user.id}">
                         <input type="submit" th:value="Follow" class="btn btn-primary" style="width: 50%; border-radius: 2rem;">
