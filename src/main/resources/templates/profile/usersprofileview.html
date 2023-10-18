@@ -105,7 +105,7 @@
                                     <div class="add-comment mt-2">
                                         <form th:action="@{/explore}" th:method="post">
                                             <input type="hidden" name="verseId" th:value="${verse.getId()}">
-                                            <input type="hidden" name="currentProfileUrl" th:value="@{/profile}">
+                                            <input type="hidden" name="currentProfileUrl" th:value="${'/profile/' + user.id}">
                                             <input type="text" name="userComment" class="form-control"
                                                    placeholder="Add a comment..." autocomplete="off" required/>
                                             <input class="btn btn-primary rounded-pill mt-2" value="Post Comment" type="submit">
@@ -139,6 +139,7 @@
                                         </button>
 
                                         <form th:method="POST" th:action="@{/like/profile}">
+                                            <input type="hidden" name="currentProfileUrl" th:value="${'/profile/' + user.id}">
                                             <input hidden name="verse-id" th:value="${verse.id}">
                                             <div class="like-space">
                                                 <input type="submit" value="Like" class="btn btn-sm btn-primary rounded-pill">
