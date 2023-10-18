@@ -1430,3 +1430,7 @@
     padding-left: 2rem;
     padding-right: 2rem;
 }
+
+.card-size-matter{
+    height: fit-content!important;
+}
