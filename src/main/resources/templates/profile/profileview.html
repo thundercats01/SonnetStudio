@@ -107,21 +107,55 @@
                             <!-- Collapsible Content for Followers -->
                             <div class="col d-flex justify-content-center">
                                 <div class="collapse" id="followersCollapse">
-                                    <ul class="card">
-                                        <li th:each="user : ${followersList}">
-                                            <a th:href="@{'/profile/' + ${user.id}}" th:text="${user.username}"></a>
-                                        </li>
-                                    </ul>
+                                    <div class="">
+                                        <div th:each="user : ${followersList}">
+                                            <div class="pt-3 d-flex justify-content-start">
+                                                <button id="btn-message" class="button-message">
+                                                    <div class="content-avatar">
+                                                        <div class="status-user"></div>
+                                                        <div class="avatar">
+                                                            <img class="user-img" th:src="${user.currentBadge}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="notice-content">
+                                                        <a th:href="@{'/profile/' + ${user.id}}" th:text="${user.username}"></a>
+                                                        <div class="user-id">
+
+                                                        </div>
+                                                        </a>
+                                                        <div class="lable-message" th:text="${user.username}"></div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Collapsible Content for Following -->
                             <div class="col d-flex justify-content-center">
                                 <div class="collapse" id="followingCollapse">
-                                    <ul class="card card-body">
-                                        <li th:each="user : ${followingList}">
-                                            <a th:href="@{'/profile/' + ${user.id}}" th:text="${user.username}"></a>
-                                        </li>
-                                    </ul>
+                                    <div class="">
+                                        <div th:each="user : ${followingList}">
+                                            <div class="pt-3 d-flex justify-content-start">
+                                                <button id="btn-message" class="button-message">
+                                                    <div class="content-avatar">
+                                                        <div class="status-user"></div>
+                                                        <div class="avatar">
+                                                            <img class="user-img" th:src="${user.currentBadge}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="notice-content">
+                                                        <a th:href="@{'/profile/' + ${user.id}}" th:text="${user.username}"></a>
+                                                            <div class="user-id">
+
+                                                            </div>
+                                                        </a>
+                                                        <div class="lable-message" th:text="${user.username}"></div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
