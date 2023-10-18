@@ -1400,3 +1400,16 @@
         transform: rotate(220deg);
     }
 }
+
+.btn-collapse.active {
+    background-color: #a74d11; /* Change this to your desired darker background color */
+    color: #fff; /* Change this to your desired text color */
+}
+
+.text-black{
+    color: black!important;
+}
+
+.blurry-bg-2{
+    background-color: rgb(255 255 255 / 24%);
+}
