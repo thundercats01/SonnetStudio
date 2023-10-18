@@ -17,6 +17,14 @@
         rgba(223, 105, 25, 0.16) 83.33%,
         rgba(223, 105, 25, 0) 100%)!important;
     }
+    .one-pill{
+
+        padding: unset!important;
+    }
+    .cv-phone{
+        width: 100%!important;
+    }
+
 }
 
 .h1-SonnetStudio {
@@ -1399,4 +1407,30 @@
         left: calc(100% + 16px);
         transform: rotate(220deg);
     }
+}
+
+.btn-collapse.active {
+    background-color: #a74d11; /* Change this to your desired darker background color */
+    color: #fff; /* Change this to your desired text color */
+}
+
+.text-black{
+    color: black!important;
+}
+
+.blurry-bg-2{
+    background-color: rgb(255 255 255 / 24%);
+}
+
+.cv-phone{
+    width: 75%;
+}
+
+.cvp{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.card-size-matter{
+    height: fit-content!important;
 }
