@@ -34,3 +34,48 @@ document.addEventListener('click', function(e) {
         }
     }
 });
+
+// ------------- Delete ------------
+function showConfirmationDialog() {
+    $('#confirmationDialog').modal('show');
+}
+
+function deleteItem() {
+    // Submit the form when user confirms deletion
+    $('#deleteForm').submit();
+    // Close the modal
+    $('#confirmationDialog').modal('hide');
+}
+
+// Follow/following
+const followersCollapse = document.getElementById('followersCollapse');
+const followingCollapse = document.getElementById('followingCollapse');
+
+followersCollapse.addEventListener('show.bs.collapse', function () {
+    // Hide following section if it's open
+    if (followingCollapse.classList.contains('show')) {
+        followingCollapse.classList.remove('show');
+    }
+});
+
+followingCollapse.addEventListener('show.bs.collapse', function () {
+    // Hide followers section if it's open
+    if (followersCollapse.classList.contains('show')) {
+        followersCollapse.classList.remove('show');
+    }
+});
+
+// something
+const collapseButtons = document.querySelectorAll('.btn-collapse');
+
+collapseButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Remove 'active' class from all buttons
+        collapseButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Add 'active' class to the clicked button
+        button.classList.add('active');
+    });
+});
