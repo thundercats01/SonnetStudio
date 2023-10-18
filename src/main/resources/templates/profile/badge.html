@@ -7,19 +7,17 @@
 </header>
 <body>
 <div class="container">
-    <h1 class="mt-2">
-        Badges
-    </h1>
+    <div class="animation-container text-center">
+        <h1>Welcome to Your Badges!</h1>
+    </div>
     <div class="row mt-2">
-        <div class="col">
-
-<!--            Default-->
+        <!--            Default-->
+        <div class="col-12 col-md-6 mb-4">
             <div class="card shadow mb-5 card-bg-color">
                 <div class="row">
-                    <div class="col-4 d-flex align-items-center">
-                        <div class=" ">
-                            <img th:src="@{/capstone_IMGs/badges/badge-default.png}" alt="default" class="badge-img border border-dark bg-black">
-                        </div>
+                    <div class="col-4 align-items-center text-center pt-3">
+                        <img th:src="@{/capstone_IMGs/badges/badge-default.png}" alt="default"
+                             class="badge-img border border-dark bg-black">
                     </div>
                     <div class="col-8">
                         <div class="row">
@@ -32,20 +30,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col d-flex align-items-center">
+                    <div class="col  align-items-center">
                         <form th:action="@{/default-badge}" th:method="POST">
-                            <input type="submit" value="Select" class="btn btn-primary">
+                            <input type="submit" value="Select" class="btn btn-primary w-100">
                         </form>
                     </div>
                 </div>
             </div>
-
-<!--            Pearl-->
+        </div>
+        <!--            Pearl-->
+        <div class="col-12 col-md-6 mb-4">
             <div class="card shadow mb-5 card-bg-color">
                 <div class="row">
-                    <div class="col-4 d-flex align-items-center">
+                    <div class="col-4 pt-3 align-items-center text-center">
                         <div class=" ">
-                            <img th:src="@{/capstone_IMGs/badges/badge-pearl.avif}" alt="pearl" class="badge-img border border-dark">
+                            <img th:src="@{/capstone_IMGs/badges/badge-pearl.avif}" alt="pearl"
+                                 class="badge-img border border-dark">
                         </div>
                     </div>
                     <div class="col-8">
@@ -59,20 +59,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col d-flex align-items-center">
+                    <div class="col  align-items-center">
                         <form th:action="@{/pearl-badge}" th:method="POST">
-                            <input type="submit" value="Select" class="btn btn-primary" th:disabled="${totalFollowersOfLoggedInUser < 1}">
+                            <input type="submit" value="Select" class="btn btn-primary w-100"
+                                   th:disabled="${totalFollowersOfLoggedInUser < 1}">
                         </form>
                     </div>
                 </div>
             </div>
-
-<!--            Apple-->
+        </div>
+        <!--            Apple-->
+        <div class="col-12 col-md-6 mb-4">
             <div class="card shadow mb-5 card-bg-color">
                 <div class="row">
-                    <div class="col-4 d-flex align-items-center">
+                    <div class="col-4 pt-3 text-center align-items-center">
                         <div class=" ">
-                            <img th:src="@{/capstone_IMGs/badges/badge-apple.jpeg}" alt="apple" class="badge-img border border-dark">
+                            <img th:src="@{/capstone_IMGs/badges/badge-apple.jpeg}" alt="apple"
+                                 class="badge-img border border-dark">
                         </div>
                     </div>
                     <div class="col-8">
@@ -86,20 +89,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col d-flex align-items-center">
+                    <div class="col  align-items-center">
                         <form th:action="@{/apple-badge}" th:method="POST">
-                        <input type="submit" value="Select" class="btn btn-primary" th:disabled="${totalCommentsOfLoggedInUser < 1}">
+                            <input type="submit" value="Select" class="btn btn-primary w-100"
+                                   th:disabled="${totalCommentsOfLoggedInUser < 1}">
                         </form>
                     </div>
                 </div>
             </div>
-
-<!--            Einstein-->
+        </div>
+        <!--            Einstein-->
+        <div class="col-12 col-md-6 mb-4">
             <div class="card shadow mb-5 card-bg-color">
                 <div class="row">
-                    <div class="col-4 d-flex align-items-center">
+                    <div class="col-4 pt-3 text-center align-items-center">
                         <div class=" ">
-                            <img th:src="@{/capstone_IMGs/badges/badge-einstein.jpeg}" alt="Einstein" class="badge-img border border-dark">
+                            <img th:src="@{/capstone_IMGs/badges/badge-einstein.jpeg}" alt="Einstein"
+                                 class="badge-img border border-dark">
                         </div>
                     </div>
                     <div class="col-8">
@@ -113,20 +119,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col d-flex align-items-center">
+                    <div class="col  align-items-center">
                         <form th:action="@{/einstein-badge}" th:method="POST">
-                            <input type="submit" value="Select" class="btn btn-primary" th:disabled="${totalLikesOfLoggedInUser < 25}">
+                            <input type="submit" value="Select" class="btn btn-primary w-100"
+                                   th:disabled="${totalLikesOfLoggedInUser < 25}">
                         </form>
                     </div>
                 </div>
             </div>
 
-<!--            Joan-->
+        </div>
+    </div>
+    <div class="row">
+        <!--            Joan-->
+        <div class="col-12 col-md-6 mb-4">
             <div class="card shadow mb-5 card-bg-color">
                 <div class="row">
-                    <div class="col-4 d-flex align-items-center">
+                    <div class="col-4 pt-3 text-center align-items-center">
                         <div class=" ">
-                            <img th:src="@{/capstone_IMGs/badges/badge-joan.jpeg}" alt="Joan" class="badge-img border border-dark">
+                            <img th:src="@{/capstone_IMGs/badges/badge-joan.jpeg}" alt="Joan"
+                                 class="badge-img border border-dark">
                         </div>
                     </div>
                     <div class="col-8">
@@ -140,20 +152,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col d-flex align-items-center">
+                    <div class="col  align-items-center">
                         <form th:action="@{/joan-badge}" th:method="POST">
-                            <input type="submit" value="Select" class="btn btn-primary" th:disabled="${totalFollowersOfLoggedInUser < 10}">
+                            <input type="submit" value="Select" class="btn btn-primary w-100"
+                                   th:disabled="${totalFollowersOfLoggedInUser < 10}">
                         </form>
                     </div>
                 </div>
             </div>
 
-<!--            King-->
+        </div>
+        <!--            King-->
+        <div class="col-12 col-md-6 mb-4">
             <div class="card shadow mb-5 card-bg-color">
                 <div class="row">
-                    <div class="col-4 d-flex align-items-center">
+                    <div class="col-4 pt-3 text-center align-items-center">
                         <div class=" ">
-                            <img th:src="@{/capstone_IMGs/badges/badge-king.webp}" alt="King" class="badge-img border border-dark">
+                            <img th:src="@{/capstone_IMGs/badges/badge-king.webp}" alt="King"
+                                 class="badge-img border border-dark">
                         </div>
                     </div>
                     <div class="col-8">
@@ -167,20 +183,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col d-flex align-items-center">
+                    <div class="col  align-items-center">
                         <form th:action="@{/king-badge}" th:method="POST">
-                            <input type="submit" value="Select" class="btn btn-primary" th:disabled="${totalFollowersOfLoggedInUser < 20}">
+                            <input type="submit" value="Select" class="btn btn-primary w-100"
+                                   th:disabled="${totalFollowersOfLoggedInUser < 20}">
                         </form>
                     </div>
                 </div>
             </div>
 
-<!--            Socrates-->
+        </div>
+        <!--            Socrates-->
+        <div class="col-12 col-md-6 mb-4">
             <div class="card shadow mb-5 card-bg-color">
                 <div class="row">
-                    <div class="col-4 d-flex align-items-center">
+                    <div class="col-4 pt-3 text-center align-items-center">
                         <div class=" ">
-                            <img th:src="@{/capstone_IMGs/badges/badge-socrates.jpeg}" alt="Socrates" class="badge-img border border-dark">
+                            <img th:src="@{/capstone_IMGs/badges/badge-socrates.jpeg}" alt="Socrates"
+                                 class="badge-img border border-dark">
                         </div>
                     </div>
                     <div class="col-8">
@@ -194,20 +214,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col d-flex align-items-center">
+                    <div class="col  align-items-center">
                         <form th:action="@{/socrates-badge}" th:method="POST">
-                            <input type="submit" value="Select" class="btn btn-primary" th:disabled="${totalFollowingOfLoggedInUser < 5}">
+                            <input type="submit" value="Select" class="btn btn-primary w-100"
+                                   th:disabled="${totalFollowingOfLoggedInUser < 5}">
                         </form>
                     </div>
                 </div>
             </div>
 
-<!--            Shakespeare monkey-->
+        </div>
+        <!--            Shakespeare monkey-->
+        <div class="col-12 col-md-6 mb-4">
             <div class="card shadow mb-5 card-bg-color">
                 <div class="row">
-                    <div class="col-4 d-flex align-items-center">
+                    <div class="col-4 pt-3 text-center align-items-center">
                         <div class=" ">
-                            <img th:src="@{/capstone_IMGs/badges/badge-masterkey.jpeg}" alt="Shakespeare-monkey" class="badge-img border border-dark">
+                            <img th:src="@{/capstone_IMGs/badges/badge-masterkey.jpeg}" alt="Shakespeare-monkey"
+                                 class="badge-img border border-dark">
                         </div>
                     </div>
                     <div class="col-8">
@@ -221,9 +245,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col d-flex align-items-center">
+                    <div class="col  align-items-center">
                         <form th:action="@{/masterkey-badge}" th:method="POST">
-                            <input type="submit" value="Select" class="btn btn-primary"
+                            <input type="submit" value="Select" class="btn btn-primary w-100"
                                    th:disabled="${totalLikesOfLoggedInUser < 25 || totalFollowersOfLoggedInUser < 20
                                    || totalFollowingOfLoggedInUser < 5 || totalCommentsOfLoggedInUser < 1}">
                         </form>
@@ -231,9 +255,10 @@
                 </div>
             </div>
 
-
         </div>
     </div>
+
+
 </div>
 </body>
 </html>
