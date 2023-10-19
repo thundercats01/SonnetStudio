@@ -1,97 +1,54 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="partials/head :: head">
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit Profile</title>
+<div class="mb-4">
+    <div class="col-md-12 pb-3" th:each="verse : ${verses}">
+        <div class="card shadow-sm radius-card-c">
+            <!-- ... rest of the code ... -->
 
-    <!-- comment out -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../static/CSS/badges.css">
+            <!-- The Comments and Like buttons -->
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <!-- ... other code ... -->
 
-    <!-- Additional styling for profile-container -->
-    <style>
-        .profile-container {
-            background-color: #f7f7f7;
-            border-left: 2px solid #e0e0e0;
-            box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            margin-left: 20px;
-        }
-    </style>
-
-</head>
-<header>
-
-    <!-- comment out -->
-    <nav class="navbar navbar-light bg-light shadow">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <h1>NAVBAR</h1>
-            </a>
-        </div>
-    </nav>
-
-    <div th:insert="partials/navbar :: nav-bar"></div>
-
-</header>
-<body>
-
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="col-8">
-            <!-- Post Content Here -->
-            <!-- ... Rest of the posts content ... -->
-        </div>
-        <div class="col-4 pt-4 pb-2">
-            <div class="container-fluid profile-container"> <!-- Added a class for styling -->
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <img src="/capstone_IMGs/badges/badge-default.png"
-                             class="img-fluid rounded-circle badge-img-profile" alt="Responsive image">
-                        <button class="btn1">edit</button>
-
-                    </div>
-                    <div class="col">
-
-                        <div class="row d-flex justify-content-center">
-                            (USERNAME)
-                        </div>
-
-                        <div class="row d-flex justify-content-center">
-                            BIO
-                        </div>
+                    <!-- Delete Button: Note the unique modal target -->
+                    <div class="like-space">
+                        <button class="btn btn-sm btn-primary rounded-pill"
+                                data-bs-toggle="modal"
+                                th:attr="data-bs-target='#confirmationDialog' + ${verse.id}">
+                            <span>Delete</span>
+                        </button>
                     </div>
 
-                    <div class="row d-flex justify-content-center pt-5">
-                        POINTS
-                    </div>
-
-                    <div class="row d-flex justify-content-center p-5">
-                        AWARDS
-                    </div>
-
-                    <div class="row">
-                        <div class="col d-flex justify-content-center">
-                            FOLLOWERS
-                        </div>
-                        <div class="col d-flex justify-content-center">
-                            FOLLOWING
-                        </div>
-                    </div>
-
+                    <!-- ... other code ... -->
                 </div>
             </div>
+
+            <!-- Delete Confirmation Modal: Note the unique ID -->
+            <div class="modal fade"
+                 th:id="'confirmationDialog' + ${verse.id}"
+                 tabindex="-1"
+                 aria-labelledby="'confirmationDialogLabel' + ${verse.id}"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" th:id="'confirmationDialogLabel' + ${verse.id}">Confirm Deletion</h5>
+                            <button type="button" class="btn-close rounded-pill" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete this item?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                            <!-- Actual form submission when user confirms -->
+                            <form th:action="@{/post_delete}" th:method="post">
+                                <input type="hidden" name="verseId" th:value="${verse.getId()}">
+                                <button type="submit" class="btn btn-primary rounded-pill">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ... rest of the code ... -->
         </div>
     </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
-</html>

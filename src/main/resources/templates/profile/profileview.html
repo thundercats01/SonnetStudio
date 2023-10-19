@@ -274,7 +274,9 @@
                                         <!-- Delete-->
                                         <div class="like-space">
 
-                                            <button class="btn btn-sm btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#confirmationDialog">
+                                            <button class="btn btn-sm btn-primary rounded-pill"
+                                                    data-bs-toggle="modal"
+                                                    th:attr="data-bs-target='#confirmationDialog' + ${verse.id}">
                                                 <span>Delete</span>
                                             </button>
                                         </div>
@@ -291,11 +293,15 @@
                                     <!-- Display the most recent comment -->
                                 </div>
 
-                                <div class="modal fade" id="confirmationDialog" tabindex="-1" aria-labelledby="confirmationDialogLabel" aria-hidden="true">
+                                <div class="modal fade"
+                                     th:id="'confirmationDialog' + ${verse.id}"
+                                     tabindex="-1"
+                                     aria-labelledby="'confirmationDialogLabel' + ${verse.id}"
+                                     aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="confirmationDialogLabel">Confirm Deletion</h5>
+                                                <h5 class="modal-title" th:id="'confirmationDialogLabel' + ${verse.id}">Confirm Deletion</h5>
                                                 <button type="button" class="btn-close rounded-pill" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
